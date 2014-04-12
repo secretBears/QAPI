@@ -1,5 +1,12 @@
 language: ruby
 rvm:
-  - 2.0.0
-before_script: "bundle exec rake db:drop db:create db:migrate"
-script: "bundle exec rake"
+- 2.0.0
+before_script: bundle exec rake db:drop db:create db:migrate
+script: bundle exec rake
+deploy:
+  provider: heroku
+  api_key:
+    secure: UQbrSZ4/MNK7GkrKf7XUUSR+uHmk6XMHT/GWwuQ1d5y1YLV7bRMtBgjdrvoglMqdVZxNSAPwoDgvSl5mxvERUcS41I7ERGRPoVjWFvw4lfZVaIGh2FS0EYvQNHZKzhV/iHdVqwwRyMH3XCpJpRgBO/WiJWCOFhsOLZstNbYyRO8=
+  app: QAPI
+  on:
+    repo: secretBears/QAPI
