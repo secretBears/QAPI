@@ -7,7 +7,7 @@ class TestsControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
+    assert_response :fail
     assert_not_nil assigns(:tests)
   end
 
