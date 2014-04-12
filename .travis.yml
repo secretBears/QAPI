@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.0.0
 before_script: "bundle exec rake db:drop db:create db:migrate"
-script: "rake"
+script: "bundle exec rake"
