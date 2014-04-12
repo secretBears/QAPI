@@ -10,3 +10,4 @@ deploy:
   app: qapi
   on:
     repo: secretBears/QAPI
+  run: "rake db:migrate"
