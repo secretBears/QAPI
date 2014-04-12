@@ -6,7 +6,7 @@ script: bundle exec rake
 deploy:
   provider: heroku
   api_key:
-    secure: UQbrSZ4/MNK7GkrKf7XUUSR+uHmk6XMHT/GWwuQ1d5y1YLV7bRMtBgjdrvoglMqdVZxNSAPwoDgvSl5mxvERUcS41I7ERGRPoVjWFvw4lfZVaIGh2FS0EYvQNHZKzhV/iHdVqwwRyMH3XCpJpRgBO/WiJWCOFhsOLZstNbYyRO8=
-  app: QAPI
+    secure: hMq1wJldCR6b7bikxqa1IvYzn6P2/epzWPqDNakxYh4QMlgp+GmJpKuDW8e5j6DDZLbV8oAWB24cN3lVAMYZjP3hjO4fDbHerkS6/wIqp8Kdfnohb26ey/5i/Epp8owalW4PgvUNerKIFDm541KItxs0rqyx2hR6olLDoQ61AUk=
+  app: qapi
   on:
     repo: secretBears/QAPI
