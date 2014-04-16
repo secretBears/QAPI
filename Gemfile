@@ -48,6 +48,8 @@ gem 'debugger', group: [:development, :test]
 
 gem 'therubyracer'
 
+gem 'rubocop', require: false, group: [:development, :test]
+
 
 
 
