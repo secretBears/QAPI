@@ -7,15 +7,21 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  # GET /questions/1
-  # GET /questions/1.json
+  # GET /questions/:id
   def show
     @question = Question.find(params[:id])
+  end
+
+  # GET /api/question
+  def show_random
+    @question = Question.random_question
+    render :show
   end
 
   # GET /questions/new
   def new
     @question = Question.new
+
   end
 
   # GET /questions/1/edit
@@ -26,7 +32,6 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
