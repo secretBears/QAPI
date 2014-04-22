@@ -1,5 +1,12 @@
 QAPI::Application.routes.draw do
+
+  get '/api/question/:id', to: 'questions#show', :format => 'json'
+
+
+  resources :questions
   resources :tests
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
