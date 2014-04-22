@@ -46,4 +46,9 @@ class QuestionsControllerTest < ActionController::TestCase
 
     assert_redirected_to questions_path
   end
+
+  test "should get random question" do
+    get :show_random, format: :json
+    assert_response :success
+  end
 end

@@ -1,7 +1,9 @@
 QAPI::Application.routes.draw do
 
+  resources :answers
+
   get '/api/question/:id', to: 'questions#show', format: 'json'
-  get '/api/question/',    to: 'questions#show_random', format: 'json'
+  get '/api/question/',    to: 'questions#show_random', format: 'json', as: 'random_question'
 
   resources :questions
   resources :tests

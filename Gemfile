@@ -51,6 +51,3 @@ gem 'therubyracer'
 gem 'rubocop', require: false, group: [:development, :test]
 
 
-
-
-
