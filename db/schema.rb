@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_140_423_143_904) do
+ActiveRecord::Schema.define(version: 20140423214925) do
 
   create_table "answers", force: true do |t|
     t.text     "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "question_id"
+    t.boolean  "is_true"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"

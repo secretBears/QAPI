@@ -9,7 +9,8 @@
 (1..40).each do |q|
   question = Question.create!(question: "Frage #{q}")
 
-  (1...4).each do |a|
-    Answer.create!(question_id: question.id, answer: "#{q} answer #{a}")
+  true_idx = rand(1..4)
+  (1..4).each do |a|
+    Answer.create!(question_id: question.id, answer: "#{q} answer #{a}", is_true: (true_idx == a))
   end
 end
