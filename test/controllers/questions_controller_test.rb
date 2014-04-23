@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'active_model/serializers/json'
 
 class QuestionsControllerTest < ActionController::TestCase
   setup do
@@ -49,6 +50,17 @@ class QuestionsControllerTest < ActionController::TestCase
 
   test "should get random question" do
     get :show_random, format: :json
+    assert_response :success
+  end
+
+  test "should get error if question does not exist" do
+    get :show, id: -1, format: :json
+
+    body = JSON.parse response_from_page.to_s
+
+    assert_equal body.class, Hash
+    assert_equal body['error'], '404'
+    assert_not_nil body['error_desc'], 'not found'
     assert_response :success
   end
 end

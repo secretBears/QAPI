@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/:id
   def show
-    @question = Question.find(params[:id])
+    @question = Question.get(params[:id])
   end
 
   # GET /api/question
@@ -70,7 +70,7 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params[:id])
+      @question = Question.get(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

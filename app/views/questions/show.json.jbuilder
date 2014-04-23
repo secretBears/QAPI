@@ -1,1 +1,1 @@
-json.extract! @question, :id, :question
+json.array! @question

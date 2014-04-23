@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class AnswersControllerTest < ActionController::TestCase
+
   setup do
     @answer = answers(:one)
   end
@@ -18,7 +19,8 @@ class AnswersControllerTest < ActionController::TestCase
 
   test "should create answer" do
     assert_difference('Answer.count') do
-      post :create, answer: {answer: @answer.answer}
+      question = Question.new(question: "test")
+      post :create, answer: {answer: @answer.answer, question: question.id}
     end
 
     assert_redirected_to answer_path(assigns(:answer))
