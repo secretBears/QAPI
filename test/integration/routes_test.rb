@@ -6,4 +6,8 @@ class RoutesTest < ActionDispatch::IntegrationTest
     assert_generates "/api/question/-1",  controller: "questions", action: "show", id: "-1", format: :json
     assert_generates "/api/question",     controller: "questions", action: "show_random", format: :json
   end
+
+  test "question has answers" do
+
+  end
 end

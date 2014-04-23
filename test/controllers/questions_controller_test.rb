@@ -63,4 +63,11 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_not_nil body['error_desc'], 'not found'
     assert_response :success
   end
+
+  test "has question answers" do
+    get :show, id: @question, format: :json
+
+    body = JSON.parse response_from_page.to_s
+    assert_equal body['answers'].class, Array
+  end
 end

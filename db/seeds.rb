@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+(1..40).each do |q|
+  question = Question.create!(question: "Frage #{q}")
+
+  (1...4).each do |a|
+    Answer.create!(question_id: question.id, answer: "#{q} answer #{a}")
+  end
+end
