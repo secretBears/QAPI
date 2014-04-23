@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  answer: MyText
+  answer: First answer
+  question_id: one
 
 two:
-  answer: MyText
+  answer : Second answer for first question
+  question_id: one
+
+three:
+  answer: first answer for second qustion
+  question_id: two
