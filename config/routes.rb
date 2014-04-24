@@ -1,5 +1,7 @@
 QAPI::Application.routes.draw do
 
+  resources :places
+
   resources :answers
 
   get '/api/question/:id', to: 'questions#show', format: 'json'

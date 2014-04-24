@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   has_many :answers, dependent: :delete_all
+  belongs_to :place
   validates :question, presence: true, uniqueness: true
 
   def self.get(id)

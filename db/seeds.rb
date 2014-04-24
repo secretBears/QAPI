@@ -6,8 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Place.create!(longitude: 13.2, latitude: 47.48, name: "Salzburg")
+Place.create!(longitude: 16.22, latitude: 48.12, name: "Wien")
+Place.create!(longitude: 14.18, latitude: 48.18, name: "Linz")
+
+counter = 0
+
 (1..20).each do |q|
-  question = Question.create!(question: "Frage #{q}")
+  question = Question.create!(question: "Frage #{q}", place_id: (counter%Place.count)+1)
+
+  counter += 1
 
   true_idx = rand(1..4)
   (1..4).each do |a|

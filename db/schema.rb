@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_140_423_214_925) do
+ActiveRecord::Schema.define(version: 20140424130953) do
 
   create_table "answers", force: true do |t|
     t.text     "answer"
@@ -23,11 +23,22 @@ ActiveRecord::Schema.define(version: 20_140_423_214_925) do
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
+  create_table "places", force: true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", force: true do |t|
     t.text     "question"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "place_id"
   end
+
+  add_index "questions", ["place_id"], name: "index_questions_on_place_id"
 
   create_table "tests", force: true do |t|
     t.datetime "created_at"
