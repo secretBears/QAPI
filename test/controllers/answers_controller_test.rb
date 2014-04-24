@@ -19,8 +19,9 @@ class AnswersControllerTest < ActionController::TestCase
 
   test "should create answer" do
     assert_difference('Answer.count') do
-      question = Question.new(question: "test")
-      post :create, answer: {answer: @answer.answer, question: question.id}
+      question = Question.create(question: "test")
+      puts question.id
+      post :create, answer: {answer: @answer.answer, question: question.id, is_true: true}
     end
 
     assert_redirected_to answer_path(assigns(:answer))

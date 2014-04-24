@@ -24,6 +24,7 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
+    puts answer_params
     @answer = Answer.new(answer_params)
 
     respond_to do |format|
