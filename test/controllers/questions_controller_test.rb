@@ -3,7 +3,7 @@ require 'active_model/serializers/json'
 
 class QuestionsControllerTest < ActionController::TestCase
   setup do
-    @question = questions(:one)
+    @question = Question.first
   end
 
   test "should get index" do

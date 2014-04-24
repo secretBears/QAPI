@@ -1,4 +1,3 @@
-
 if @question[:error].nil?
   json.set! :id, @question.id
   json.set! :question, @question.question

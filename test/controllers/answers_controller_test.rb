@@ -3,7 +3,7 @@ require 'test_helper'
 class AnswersControllerTest < ActionController::TestCase
 
   setup do
-    @answer = answers(:one)
+    @answer = Answer.first
   end
 
   test "should get index" do
