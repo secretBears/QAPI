@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-(1..40).each do |q|
+(1..20).each do |q|
   question = Question.create!(question: "Frage #{q}")
 
   true_idx = rand(1..4)
