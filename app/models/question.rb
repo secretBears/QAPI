@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  has_many :answers
+  has_many :answers, dependent: :delete_all
   validates :question, presence: true, uniqueness: true
 
   def self.get(id)

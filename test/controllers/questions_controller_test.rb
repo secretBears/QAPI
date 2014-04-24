@@ -42,7 +42,9 @@ class QuestionsControllerTest < ActionController::TestCase
 
   test "should destroy question" do
     assert_difference('Question.count', -1) do
-      delete :destroy, id: @question
+      assert_difference('Answer.count', -4) do
+        delete :destroy, id: @question
+      end
     end
 
     assert_redirected_to questions_path
