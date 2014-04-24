@@ -20,8 +20,8 @@ class AnswersControllerTest < ActionController::TestCase
   test "should create answer" do
     assert_difference('Answer.count') do
       question = Question.create(question: "test")
-      puts question.id
-      post :create, answer: {answer: @answer.answer, question: question.id, is_true: true}
+
+      post :create, answer: {answer: @answer.answer, question_id: question.id, is_true: 0}
     end
 
     assert_redirected_to answer_path(assigns(:answer))
@@ -38,7 +38,9 @@ class AnswersControllerTest < ActionController::TestCase
   end
 
   test "should update answer" do
-    patch :update, id: @answer, answer: {answer: @answer.answer}
+    question = Question.create(question: "test 1")
+    patch :update, id: @answer, answer: {answer: @answer.answer, question_id: question.id, is_true: 0}
+
     assert_redirected_to answer_path(assigns(:answer))
   end
 

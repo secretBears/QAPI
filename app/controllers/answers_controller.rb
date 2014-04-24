@@ -24,7 +24,6 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    puts answer_params
     @answer = Answer.new(answer_params)
 
     respond_to do |format|
@@ -41,6 +40,7 @@ class AnswersController < ApplicationController
   # PATCH/PUT /answers/1
   # PATCH/PUT /answers/1.json
   def update
+
     respond_to do |format|
       if @answer.update(answer_params)
         format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
@@ -70,6 +70,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:answer)
+      params.require(:answer).permit(:answer, :is_true, :question_id)
     end
 end
