@@ -18,7 +18,10 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
 
   test "should create question_template" do
     assert_difference('QuestionTemplate.count') do
-      post :create, question_template: {}
+      post :create, question_template: {
+        question: LoremIpsum.lorem_ipsum(words: 15),
+        question_id: 2
+      }
     end
 
     assert_redirected_to question_template_path(assigns(:question_template))
