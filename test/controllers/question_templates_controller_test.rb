@@ -18,7 +18,7 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
 
   test "should create question_template" do
     assert_difference('QuestionTemplate.count') do
-      post :create, question_template: {  }
+      post :create, question_template: {}
     end
 
     assert_redirected_to question_template_path(assigns(:question_template))
@@ -35,7 +35,7 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
   end
 
   test "should update question_template" do
-    patch :update, id: @question_template, question_template: {  }
+    patch :update, id: @question_template, question_template: {}
     assert_redirected_to question_template_path(assigns(:question_template))
   end
 

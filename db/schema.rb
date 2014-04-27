@@ -11,14 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427223103) do
+ActiveRecord::Schema.define(version: 20_140_427_223_217) do
 
   create_table "answers", force: true do |t|
-    t.text     "answer"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "question_id"
-    t.boolean  "is_true"
+    t.text    "answer"
+    t.integer "question_id"
+    t.boolean "is_true"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
@@ -34,7 +32,12 @@ ActiveRecord::Schema.define(version: 20140427223103) do
   create_table "question_templates", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "question"
+    t.string   "sparql"
+    t.integer  "question_id"
   end
+
+  add_index "question_templates", ["question_id"], name: "index_question_templates_on_question_id"
 
   create_table "questions", force: true do |t|
     t.text     "question"
@@ -44,10 +47,5 @@ ActiveRecord::Schema.define(version: 20140427223103) do
   end
 
   add_index "questions", ["place_id"], name: "index_questions_on_place_id"
-
-  create_table "tests", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

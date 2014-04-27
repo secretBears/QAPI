@@ -13,7 +13,7 @@ Place.create!(longitude: 14.18, latitude: 48.18, name: "Linz")
 counter = 0
 
 (1..20).each do |q|
-  question = Question.create!(question: "Frage #{q}", place_id: (counter%Place.count)+1)
+  question = Question.create!(question: "Frage #{q}", place_id: (counter % Place.count) + 1)
 
   counter += 1
 

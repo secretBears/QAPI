@@ -3,7 +3,6 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.text :answer
       t.belongs_to :question
-      t.timestamps
     end
   end
 end
