@@ -1,5 +1,7 @@
 QAPI::Application.routes.draw do
 
+  resources :question_templates
+
   resources :places
 
   resources :answers

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424130953) do
+ActiveRecord::Schema.define(version: 20140427223103) do
 
   create_table "answers", force: true do |t|
     t.text     "answer"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20140424130953) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "question_templates", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
