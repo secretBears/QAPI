@@ -19,7 +19,6 @@ Place.create!(longitude: 14.18, latitude: 48.18, name: "Linz")
   QuestionTemplate.create!(question: p)
 end
 
-
 (1..20).each do |q|
   question = Question.create!(question: "Frage #{q}", place_id: (q % Place.count) + 1)
 
@@ -28,5 +27,3 @@ end
     Answer.create!(question_id: question.id, answer: "#{q} answer #{a}", is_true: (true_idx == a))
   end
 end
-
-
