@@ -10,15 +10,20 @@ Place.create!(longitude: 13.2, latitude: 47.48, name: "Salzburg")
 Place.create!(longitude: 16.22, latitude: 48.12, name: "Wien")
 Place.create!(longitude: 14.18, latitude: 48.18, name: "Linz")
 
-counter = 0
-
 (1..20).each do |q|
-  question = Question.create!(question: "Frage #{q}", place_id: (counter % Place.count) + 1)
-
-  counter += 1
+  question = Question.create!(question: "Frage #{q}", place_id: (q % Place.count) + 1)
 
   true_idx = rand(1..4)
   (1..4).each do |a|
     Answer.create!(question_id: question.id, answer: "#{q} answer #{a}", is_true: (true_idx == a))
   end
+end
+
+(1..10).each do |i|
+  question_template_q = LoremIpsum.lorem_ipsum(words: 15).split(" ")
+  idx = Random.rand(15)
+  question_template_q[idx] = "?1"
+  p = question_template_q.join(" ")
+
+  QuestionTemplate.create!(question: p, question_id: (Random.rand(20)))
 end
