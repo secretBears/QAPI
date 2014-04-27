@@ -38,7 +38,10 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
   end
 
   test "should update question_template" do
-    patch :update, id: @question_template, question_template: {}
+    patch :update, id: @question_template, question_template: {
+      question: LoremIpsum.lorem_ipsum(words: 15),
+      question_id: 2
+    }
     assert_redirected_to question_template_path(assigns(:question_template))
   end
 
