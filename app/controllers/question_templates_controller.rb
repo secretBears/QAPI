@@ -69,6 +69,6 @@ class QuestionTemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_template_params
-      params[:question_template]
+      params[:question_template].permit(:question, :sparql)
     end
 end
