@@ -49,6 +49,6 @@ gem 'debugger', group: [:development, :test]
 gem 'therubyracer'
 
 gem 'rubocop', require: false, group: [:development, :test]
-gem 'lorem-ipsum', '~> 0.1.1', group: [:development, :test]
+gem 'lorem_ipsum_amet', '~> 0.6.2', group: [:development, :test]
 
 

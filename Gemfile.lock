@@ -54,7 +54,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     libv8 (3.16.14.3)
-    lorem-ipsum (0.1.1)
+    lorem_ipsum_amet (0.6.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -137,7 +137,7 @@ DEPENDENCIES
   debugger
   jbuilder (~> 1.2)
   jquery-rails
-  lorem-ipsum (~> 0.1.1)
+  lorem_ipsum_amet (~> 0.6.2)
   pg
   rails (= 4.0.1)
   rubocop
