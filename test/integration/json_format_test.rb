@@ -16,7 +16,7 @@ class RoutesTest < ActionDispatch::IntegrationTest
 
   test "test json answers" do
     @body['answers'].each do |answer|
-      assert answer.key? 'id'
+      assert answer.length, 2
       assert answer.key? 'answer'
       assert answer.key? 'is_true'
     end
