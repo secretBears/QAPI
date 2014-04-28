@@ -26,4 +26,11 @@ class QuestionTemplateTest < ActiveSupport::TestCase
     assert_nil new_question.match(@question.send :regex_placeholder)
     assert_not_nil question_cache.match(@question.send :regex_placeholder)
   end
+
+  test "generate_question" do
+    question = QuestionTemplate.generate_question 1, 1
+    regex = @question.send :regex_placeholder
+
+    assert_nil question.match regex
+  end
 end

@@ -4,15 +4,29 @@ class QuestionTemplate < ActiveRecord::Base
 
   validates :question,  presence: true
 
-  private
-  def extract_placeholder
-    question = self.question
-    question.scan(regex_placeholder).flatten
+  def self.generate_question(template_id, place_id)
+    question    = QuestionTemplate.find template_id
+    placeholders = QuestionPlaceholder.where question_template_id: template_id
+
+    # TODO: refactor and put in question placeholder
+    tmp = {}
+    placeholders.each do |placeholder|
+      tmp[placeholder['key']] = placeholder['value']
+    end
+    placeholders = tmp
+
+    question.replace_placeholder placeholders
   end
 
   def replace_placeholder(replace)
     question  = self.question
     question.gsub regex_placeholder, replace
+  end
+
+  private
+  def extract_placeholder
+    question = self.question
+    question.scan(regex_placeholder).flatten
   end
 
   def regex_placeholder
