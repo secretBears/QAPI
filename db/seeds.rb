@@ -1,10 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
 
 Place.create!(longitude: 13.2, latitude: 47.48, name: "Salzburg")
 Place.create!(longitude: 16.22, latitude: 48.12, name: "Wien")
@@ -19,10 +15,10 @@ Place.create!(longitude: 14.18, latitude: 48.18, name: "Linz")
   QuestionTemplate.create!(question: p)
 
   QuestionPlaceholder.create!(
-                                key: "?1",
-                                value: (LoremIpsum.lorem_ipsum words: 1),
-                                question_template_id: i
-                              )
+    key: "?1",
+    value: (LoremIpsum.lorem_ipsum words: 1),
+    question_template_id: i
+  )
 end
 
 (1..20).each do |q|
