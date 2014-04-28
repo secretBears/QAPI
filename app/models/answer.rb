@@ -3,6 +3,5 @@ class Answer < ActiveRecord::Base
 
   validates :question_id, presence: true
   validates :answer, presence: true
-
-  # validates :is_true, presence: true
+  validates :is_true, inclusion: {in: [true, false]}
 end

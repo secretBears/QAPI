@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PlacesControllerTest < ActionController::TestCase
   setup do
-    @place = places(:one)
+    @place = Place.find(1)
   end
 
   test "should get index" do

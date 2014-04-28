@@ -2,7 +2,7 @@ require 'test_helper'
 
 class QuestionTemplatesControllerTest < ActionController::TestCase
   setup do
-    @question_template = question_templates(:one)
+    @question_template = QuestionTemplate.find(1)
   end
 
   test "should get index" do
@@ -51,5 +51,9 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to question_templates_path
+  end
+
+  test "test extract params" do
+
   end
 end
