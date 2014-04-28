@@ -17,6 +17,12 @@ Place.create!(longitude: 14.18, latitude: 48.18, name: "Linz")
   p = question_template_q.join(" ")
 
   QuestionTemplate.create!(question: p)
+
+  QuestionPlaceholder.create!(
+                                key: "?1",
+                                value: (LoremIpsum.lorem_ipsum words: 1),
+                                question_template_id: i
+                              )
 end
 
 (1..20).each do |q|

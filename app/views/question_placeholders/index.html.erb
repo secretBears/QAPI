@@ -1,0 +1,31 @@
+<h1>Listing question_placeholders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+      <th>Question</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @question_placeholders.each do |question_placeholder| %>
+      <tr>
+        <td><%= question_placeholder.key %></td>
+        <td><%= question_placeholder.value %></td>
+        <td><%= question_placeholder.question_template_id %></td>
+        <td><%= link_to 'Show', question_placeholder %></td>
+        <td><%= link_to 'Edit', edit_question_placeholder_path(question_placeholder) %></td>
+        <td><%= link_to 'Destroy', question_placeholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Question placeholder', new_question_placeholder_path %>
