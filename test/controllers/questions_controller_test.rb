@@ -6,41 +6,41 @@ class QuestionsControllerTest < ActionController::TestCase
     @question = Question.first
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:questions)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create question" do
+  test 'should create question' do
     assert_difference('Question.count') do
-      post :create, question: {question: "unique test question"}
+      post :create, question: {question: 'unique test question'}
     end
 
     assert_redirected_to question_path(assigns(:question))
   end
 
-  test "should show question" do
+  test 'should show question' do
     get :show, id: @question
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @question
     assert_response :success
   end
 
-  test "should update question" do
-    patch :update, id: @question, question: {question: "unique update question"}
+  test 'should update question' do
+    patch :update, id: @question, question: {question: 'unique update question'}
     assert_redirected_to question_path(assigns(:question))
   end
 
-  test "should destroy question" do
+  test 'should destroy question' do
     assert_difference('Question.count', -1) do
       assert_difference('Answer.count', -4) do
         delete :destroy, id: @question
@@ -50,12 +50,12 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_redirected_to questions_path
   end
 
-  test "should get random question" do
+  test 'should get random question' do
     get :show_random, format: :json
     assert_response :success
   end
 
-  test "should get error if question does not exist" do
+  test 'should get error if question does not exist' do
     get :show, id: -1, format: :json
 
     body = JSON.parse response_from_page.to_s
@@ -66,7 +66,7 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "has question answers" do
+  test 'has question answers' do
     get :show, id: @question, format: :json
 
     body = JSON.parse response_from_page.to_s

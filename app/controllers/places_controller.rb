@@ -65,7 +65,6 @@ class PlacesController < ApplicationController
     if place_params[:latitude].present? && place_params[:longitude].present?
       @location = Place.geolocate_from_latlong place_params[:latitude], place_params[:longitude]
 
-
     end
   end
 

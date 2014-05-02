@@ -14,6 +14,6 @@ class Question < ActiveRecord::Base
   end
 
   def self.random_question
-    Question.order("RANDOM()").first
+    Question.order('RANDOM()').first
   end
 end

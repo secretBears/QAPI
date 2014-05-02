@@ -3,7 +3,6 @@ require 'geokit'
 class Place < ActiveRecord::Base
   has_many :questions, dependent: :delete_all
 
-
   include Geokit::Geocoders
   def self.geolocate_from_name(*args)
     puts Geokit::Geocoders::GoogleGeocoder.geocode '140 Market St, San Francisco, CA'

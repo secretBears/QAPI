@@ -13,45 +13,45 @@
 
 ActiveRecord::Schema.define(version: 20_140_428_134_409) do
 
-  create_table "answers", force: true do |t|
-    t.text    "answer"
-    t.integer "question_id"
-    t.boolean "is_true"
+  create_table 'answers', force: true do |t|
+    t.text    'answer'
+    t.integer 'question_id'
+    t.boolean 'is_true'
   end
 
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index 'answers', ['question_id'], name: 'index_answers_on_question_id'
 
-  create_table "places", force: true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'places', force: true do |t|
+    t.float    'latitude'
+    t.float    'longitude'
+    t.string   'name'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "question_placeholders", force: true do |t|
-    t.string   "key"
-    t.string   "value"
-    t.integer  "question_template_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'question_placeholders', force: true do |t|
+    t.string   'key'
+    t.string   'value'
+    t.integer  'question_template_id'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "question_templates", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "question"
-    t.string   "sparql"
+  create_table 'question_templates', force: true do |t|
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
+    t.string   'question'
+    t.string   'sparql'
   end
 
-  create_table "questions", force: true do |t|
-    t.text     "question"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "place_id"
-    t.integer  "question_template_id"
+  create_table 'questions', force: true do |t|
+    t.text     'question'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
+    t.integer  'place_id'
+    t.integer  'question_template_id'
   end
 
-  add_index "questions", ["place_id"], name: "index_questions_on_place_id"
+  add_index 'questions', ['place_id'], name: 'index_questions_on_place_id'
 
 end

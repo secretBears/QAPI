@@ -5,14 +5,14 @@ class QuestionTemplateTest < ActiveSupport::TestCase
     @question = QuestionTemplate.find(1)
   end
 
-  test "extract_params_func" do
+  test 'extract_params_func' do
     result = @question.send :extract_placeholder
 
     assert_not_nil result
     assert_equal result.class, Array
   end
 
-  test "replace placeholder" do
+  test 'replace placeholder' do
     result = @question.send :extract_placeholder
     question_cache = @question.question
     r  = {}
@@ -27,7 +27,7 @@ class QuestionTemplateTest < ActiveSupport::TestCase
     assert_not_nil question_cache.match(@question.send :regex_placeholder)
   end
 
-  test "generate_question" do
+  test 'generate_question' do
     question = QuestionTemplate.generate_question 1, 1
     regex = @question.send :regex_placeholder
 
