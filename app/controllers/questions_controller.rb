@@ -66,6 +66,11 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def show_lat_long
+    @questions = Question.get_from_lat_long lat_long_params
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
@@ -75,5 +80,11 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:question)
+    end
+
+    def lat_long_params
+      params.require :latitude
+      params.require :longitude
+      params.permit :latitude, :longitude
     end
 end

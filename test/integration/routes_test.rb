@@ -7,6 +7,16 @@ class RoutesTest < ActionDispatch::IntegrationTest
     assert_generates '/api/question',     controller: 'questions', action: 'show_random', format: :json
   end
 
+  test 'should get show_lat_long' do
+    assert_generates('/api/question/47.8094888/13.0550007',
+                     controller: 'questions',
+                     action: 'show_lat_long',
+                     latitude: 47.8094888,
+                     longitude: 13.0550007,
+                     format: :json
+    )
+  end
+
   test 'place route' do
     lat  = 48.23
     long = 11.32
@@ -18,4 +28,5 @@ class RoutesTest < ActionDispatch::IntegrationTest
     get 'places/48/13'
     assert_response :not_found
   end
+
 end

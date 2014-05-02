@@ -61,9 +61,9 @@ class QuestionsControllerTest < ActionController::TestCase
     body = JSON.parse response_from_page.to_s
 
     assert_equal body.class, Hash
-    assert_equal body['error'], '404'
-    assert_not_nil body['error_desc'], 'not found'
-    assert_response :success
+    assert_equal body['error'], 404
+    assert_not_nil body['message']
+    assert_response :not_found
   end
 
   test 'has question answers' do
@@ -71,5 +71,16 @@ class QuestionsControllerTest < ActionController::TestCase
 
     body = JSON.parse response_from_page.to_s
     assert_equal body['answers'].class, Array
+  end
+
+  test 'show lat long' do
+    place = Place.find 1
+    get :show_lat_long, latitude: place.latitude, longitude: place.longitude, format: :json
+    assert_response :success
+  end
+
+  test 'should return 404' do
+    get :show_lat_long, latitude: 1000000, longitude: 1000000, format: :json
+    assert_response :not_found
   end
 end
