@@ -62,11 +62,10 @@ class PlacesController < ApplicationController
   end
 
   def geocode
-    puts place_params
     if place_params[:latitude].present? && place_params[:longitude].present?
       @location = Place.geolocate_from_latlong place_params[:latitude], place_params[:longitude]
-      not_found if @location.nil?
     end
+    not_found if @location.nil?
   end
 
   private
