@@ -82,4 +82,11 @@ class QuestionsControllerTest < ActionController::TestCase
     get :show_lat_long, latitude: 1000000, longitude: 1000000, format: :json
     assert_response :not_found
   end
+
+  test 'should find no existing questions' do
+    # values for city gramastetten
+    lat  = 48.379944
+    long = 14.192699
+    get :show_lat_long, latitude: lat, longitude: long, format: :json
+  end
 end
