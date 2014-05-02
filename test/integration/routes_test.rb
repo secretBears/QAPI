@@ -13,4 +13,9 @@ class RoutesTest < ActionDispatch::IntegrationTest
 
     assert_generates "/places/#{lat}/#{long}",  controller: 'places', action: 'geocode', latitude: lat, longitude: long
   end
+
+  test 'test location not found' do
+    get 'places/48/13'
+    assert_response :not_found
+  end
 end
