@@ -4,6 +4,7 @@ class Place < ActiveRecord::Base
   has_many :questions, dependent: :delete_all
 
   validates_uniqueness_of :latitude, scope: :longitude
+  validates :name, :latitude, :longitude, presence: true
 
   include Geokit::Geocoders
 
