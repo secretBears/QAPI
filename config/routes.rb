@@ -11,6 +11,8 @@ QAPI::Application.routes.draw do
   get '/api/question/:id', to: 'questions#show', format: 'json'
   get '/api/question/',    to: 'questions#show_random', format: 'json', as: 'random_question'
 
+  get 'places/:latitude/:longitude', to: 'places#geocode'
+
   resources :questions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

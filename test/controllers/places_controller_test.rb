@@ -46,4 +46,8 @@ class PlacesControllerTest < ActionController::TestCase
 
     assert_redirected_to places_path
   end
+
+  test "test geocode" do
+  #  post :geocode, latitude: 48.306940, longitude: 14.285830
+  end
 end
