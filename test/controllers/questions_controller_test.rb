@@ -68,7 +68,6 @@ class QuestionsControllerTest < ActionController::TestCase
 
   test 'has question answers' do
     get :show, id: @question, format: :json
-
     body = JSON.parse response_from_page.to_s
     assert_equal body['answers'].class, Array
   end

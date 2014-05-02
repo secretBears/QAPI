@@ -1,3 +1,7 @@
 module Exceptions
-  class PlaceNotFound < StandardError; end
+  class PlaceNotFound < StandardError
+    def exception
+      "place not found"
+    end
+  end
 end
