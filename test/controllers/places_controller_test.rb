@@ -48,6 +48,14 @@ class PlacesControllerTest < ActionController::TestCase
   end
 
   test 'test geocode' do
-    post :geocode, latitude: 48, longitude: 14
+    lat  = 48
+    long = 14
+    assert_difference('Place.count', +1) do
+      post :geocode, latitude: lat, longitude: long
+    end
+
+    assert_difference('Place.count', 0) do
+      post :geocode, latitude: lat, longitude: long
+    end
   end
 end

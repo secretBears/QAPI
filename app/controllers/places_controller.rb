@@ -62,9 +62,7 @@ class PlacesController < ApplicationController
   end
 
   def geocode
-    if place_params[:latitude].present? && place_params[:longitude].present?
-      @location = Place.geolocate_from_latlong place_params[:latitude], place_params[:longitude]
-    end
+    @location = Place.geolocate_from_latlong place_params[:latitude], place_params[:longitude] if lat_long_present?
     not_found if @location.nil?
   end
 
@@ -77,5 +75,9 @@ class PlacesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
       params.permit(:place, :latitude, :longitude, :name)
+    end
+
+    def lat_long_present?
+      place_params[:latitude].present? && place_params[:longitude].present?
     end
 end
