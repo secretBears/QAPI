@@ -48,6 +48,6 @@ class PlacesControllerTest < ActionController::TestCase
   end
 
   test 'test geocode' do
-  #  post :geocode, latitude: 48.306940, longitude: 14.285830
+    post :geocode, latitude: 48, longitude: 14
   end
 end

@@ -6,7 +6,6 @@
 # versions of RuboCop, may require this file to be generated again.
 
 
-
 Include:
   - Rakefile
   - config.ru
