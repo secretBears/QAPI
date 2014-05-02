@@ -3,11 +3,9 @@ require 'geokit'
 class Place < ActiveRecord::Base
   has_many :questions, dependent: :delete_all
 
+  validates_uniqueness_of :latitude, scope: :longitude
+
   include Geokit::Geocoders
-  def self.geolocate_from_name(*args)
-    puts Geokit::Geocoders::GoogleGeocoder.geocode '140 Market St, San Francisco, CA'
-    # raise "not implemented"
-  end
 
   def self.geolocate_from_latlong(lat, lang)
     locations = GoogleGeocoder.reverse_geocode "#{lat}, #{lang}"

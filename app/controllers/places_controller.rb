@@ -63,7 +63,7 @@ class PlacesController < ApplicationController
 
   def geocode
     @location = Place.geolocate_from_latlong place_params[:latitude], place_params[:longitude] if lat_long_present?
-    QapiError.not_found if @location.nil?
+    not_found if @location.nil?
   end
 
   private
