@@ -11,7 +11,7 @@ QAPI::Application.routes.draw do
   get '/api/question/:id', to: 'questions#show', format: 'json'
   get '/api/question/',    to: 'questions#show_random', format: 'json', as: 'random_question'
 
-  get 'places/:latitude/:longitude', to: 'places#geocode', :constraints => {:latitude => /[0-9\.]+/, :longitude => /[0-9\.]+/}
+  get 'places/:latitude/:longitude', to: 'places#geocode', constraints: {latitude: /[0-9\.]+/, longitude: /[0-9\.]+/}
 
   resources :questions
   # The priority is based upon order of creation: first created -> highest priority.
