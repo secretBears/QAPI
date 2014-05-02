@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   rescue_from Exceptions::PlaceNotFound, with: :render_error
   rescue_from ActiveRecord::RecordNotFound, with: :render_error
 
+  private
   def render_error(message)
     render template: 'layouts/error', formats: 'json', locals: {message: message.to_s}, status: 404
   end
