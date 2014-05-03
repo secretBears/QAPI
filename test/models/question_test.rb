@@ -15,7 +15,4 @@ class QuestionTest < ActiveSupport::TestCase
     assert_not_nil question
   end
 
-  # test 'should throw not found error' do
-  #   Question.get_from_lat_long latitude: 123123, longitude: 123123
-  # end
 end
