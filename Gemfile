@@ -49,3 +49,6 @@ gem 'geokit'
 
 gem 'rubocop', require: false, group: [:development, :test]
 gem 'lorem_ipsum_amet', '~> 0.6.2', group: [:development, :test]
+
+gem 'freebase-api'
+
