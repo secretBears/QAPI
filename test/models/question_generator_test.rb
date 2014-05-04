@@ -5,6 +5,12 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
     @question_generator = QuestionGenerator.new location: 'Salzburg'
   end
 
+  test "should raise argument error" do
+    assert_raise ArgumentError do
+      QuestionGenerator.new test: "hallo"
+    end
+  end
+
   test "should get the police" do
     query = {
         type: '/music/artist',
@@ -12,6 +18,7 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
         album: []
     }
     result = @question_generator.send :fire_query, query
+    puts result
 
     assert_not_nil result
     assert_nil result['error']
@@ -28,9 +35,4 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
     end
   end
 
-  test "should raise argument error" do
-    assert_raise ArgumentError do
-      QuestionGenerator.new test: "hallo"
-    end
-  end
 end

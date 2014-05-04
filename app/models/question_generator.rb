@@ -11,7 +11,6 @@ class QuestionGenerator
   def fire_query(query)
     result = FreebaseAPI.session.mqlread query
     fail Exceptions::QueryNotFound, 'No Results for query' if result.nil?
-
     result
   end
 end
