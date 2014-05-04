@@ -18,7 +18,6 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
         album: []
     }
     result = @question_generator.send :fire_query, query
-    puts result
 
     assert_not_nil result
     assert_nil result['error']
@@ -35,4 +34,33 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
     end
   end
 
+  test "should get people from linz" do
+    query = {
+      "type" => "/people/person",
+      "place_of_birth~=" => "Linz",
+      "limit" => 1,
+      "name" => nil,
+      "profession" => [{
+        "name" => []
+      }]
+    }
+    result =  @question_generator.send :fire_query, query
+    assert_not_nil result
+    assert_nil result['error']
+  end
+
+  test "should get people from vienna" do
+    query = {
+        "type" => "/people/person",
+        "place_of_birth~=" => "vienna",
+        "limit" => 1,
+        "name" => nil,
+        "profession" => [{
+                             "name" => []
+                         }]
+    }
+    result =  @question_generator.send :fire_query, query
+    assert_not_nil result
+    assert_nil result['error']
+  end
 end
