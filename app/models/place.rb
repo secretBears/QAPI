@@ -14,6 +14,6 @@ class Place < ActiveRecord::Base
         name:      locations.city,
         latitude:  locations.lat,
         longitude: locations.lng
-    ) if locations.successrai
+    ) if locations.success
   end
 end
