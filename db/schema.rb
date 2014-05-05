@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505143019) do
+ActiveRecord::Schema.define(version: 20140505181743) do
 
   create_table "answers", force: true do |t|
     t.text    "answer"
@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 20140505143019) do
   create_table "places", force: true do |t|
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "name"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state"
+    t.string   "country"
   end
 
   create_table "question_placeholders", force: true do |t|
