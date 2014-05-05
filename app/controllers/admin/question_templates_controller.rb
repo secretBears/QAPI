@@ -1,4 +1,4 @@
-class QuestionTemplatesController < ApplicationController
+class Admin::QuestionTemplatesController < Admin::ApplicationController
   before_action :set_question_template, only: [:show, :edit, :update, :destroy]
 
   # GET /question_templates
@@ -28,7 +28,7 @@ class QuestionTemplatesController < ApplicationController
 
     respond_to do |format|
       if @question_template.save
-        format.html { redirect_to @question_template, notice: 'Question template was successfully created.' }
+        format.html { redirect_to admin_question_template_path(@question_template), notice: 'Question template was successfully created.' }
         format.json { render action: 'show', status: :created, location: @question_template }
       else
         format.html { render action: 'new' }

@@ -1,7 +1,10 @@
 QAPI::Application.routes.draw do
 
   devise_for :users
+
   namespace :admin do
+    get '/', to: 'question_templates#index'
+
     resources :question_placeholders
 
     resources :question_templates

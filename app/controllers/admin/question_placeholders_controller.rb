@@ -1,4 +1,4 @@
-class QuestionPlaceholdersController < ApplicationController
+class Admin::QuestionPlaceholdersController < Admin::ApplicationController
   before_action :set_question_placeholder, only: [:show, :edit, :update, :destroy]
 
   # GET /question_placeholders
