@@ -28,3 +28,5 @@ end
     Answer.create!(question_id: question.id, answer: "#{q} answer #{a}", is_true: (true_idx == a))
   end
 end
+
+User.create!(email: 'test@email.tld', password: '12345678')
