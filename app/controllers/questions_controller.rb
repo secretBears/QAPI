@@ -1,17 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
-  # GET /questions
-  # GET /questions.json
-  def index
-    @questions = Question.all
-  end
-
-  # GET /questions/:id
-  def show
-    @question = Question.get(params[:id])
-  end
-
   # GET /api/question
   def show_random
     @question = Question.random_question

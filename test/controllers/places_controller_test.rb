@@ -24,29 +24,6 @@ class PlacesControllerTest < ActionController::TestCase
     assert_redirected_to place_path(assigns(:place))
   end
 
-  test 'should show place' do
-    get :show, id: @place
-    assert_response :success
-  end
-
-  test 'should get edit' do
-    get :edit, id: @place
-    assert_response :success
-  end
-
-  test 'should update place' do
-    patch :update, id: @place, place: {latitude: @place.latitude, longitude: @place.longitude, name: @place.name}
-    assert_redirected_to place_path(assigns(:place))
-  end
-
-  test 'should destroy place' do
-    assert_difference('Place.count', -1) do
-      delete :destroy, id: @place
-    end
-
-    assert_redirected_to places_path
-  end
-
   test 'test geocode' do
     lat  = 48
     long = 14
