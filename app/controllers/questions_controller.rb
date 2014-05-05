@@ -3,7 +3,8 @@ class QuestionsController < ApplicationController
 
   # GET /api/question
   def show_random
-    @question = Question.random_question
+    @place = Place.geolocate_from_latlong(lat_long_params)
+    @question = QuestionGenerator.new location: {}
     render :show
   end
 
