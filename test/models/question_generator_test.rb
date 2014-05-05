@@ -77,7 +77,7 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
                              "name" => []
                          }]
     }
-    question = @question_generator.generate_question query
+    question = @question_generator.generate query
     assert_equal question.class, String
     assert_nil question.match(@question_generator.send :regex_placeholder)
   end

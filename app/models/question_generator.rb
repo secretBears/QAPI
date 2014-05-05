@@ -1,10 +1,9 @@
-class QuestionGenerator
+class QuestionGenerator < AbstractGenerator
   def initialize(arguments)
-    @location = arguments[:location] || (fail ArgumentError, "location is required")
-    @template = arguments[:template] || (fail ArgumentError, "template is required")
+    super arguments
   end
 
-  def generate_question(query)
+  def generate(query)
     placeholders = extract_placeholder
     replace      = fire_query query
     question     = replace_placeholder placeholders, replace
