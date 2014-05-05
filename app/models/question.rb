@@ -4,20 +4,19 @@ class Question < ActiveRecord::Base
   belongs_to :question_template
   validates :question, presence: true, uniqueness: true
 
-  def self.get_from_lat_long(args)
-    # TODO: use sql query to get questions
+  def self.find_by_lat_long(args)
     place = Place.geolocate_from_latlong args[:latitude], args[:longitude]
-    questions = Question.where place_id: place.id
-    generate_questions if questions.empty?
-    questions
-  end
-
-  def self.get(id)
-    Question.find id
+    @question = Question.find_by(place_id: place.id)
   end
 
   def self.random_question
-    Question.order('RANDOM()').first
+    random_id = Random.rand 1..Question.count
+
+    if (Random.rand 0..1) > 0
+      Question.where("id >= " + random_id.to_s).first
+    else
+      Question.where("id <= " + random_id.to_s).last
+    end
   end
 
   # this function will generate the questions
