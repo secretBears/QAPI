@@ -71,13 +71,4 @@ class Admin::PlacesController < Admin::ApplicationController
     def set_place
       @place = Place.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def place_params
-      params.permit(:place, :latitude, :longitude, :name)
-    end
-
-    def lat_long_present?
-      place_params[:latitude].present? && place_params[:longitude].present?
-    end
 end
