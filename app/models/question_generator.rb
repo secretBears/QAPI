@@ -24,6 +24,7 @@ class QuestionGenerator < AbstractGenerator
   end
 
   def replace_placeholder(placeholders, replace)
+
     question = @template
     placeholders.each do |placeholder|
       index = placeholder.gsub(/\?/, '')
