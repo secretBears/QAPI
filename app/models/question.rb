@@ -4,13 +4,9 @@ class Question < ActiveRecord::Base
   belongs_to :question_template
   validates :question, presence: true, uniqueness: true
 
-  def self.get_from_lat_long(args)
+  def self.find_by_lat_long(args)
     place = Place.geolocate_from_latlong args[:latitude], args[:longitude]
-    questions = Question.where place_id: place.id
-  end
-
-  def self.get(id)
-    Question.find id
+    @question = Question.find_by(place_id: place.id)
   end
 
   def self.random_question
