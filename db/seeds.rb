@@ -5,7 +5,6 @@ Place.geolocate_from_latlong  47.8094888, 13.0550007 # Salzburg
 Place.geolocate_from_latlong  48.208174, 16.373819   # Wien
 Place.geolocate_from_latlong  48.306940, 14.285830   # Linz
 
-
 (1..10).each do |i|
   question_template_q = LoremIpsum.lorem_ipsum(words: 15).split(' ')
   idx = Random.rand(15)

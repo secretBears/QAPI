@@ -8,6 +8,29 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
     )
   end
 
+  test 'should get array from extract placeholder' do
+    result = @question_generator.send :extract_placeholder
+
+    assert_not_nil result
+    assert_equal result.class, Array
+  end
+
+  test 'should replace all placeholder' do
+    placeholders   = @question_generator.send :extract_placeholder
+    question_cache = @question_generator.instance_variable_get(:@template)
+
+    replace  = {}
+    placeholders.each do |placeholder|
+      replace[placeholder.gsub(/\?/, '')] = LoremIpsum.lorem_ipsum words: 1
+    end
+
+    new_question = @question_generator.send :replace_placeholder, placeholders, replace
+
+    assert_not_equal new_question, question_cache
+    assert_nil new_question.match(@question_generator.send :regex_placeholder)
+    assert_not_nil question_cache.match(@question_generator.send :regex_placeholder)
+  end
+
   test "should raise argument error" do
     assert_raise ArgumentError do
       QuestionGenerator.new test: "hallo"
