@@ -4,6 +4,11 @@ class QuestionTemplate < ActiveRecord::Base
 
   validates :question,  presence: true
 
+  def self.generate(place)
+    qg = QuestionGenerator.new
+    Quetion.create(question: qg.question)
+  end
+
   def self.generate_question(template_id, place_id)
     question    = QuestionTemplate.find template_id
     placeholders = QuestionPlaceholder.where question_template_id: template_id

@@ -2,7 +2,10 @@ require 'test_helper'
 
 class QuestionGeneratorTest < ActiveSupport::TestCase
   setup do
-    @question_generator = QuestionGenerator.new location: 'Salzburg'
+    @question_generator = QuestionGenerator.new(
+        location: 'Salzburg',
+        template: 'Welchen Beruf hatte ?name'
+    )
   end
 
   test "should raise argument error" do
@@ -62,5 +65,20 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
     result =  @question_generator.send :fire_query, query
     assert_not_nil result
     assert_nil result['error']
+  end
+
+  test "should generate a question" do
+    query = {
+        "type" => "/people/person",
+        "place_of_birth~=" => "vienna",
+        "limit" => 1,
+        "name" => nil,
+        "profession" => [{
+                             "name" => []
+                         }]
+    }
+    question = @question_generator.generate_question query
+    assert_equal question.class, String
+    assert_nil question.match(@question_generator.send :regex_placeholder)
   end
 end
