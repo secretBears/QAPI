@@ -1,8 +1,10 @@
 require 'test_helper'
 
-class QuestionTemplatesControllerTest < ActionController::TestCase
+class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
   setup do
     @question_template = QuestionTemplate.find(1)
+    @user = User.find(1)
+    sign_in @user
   end
 
   test 'should get index' do
@@ -24,7 +26,7 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to question_template_path(assigns(:question_template))
+    assert_redirected_to admin_question_template_path(assigns(:question_template))
   end
 
   test 'should show question_template' do
@@ -38,11 +40,12 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
   end
 
   test 'should update question_template' do
+    new_question_text = LoremIpsum.lorem_ipsum(words: 15)
     patch :update, id: @question_template, question_template: {
-      question: LoremIpsum.lorem_ipsum(words: 15),
-      question_id: 2
+      question: new_question_text,
     }
-    assert_redirected_to question_template_path(assigns(:question_template))
+
+    assert_redirected_to admin_question_template_path(assigns(:question_template))
   end
 
   test 'should destroy question_template' do
@@ -50,7 +53,7 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
       delete :destroy, id: @question_template
     end
 
-    assert_redirected_to question_templates_path
+    assert_redirected_to admin_question_templates_path
   end
 
   test 'test extract params' do
