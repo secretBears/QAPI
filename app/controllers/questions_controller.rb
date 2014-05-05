@@ -10,13 +10,12 @@ class QuestionsController < ApplicationController
   def show_lat_long
     @question = Question.find_by_lat_long lat_long_params
 
-    unless @question.nil?
-      render 'show'
-    else
+    if @question.nil?
       render_error('no result')
+    else
+      render 'show'
     end
   end
-
 
   private
   def lat_long_params
