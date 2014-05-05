@@ -13,7 +13,7 @@ class QuestionsControllerTest < ActionController::TestCase
   end
 
   test 'should return 404' do
-    get :show_lat_long, latitude: 1000000, longitude: 1000000, format: :json
+    get :show_lat_long, latitude: 1_000_000, longitude: 1_000_000, format: :json
     assert_response :not_found
   end
 

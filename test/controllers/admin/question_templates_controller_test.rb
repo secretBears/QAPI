@@ -42,7 +42,7 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
   test 'should update question_template' do
     new_question_text = LoremIpsum.lorem_ipsum(words: 15)
     patch :update, id: @question_template, question_template: {
-      question: new_question_text,
+      question: new_question_text
     }
 
     assert_redirected_to admin_question_template_path(assigns(:question_template))
