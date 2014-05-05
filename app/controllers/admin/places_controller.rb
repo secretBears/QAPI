@@ -1,4 +1,4 @@
-class PlacesController < ApplicationController
+class Admin::PlacesController < Admin::ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
@@ -70,14 +70,5 @@ class PlacesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_place
       @place = Place.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def place_params
-      params.permit(:place, :latitude, :longitude, :name)
-    end
-
-    def lat_long_present?
-      place_params[:latitude].present? && place_params[:longitude].present?
     end
 end

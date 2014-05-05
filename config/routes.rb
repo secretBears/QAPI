@@ -1,30 +1,34 @@
 QAPI::Application.routes.draw do
 
-  resources :question_placeholders
+  devise_for :users
 
-  resources :question_templates
+  namespace :admin do
+    get '/', to: 'question_templates#index'
 
-  resources :places
+    resources :question_templates
+  end
 
-  resources :answers
+  scope 'api', format: 'json' do
+    get '/', to: 'questions#show_random'
 
-  get '/api/question/:id', to: 'questions#show', format: 'json'
-  get '/api/question/',    to: 'questions#show_random', format: 'json', as: 'random_question'
+    get '/:latitude/:longitude',
+        to: 'questions#show_lat_long',
+        constraints: {
+            latitude: /[0-9\.]+/,
+            longitude: /[0-9\.]+/
+        }
 
-  get('/api/question/:latitude/:longitude',
-      to: 'questions#show_lat_long',
-      constraints: {
-          latitude: /[0-9\.]+/,
-          longitude: /[0-9\.]+/
-      },
-      as: 'show_lat_long',
-      defaults: {
-          format: 'json'
-      })
+    get '/:latitude/:longitude/:count',
+        to: 'questions#show_lat_long',
+        constraints: {
+            latitude: /[0-9\.]+/,
+            longitude: /[0-9\.]+/,
+            count: /[0-9\.]+/
+        }
+  end
 
   get 'places/:latitude/:longitude', to: 'places#geocode', constraints: {latitude: /[0-9\.]+/, longitude: /[0-9\.]+/}
 
-  resources :questions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
