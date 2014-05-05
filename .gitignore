@@ -15,5 +15,12 @@
 /log/*.log
 /tmp
 
+/config/keys
+
 
 .idea
+
+
+
+# Ignore application configuration
+/config/application.yml

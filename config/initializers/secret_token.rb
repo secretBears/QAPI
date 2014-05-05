@@ -9,4 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-QAPI::Application.config.secret_key_base = '1047af520605cca656c754a5e83c5c460480b35cb0ab27af38d23dba384be32945d39010c4d5a68532171f942ec81b59b5f87bd9821f491161aae6779e9afc6b'
+
+# place a secret token to application.yml for security reasons
+QAPI::Application.config.secret_key_base = ENV['SECRET_TOKEN']

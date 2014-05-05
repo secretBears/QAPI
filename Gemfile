@@ -52,3 +52,8 @@ gem 'lorem_ipsum_amet', '~> 0.6.2', group: [:development, :test]
 
 # Use devise to authenticate admins
 gem 'devise'
+
+gem 'freebase-api', :git => 'https://github.com/secretBears/freebase-api'
+# gem 'freebase-api', group: [:development, :production]
+
+gem 'figaro'

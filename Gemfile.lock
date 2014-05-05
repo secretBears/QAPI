@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/secretBears/freebase-api
+  revision: 8783828716c28979b7354c595a1e01e6c8bfb64d
+  specs:
+    freebase-api (0.1.3)
+      httparty (~> 0.10)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,9 +58,15 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     geokit (1.8.4)
       multi_json (>= 1.3.2)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -71,6 +84,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.2)
     orm_adapter (0.5.0)
+    multi_xml (0.5.5)
     parser (2.1.4)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
@@ -147,6 +161,8 @@ PLATFORMS
 DEPENDENCIES
   debugger
   devise
+  figaro
+  freebase-api!
   geokit
   jbuilder (~> 1.2)
   jquery-rails

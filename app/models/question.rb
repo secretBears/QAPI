@@ -1,6 +1,4 @@
 class Question < ActiveRecord::Base
-  include ActiveSupport::Rescuable
-
   has_many :answers, dependent: :delete_all
   belongs_to :place
   belongs_to :question_template
