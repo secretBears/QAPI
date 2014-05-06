@@ -21,5 +21,6 @@ module QAPI
     # config.i18n.default_locale = :de
     config.i18n.enforce_available_locales = false
     config.force_ssl = false
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**/}')]
   end
 end
