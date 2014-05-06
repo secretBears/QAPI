@@ -1,8 +1,26 @@
 language: ruby
 rvm:
-- 2.0.0
-before_script: bundle exec rake db:drop db:create db:migrate
+  - 2.1.1
+
+addons:
+  - postgresql: "9.3"
+
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database qapi;' -U postgres
+  - psql -c 'create database qapi_test;' -U postgres
+  - bundle exec rake db:drop db:create db:migrate
+
 script: bundle exec rake
+
+env:
+  global:
+  - secure: d/+SXj3a/buZNT8KUYsfvoCgoMAqkyVOpay/iTnh6PsI58G815opWn1Tly3kfsz7n7wtynD9uiaDpYPV6eazjHvw6+pNWjpSZS9GYBxpuOrVou+ub0w0CH0eoMgOhWE6fUOe2ofo0nVVZTRiFVzL4MACVY+NcgHctWvyWf7HcnU=
+  - secure: dCoego2gXtFD/vKb9Rt7p1fyoWWqBFsV6Gs+/cR0GdTildcWGAsemPPQz4QcVRFvD9/ZlPXnsMB3gSYMpqxMAIB99XctgURNy6GyGaCgqXDuw83zkQEnJQL+EbpmESXbs319BygPbgSeN0F5+gchzAKut+uS9apfHWsiYT1ajMw=
+  - secure: uGHZpKEtyJGWHbFaOKxpbml7E9HlZvHj1+VrQY0Y4tAaarmDuOUIPR/H1i4CfXZmpkqFtXg3pCn3GYRZ5oKycctQBJUr2fnVHH7ek/MZcOyXL2zSygC0GxxhZDmSFHKzAbOAHLzkKulqPl/r2IE600QZCfTrB0l6swItNS3Pffc=
+  - secure: qW68wjLjA4NqOds+z0BqPW/JKWAOPdj7RN3belkD7pIFQhN7D/5+3PejZBH9jkH8SAsXI7yTLuNrW7rZEni0RpV+gX8jKwsgCuR8mkzFnkht0XvlyTsCjDGsDq+aVf3aPmsQNl7t4y9WUcFHSRWtGDt4AGGrPf7aNy10vmrFNfU=
+
+
 deploy:
   provider: heroku
   api_key:
@@ -11,9 +29,3 @@ deploy:
   on:
     repo: secretBears/QAPI
   run: rake db:migrate
-env:
-  global:
-  - secure: d/+SXj3a/buZNT8KUYsfvoCgoMAqkyVOpay/iTnh6PsI58G815opWn1Tly3kfsz7n7wtynD9uiaDpYPV6eazjHvw6+pNWjpSZS9GYBxpuOrVou+ub0w0CH0eoMgOhWE6fUOe2ofo0nVVZTRiFVzL4MACVY+NcgHctWvyWf7HcnU=
-  - secure: dCoego2gXtFD/vKb9Rt7p1fyoWWqBFsV6Gs+/cR0GdTildcWGAsemPPQz4QcVRFvD9/ZlPXnsMB3gSYMpqxMAIB99XctgURNy6GyGaCgqXDuw83zkQEnJQL+EbpmESXbs319BygPbgSeN0F5+gchzAKut+uS9apfHWsiYT1ajMw=
-  - secure: uGHZpKEtyJGWHbFaOKxpbml7E9HlZvHj1+VrQY0Y4tAaarmDuOUIPR/H1i4CfXZmpkqFtXg3pCn3GYRZ5oKycctQBJUr2fnVHH7ek/MZcOyXL2zSygC0GxxhZDmSFHKzAbOAHLzkKulqPl/r2IE600QZCfTrB0l6swItNS3Pffc=
-  - secure: qW68wjLjA4NqOds+z0BqPW/JKWAOPdj7RN3belkD7pIFQhN7D/5+3PejZBH9jkH8SAsXI7yTLuNrW7rZEni0RpV+gX8jKwsgCuR8mkzFnkht0XvlyTsCjDGsDq+aVf3aPmsQNl7t4y9WUcFHSRWtGDt4AGGrPf7aNy10vmrFNfU=

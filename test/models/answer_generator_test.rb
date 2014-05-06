@@ -7,5 +7,4 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
         template: 'Welchen Beruf hatte ?name'
     )
   end
-
 end
