@@ -12,7 +12,8 @@ class AddDeviseToUsers < ActiveRecord::Migration
       ## Rememberable
       t.datetime :remember_created_at
       ## Trackable (moved to make method shorter)
-      trackable
+
+      trackable(t)
 
       ## Confirmable
       # t.string   :confirmation_token
@@ -35,7 +36,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
     # add_index :users, :unlock_token,         unique: true
   end
 
-  def trackable
+  def trackable(t)
     t.integer :sign_in_count, default: 0, null: false
     t.datetime :current_sign_in_at
     t.datetime :last_sign_in_at
