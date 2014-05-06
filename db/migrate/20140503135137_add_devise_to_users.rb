@@ -11,6 +11,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
 
       ## Rememberable
       t.datetime :remember_created_at
+
       ## Trackable (moved to make method shorter)
       trackable t
 
