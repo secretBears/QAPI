@@ -8,7 +8,6 @@ class PlaceTest < ActiveSupport::TestCase
   test "should get locations except city" do
     places = Place.get_locations_without key: :city, place: @location[:city]
     places.each do |place|
-      puts place[:city]
       assert_not_equal @location[:city], place[:city]
     end
   end
