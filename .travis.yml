@@ -1,26 +1,13 @@
 language: ruby
-rvm:
-  - 2.1.1
-
 addons:
-  - postgresql: "9.3"
-
+  postgresql: '9.3'
+rvm:
+- 2.1.1
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database qapi;' -U postgres
-  - psql -c 'create database qapi_test;' -U postgres
-  - bundle exec rake db:drop db:create db:migrate
-
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database qapi_test;' -U postgres
+- rake db:setup
 script: bundle exec rake
-
-env:
-  global:
-  - secure: d/+SXj3a/buZNT8KUYsfvoCgoMAqkyVOpay/iTnh6PsI58G815opWn1Tly3kfsz7n7wtynD9uiaDpYPV6eazjHvw6+pNWjpSZS9GYBxpuOrVou+ub0w0CH0eoMgOhWE6fUOe2ofo0nVVZTRiFVzL4MACVY+NcgHctWvyWf7HcnU=
-  - secure: dCoego2gXtFD/vKb9Rt7p1fyoWWqBFsV6Gs+/cR0GdTildcWGAsemPPQz4QcVRFvD9/ZlPXnsMB3gSYMpqxMAIB99XctgURNy6GyGaCgqXDuw83zkQEnJQL+EbpmESXbs319BygPbgSeN0F5+gchzAKut+uS9apfHWsiYT1ajMw=
-  - secure: uGHZpKEtyJGWHbFaOKxpbml7E9HlZvHj1+VrQY0Y4tAaarmDuOUIPR/H1i4CfXZmpkqFtXg3pCn3GYRZ5oKycctQBJUr2fnVHH7ek/MZcOyXL2zSygC0GxxhZDmSFHKzAbOAHLzkKulqPl/r2IE600QZCfTrB0l6swItNS3Pffc=
-  - secure: qW68wjLjA4NqOds+z0BqPW/JKWAOPdj7RN3belkD7pIFQhN7D/5+3PejZBH9jkH8SAsXI7yTLuNrW7rZEni0RpV+gX8jKwsgCuR8mkzFnkht0XvlyTsCjDGsDq+aVf3aPmsQNl7t4y9WUcFHSRWtGDt4AGGrPf7aNy10vmrFNfU=
-
-
 deploy:
   provider: heroku
   api_key:
@@ -29,3 +16,9 @@ deploy:
   on:
     repo: secretBears/QAPI
   run: rake db:migrate
+env:
+  global:
+  - secure: KDVcW3ru0S0q1eOOT2AgNcdfcbt6fGiuIyh8Gl2PJOd5wbnfgAnKMxfjety4+YssJ5Dlk0y9ZMpKF80m0oxeM6e6rVws0jmA6oM7tApMnS5XNs2P40MsqplNWkGfhRsmmXmwTX7BTB305ur1Urr16yXOkt4FrDMYH1cjdj53muI=
+  - secure: Gtb4SMnIeVCRzE7Bg14IVfTElrkTcLZjooi0DvN8oREbxfaSl3WLm7/F9V2hwPfw2FN8O1UPSY0NIap5YnE3QNPb6YKnME0EXn4KMxD0u8L629l94XFYlL8wJTZTV65qtAkXm3aLc//Pu4PfsSP504NkcFQH59fzYo9ALhFYRLs=
+  - secure: hWOtjyQGwxFmSdMfpr5/Nz2aT683F/23c12IAHuNxYF17ydDX2HsuxOvidMwIW92p0wxrg6UXiBmRrc2ZM1ycUk0WxF7HTOHX3DwkXuPPb8RttGYHnsNOd1U41npNoNT6MveMWXGUscNKl3w52NzvAHK5NmhyD9nl+D0iHW9fOM=
+  - secure: EC/VMK6kyh+YuyE6CleRYkOFfT/tF5yvJ3RKwi1ldV2cr214i9BDhlbzg/6v6EvuiO6jabIUSqBU4xEphSJyJA8t3ZZZbKg0uFXxghmXalxaL834nGdEI+Su+B+G6iH+OLHvP3z8uvVhoMMhajF5ntmGuiWTZcJRhbCV8imawgU=
