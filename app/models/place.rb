@@ -23,8 +23,7 @@ class Place < ActiveRecord::Base
   def self.get_locations_without(except, limit = 3)
     fail ArgumentError, "#{except[:key]} is not a valid identifier for a place" unless location_keys.include? except[:key]
     places = limit(limit) # TODO: should be randomized
-    # places = places.where('city != ?', except[:place])
-    places = places.where('? != ?', except[:key].to_s, except[:place])
+    places = places.where.not(except[:key] => except[:place])
     places
   end
 
