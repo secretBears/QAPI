@@ -9,7 +9,7 @@ QAPI::Application.routes.draw do
   end
 
   scope 'api', format: 'json' do
-    resources :questions, path: 'question',only: [:show]
+    resources :questions, path: 'question', only: [:show]
     get '/:latitude/:longitude',
         to: 'questions#show_lat_long',
         constraints: {
