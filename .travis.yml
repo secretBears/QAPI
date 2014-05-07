@@ -4,9 +4,6 @@ rvm:
 addons:
   - postgresql: "9.3"
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database qapi;' -U postgres
-  - psql -c 'create database qapi_test;' -U postgres
   - bundle exec rake db:drop db:create db:migrate
 script: bundle exec rake
 env:
