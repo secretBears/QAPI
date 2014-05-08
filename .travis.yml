@@ -14,3 +14,11 @@ env:
   - secure: Gtb4SMnIeVCRzE7Bg14IVfTElrkTcLZjooi0DvN8oREbxfaSl3WLm7/F9V2hwPfw2FN8O1UPSY0NIap5YnE3QNPb6YKnME0EXn4KMxD0u8L629l94XFYlL8wJTZTV65qtAkXm3aLc//Pu4PfsSP504NkcFQH59fzYo9ALhFYRLs=
   - secure: hWOtjyQGwxFmSdMfpr5/Nz2aT683F/23c12IAHuNxYF17ydDX2HsuxOvidMwIW92p0wxrg6UXiBmRrc2ZM1ycUk0WxF7HTOHX3DwkXuPPb8RttGYHnsNOd1U41npNoNT6MveMWXGUscNKl3w52NzvAHK5NmhyD9nl+D0iHW9fOM=
   - secure: EC/VMK6kyh+YuyE6CleRYkOFfT/tF5yvJ3RKwi1ldV2cr214i9BDhlbzg/6v6EvuiO6jabIUSqBU4xEphSJyJA8t3ZZZbKg0uFXxghmXalxaL834nGdEI+Su+B+G6iH+OLHvP3z8uvVhoMMhajF5ntmGuiWTZcJRhbCV8imawgU=
+deploy:
+  provider: heroku
+  api_key:
+    secure: atRxuL4Qls6E1PG+gZwTFZkcfBje/d4eLYZ1UmZc8Z0YkdyqeDSx4kF3syNGq9V8TlAzr6JFvxXizD1Axd4t7PhoQUwaYppXJxYUCgd6iH/iLu/PiY+EB1cE3St7OQ8XvToDdxNkDfYqsDPuTy1enU2FNL8mKsiF2JF+7kPmiN0=
+  app: qapi
+  on:
+    repo: secretBears/QAPI
+    branch: master
