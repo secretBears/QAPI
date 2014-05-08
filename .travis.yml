@@ -8,14 +8,6 @@ before_script:
 - psql -c 'create database qapi_test;' -U postgres
 - rake db:setup
 script: bundle exec rake
-deploy:
-  provider: heroku
-  api_key:
-    secure: hMq1wJldCR6b7bikxqa1IvYzn6P2/epzWPqDNakxYh4QMlgp+GmJpKuDW8e5j6DDZLbV8oAWB24cN3lVAMYZjP3hjO4fDbHerkS6/wIqp8Kdfnohb26ey/5i/Epp8owalW4PgvUNerKIFDm541KItxs0rqyx2hR6olLDoQ61AUk=
-  app: qapi
-  on:
-    repo: secretBears/QAPI
-  run: rake db:migrate
 env:
   global:
   - secure: KDVcW3ru0S0q1eOOT2AgNcdfcbt6fGiuIyh8Gl2PJOd5wbnfgAnKMxfjety4+YssJ5Dlk0y9ZMpKF80m0oxeM6e6rVws0jmA6oM7tApMnS5XNs2P40MsqplNWkGfhRsmmXmwTX7BTB305ur1Urr16yXOkt4FrDMYH1cjdj53muI=

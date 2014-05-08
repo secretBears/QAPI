@@ -13,7 +13,6 @@ class PlaceTest < ActiveSupport::TestCase
   end
 
   test "should get locations except country" do
-
     places = Place.get_locations_without key: :country, place: @location[:country]
     places.each do |place|
       assert_not_equal @location[:country], place[:country]
