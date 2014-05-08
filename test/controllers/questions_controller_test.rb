@@ -7,11 +7,6 @@ class QuestionsControllerTest < ActionController::TestCase
     @question = Question.first
   end
 
-  test 'should get random question' do
-    get :show_random, format: :json
-    assert_response :success
-  end
-
   test 'should return 404' do
     get :show_lat_long, latitude: 1_000_000, longitude: 1_000_000, format: :json
     assert_response :not_found
