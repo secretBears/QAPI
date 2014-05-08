@@ -10,4 +10,11 @@ class RoutesTest < ActionDispatch::IntegrationTest
                      format: :json
     )
   end
+
+  test 'should get root page in html' do
+    assert_generates('/',
+                     controller: 'static',
+                     action: 'index'
+    )
+  end
 end

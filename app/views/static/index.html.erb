@@ -1,0 +1,26 @@
+<h1>QAPI - quiz questions api</h1>
+<h2>developed by secretBears</h2>
+
+<h3>What is QAPI?</h3>
+<p>QAPI is an API that provides location based computer-generated question/answer sets. The semantic web
+  contains vast amounts of data that we wanted to transform into knowledge which can be used by developers for their next
+  fancy quiz game. We also invented a cool buzzword for this concept: data driven games - go tell your friends.</p>
+
+<h3>Is it free?</h3>
+<p>Yes it is. That is, it's free until everybody has been enslaved and can no longer live without QAPI. At that
+  point we will change to a lucrative pay-per-request plan. ;)</p>
+
+<h3>Awesome. How can I use it?</h3>
+<p>QAPI provides results based on a simple GET query to <code>/api/{longitude}/{latitude}</code>. So if you want
+  questions for the center of the world, query <code>/api/0/0</code>. Easy...</p>
+
+<h4>But will it JSON?</h4>
+<p>QAPI returns it's result as a JSON object in the following format:<br>
+  <code>{"id":20,"question":"Frage 20","place":"Linz",
+    "answers":[{"answer":"20 answer 1","is_true":false},{"answer":"20 answer 2","is_true":true},{"answer":"20 answer 3",
+    "is_true":false},{"answer":"20 answer 4","is_true":false}]}</code>
+</p>
+
+<p>The resulting JSON comprises of a question and three corresponding answers,
+  one of which is marked as true in the
+  <code>is_true</code> flag.</p>
