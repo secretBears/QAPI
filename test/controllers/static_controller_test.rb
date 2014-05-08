@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class StaticControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'should show index page' do
+    get :index
+    assert_response :success
+  end
 end
