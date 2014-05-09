@@ -5,9 +5,9 @@ class QuestionGenerator < AbstractGenerator
     super arguments
   end
 
-  def generate(query)
+  def generate(location)
     placeholders = extract_placeholder
-    replace      = fire_query query
+    replace      = @query.get location
     question     = replace_placeholder placeholders, replace
     return question if question
 
