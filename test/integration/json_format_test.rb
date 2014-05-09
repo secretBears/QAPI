@@ -2,7 +2,8 @@ require 'test_helper'
 
 class RoutesTest < ActionDispatch::IntegrationTest
   setup do
-    get '/api/'
+    somequestion = Question.last
+    get "/api/question/#{somequestion.id}"
     @body = JSON.parse response_from_page.to_s
   end
 

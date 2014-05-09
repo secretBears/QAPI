@@ -54,3 +54,7 @@ gem 'freebase-api', :git => 'https://github.com/secretBears/freebase-api'
 # gem 'freebase-api', group: [:development, :production]
 
 gem 'figaro'
+
+gem 'haml-rails'
+
+gem 'rails_12factor', group: :production

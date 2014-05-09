@@ -2,6 +2,8 @@ QAPI::Application.routes.draw do
 
   devise_for :users
 
+  root 'static#index'
+
   namespace :admin do
     get '/', to: 'question_templates#index'
 
@@ -9,8 +11,7 @@ QAPI::Application.routes.draw do
   end
 
   scope 'api', format: 'json' do
-    get '/', to: 'questions#show_random'
-
+    resources :questions, path: 'question', only: [:show]
     get '/:latitude/:longitude',
         to: 'questions#show_lat_long',
         constraints: {

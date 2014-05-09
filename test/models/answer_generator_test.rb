@@ -20,7 +20,7 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
         template: 'Welchen Beruf hatte ?name'
     )
   end
-  #
+
   # test "should get answers" do
   #   answers = @answer_generator.generate @query
   #   assert_equal Set, answers.class

@@ -46,3 +46,6 @@ SpaceInsideHashLiteralBraces:
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 StringLiterals:
   Enabled: false
+
+NumericLiterals:
+  Enabled: false
