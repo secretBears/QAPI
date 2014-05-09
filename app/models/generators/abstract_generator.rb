@@ -1,8 +1,6 @@
 class AbstractGenerator
   def initialize(arguments)
-    @location = arguments[:location].freeze || (fail ArgumentError, "location is required")
-    @template = arguments[:template].freeze || (fail ArgumentError, "template is required")
-    # @query    = arguments[:query]           || (fail ArgumentError, "query is required")
+    @query    = arguments[:query]           || (fail ArgumentError, "query is required")
   end
 
   private

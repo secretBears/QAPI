@@ -3,27 +3,8 @@ require 'test_helper'
 class QuestionGeneratorTest < ActiveSupport::TestCase
   setup do
     # create query
-    @query_hash = {
-        "type" => "/people/person",
-        "place_of_birth~=" => "Linz",
-        "limit" => 1,
-        "name" => nil,
-        "profession" => [{
-                             "name" => []
-                         }]
-    }
-
-    @location_property = "place_of_birth~="
-    @answer_property   = "profession"
-
-    @query = Query.new(
-        query_hash: @query_hash,
-        location_property: @location_property,
-        answer_property: @answer_property
-    )
-
     @question_generator = QuestionGenerator.new(
-        query:    @query,
+        query:    StaticHelperTest.generate_query,
         location: 'Salzburg',
         template: 'Welchen Beruf hatte ?name'
     )

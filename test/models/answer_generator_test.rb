@@ -14,10 +14,7 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
     }
 
     @answer_generator = AnswerGenerator.new(
-        placeholder_field: "place_of_birth~=",
-        answer_field: "profession",
-        location: @location[:city],
-        template: 'Welchen Beruf hatte ?name'
+        query: StaticHelperTest.generate_query
     )
   end
 

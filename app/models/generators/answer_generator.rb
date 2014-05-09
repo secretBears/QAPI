@@ -3,8 +3,6 @@ class AnswerGenerator < AbstractGenerator
   def initialize(arguments)
     super arguments
     @answer_limit = arguments[:answer_limit] || 3
-    @placeholder_field = arguments[:placeholder_field] || (fail ArgumentError, 'placeholder field is required')
-    @answer_field = arguments[:answer_field] || (fail ArgumentError, 'answer field is required')
   end
 
   def generate(query)
