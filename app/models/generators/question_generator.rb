@@ -13,7 +13,6 @@ class QuestionGenerator < AbstractGenerator
   end
 
   private
-
   def extract_placeholder
     @template.scan(regex_placeholder).flatten
   end
