@@ -25,4 +25,18 @@ class PlaceTest < ActiveSupport::TestCase
       assert_not_equal @location[:state], place[:state]
     end
   end
+
+  test "should get string" do
+    city = @location.to_name :city
+    state = @location.to_name :state
+    country = @location.to_name :country
+
+    assert_not_nil city
+    assert_not_nil state
+    assert_not_nil country
+
+    assert_equal String, city.class
+    assert_equal String, state.class
+    assert_equal String, country.class
+  end
 end

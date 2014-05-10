@@ -1,5 +1,7 @@
 class Query
   attr_reader :location_property, :answer_property
+  alias :location :location_property
+
   def initialize(arguments)
     @query_hash        = arguments[:query_hash]               || (fail ArgumentError, "query hash is required")
     @location_property = arguments[:location_property].freeze || (fail ArgumentError, "location property is required")
