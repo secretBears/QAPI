@@ -1,8 +1,8 @@
-class QuestionGenerator < AbstractGenerator
+class QuestionGenerator
   def initialize(arguments)
+    @query    = arguments[:query]           || (fail ArgumentError, "query is required")
     @location = arguments[:location].freeze || (fail ArgumentError, "location is required")
     @template = arguments[:template].freeze || (fail ArgumentError, "template is required")
-    super arguments
   end
 
   def generate(location)

@@ -1,7 +1,7 @@
 require 'set'
-class AnswerGenerator < AbstractGenerator
+class AnswerGenerator
   def initialize(arguments)
-    super arguments
+    @query        = arguments[:query]        || (fail ArgumentError, "query is required")
     @answer_limit = arguments[:answer_limit] || 3
   end
 
