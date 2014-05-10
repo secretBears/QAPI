@@ -5,6 +5,8 @@ class AnswerGenerator < AbstractGenerator
     @answer_limit = arguments[:answer_limit] || 3
   end
 
+
+
   def generate(query)
     @locations = Place.get_locations_without key: :city, place: @location
     @answers = Set.new
@@ -16,5 +18,14 @@ class AnswerGenerator < AbstractGenerator
       @answers.add answer
     end
     @answers
+  end
+
+  def get(locations)
+    locations = [locations] if locations.class == String
+    answers = []
+    locations.each do |location|
+      answers.push((@query.get location)['answer'])
+    end
+    answers
   end
 end

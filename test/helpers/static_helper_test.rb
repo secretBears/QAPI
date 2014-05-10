@@ -23,6 +23,5 @@ class StaticHelperTest < ActionView::TestCase
              "name" => []
          }]
     }
-
   end
 end

@@ -8,7 +8,6 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
         location: 'Salzburg',
         template: 'Welchen Beruf hatte ?name'
     )
-
   end
 
   test 'should get array from extract placeholder' do
