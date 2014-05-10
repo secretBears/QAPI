@@ -7,11 +7,9 @@ class Place < ActiveRecord::Base
   validates_uniqueness_of :latitude, scope: :longitude
   validates :city, :state, :country, :latitude, :longitude, presence: true
 
-
   def to_name(key)
     self[key].to_s
   end
-
 
   def self.geolocate_from_latlong(lat, lang)
     locations = GoogleGeocoder.reverse_geocode "#{lat}, #{lang}"
@@ -40,6 +38,5 @@ class Place < ActiveRecord::Base
   def self.location_keys
     [:city, :state, :country]
   end
-
 
 end

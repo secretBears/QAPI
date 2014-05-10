@@ -26,7 +26,7 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
     answers = []
     places.each do |place|
       name = place.to_name :city
-      answers.push (@answer_generator.get name)
+      answers.push(@answer_generator.get name)
     end
   end
 end

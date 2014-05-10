@@ -1,6 +1,6 @@
 class Query
   attr_reader :location_property, :answer_property
-  alias :location :location_property
+  alias_method :location, :location_property
 
   def initialize(arguments)
     @query_hash        = arguments[:query_hash]               || (fail ArgumentError, "query hash is required")
