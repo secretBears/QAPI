@@ -5,8 +5,6 @@ class AnswerGenerator < AbstractGenerator
     @answer_limit = arguments[:answer_limit] || 3
   end
 
-
-
   def generate(query)
     @locations = Place.get_locations_without key: :city, place: @location
     @answers = Set.new
