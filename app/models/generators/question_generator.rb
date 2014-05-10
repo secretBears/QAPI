@@ -5,7 +5,7 @@ class QuestionGenerator
     @template = arguments[:template].freeze || (fail ArgumentError, "template is required")
   end
 
-  def generate(location)
+  def get(location)
     placeholders = extract_placeholder
     replace      = @query.get location
     question     = replace_placeholder placeholders, replace

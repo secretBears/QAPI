@@ -40,7 +40,7 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
   end
 
   test "should generate a question" do
-    question = @question_generator.generate 'Linz'
+    question = @question_generator.get 'Linz'
     assert_equal question.class, String
     assert_nil question.match(@question_generator.send :regex_placeholder)
   end
