@@ -2,28 +2,11 @@ require 'test_helper'
 
 class QAPIGeneratorTest < ActiveSupport::TestCase
   setup do
-    @query_hash = {
-        "type" => "/people/person",
-        "place_of_birth~=" => "Linz",
-        "limit" => 1,
-        "name" => nil,
-        "profession" => [{
-                             "name" => []
-                         }]
-    }
-
-    @location_property = "place_of_birth~="
-    @answer_property   = "profession"
-
-    @query = Query.new(
-        query_hash: @query_hash,
-        location_property: @location_property,
-        answer_property: @answer_property
-    )
+    @query = Query.find 1
   end
 
   test "should rise argument error" do
-    assert_raise ArgumentError do
+    assert_raise ActiveRecord::UnknownAttributeError do
       Query.new test: 'lalelu'
     end
   end
