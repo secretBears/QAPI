@@ -7,8 +7,15 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
     )
   end
 
-  test "should get answers" do
-    answer = @answer_generator.get ['Linz']
+  test "should get answers from string" do
+    answer = @answer_generator.get 'Linz'
+
+    assert_not_nil answer
+    assert_equal Array, answer.class
+  end
+
+  test "should get answers from array" do
+    answer = @answer_generator.get %w'Linz Salzburg'
 
     assert_not_nil answer
     assert_equal Array, answer.class
