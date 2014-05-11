@@ -1,5 +1,5 @@
 class Query < ActiveRecord::Base
-  belongs_to :question
+  has_one :question_template
   validates_presence_of :query_hash, :location_property, :answer_property
   serialize :query_hash, Hash
 

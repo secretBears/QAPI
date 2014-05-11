@@ -18,22 +18,26 @@ query_hash = {
 location_property = "place_of_birth~="
 answer_property   = "profession"
 
-Query.create!(
-    query_hash: query_hash,
-    location_property: location_property,
-    answer_property: answer_property
-)
 
 (1..10).each do |i|
+  query = Query.create!(
+      query_hash: query_hash,
+      location_property: location_property,
+      answer_property: answer_property
+  )
+
   question_template_q = LoremIpsum.lorem_ipsum(words: 15).split(' ')
   idx = Random.rand(15)
-  question_template_q[idx] = '?1'
+  question_template_q[idx] = '?name'
   p = question_template_q.join(' ')
 
-  QuestionTemplate.create!(question: p)
+  QuestionTemplate.create!(
+      question: p,
+      query: query
+  )
 
   QuestionPlaceholder.create!(
-    key: '?1',
+    key: '?name',
     value: (LoremIpsum.lorem_ipsum words: 1),
     question_template_id: i
   )
