@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
     @question = Question.random_question
     render 'show'
   end
-  
 
   private
   def set_question

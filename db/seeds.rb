@@ -18,7 +18,6 @@ query_hash = {
 location_property = "place_of_birth~="
 answer_property   = "profession"
 
-
 (1..10).each do |i|
   query = Query.create!(
       query_hash: query_hash,

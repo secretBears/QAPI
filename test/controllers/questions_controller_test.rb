@@ -7,5 +7,4 @@ class QuestionsControllerTest < ActionController::TestCase
     @question = Question.first
   end
 
-
 end

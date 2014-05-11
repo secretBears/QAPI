@@ -5,8 +5,6 @@ class Question < ActiveRecord::Base
 
   validates :question, presence: true, uniqueness: true
 
-
-
   # this function will generate the questions
   def self.generate_questions
     puts "generate_questions - not implemented"
