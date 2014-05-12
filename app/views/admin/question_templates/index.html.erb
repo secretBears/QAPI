@@ -1,12 +1,20 @@
-<h1>Listing Question Templates</h1>
+<% content_for :page_title do %>
+    Listing Question Templates
+<% end %>
 
-<table>
+
+<% if flash[:notice] %>
+    <div data-alert class="alert-box success radius">
+      <%= notice %>
+      <a href="#" class="close">&times;</a>
+    </div>
+<% end %>
+
+<table class="index">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Query</th>
+      <th>Question</th>
       <th></th>
     </tr>
   </thead>
@@ -15,10 +23,9 @@
     <% @question_templates.each do |question_template| %>
       <tr>
         <td><%= question_template.query %></td>
-        <td><%= question_template.question%></td>
-        <td><%= link_to 'Show', admin_question_template_path(question_template) %></td>
-        <td><%= link_to 'Edit', edit_admin_question_template_path(question_template) %></td>
-        <td><%= link_to 'Destroy', admin_question_template_path(question_template), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to question_template.question, edit_admin_question_template_path(question_template) %></td>
+        <td><%= link_to 'Remove', admin_question_template_path(question_template), method: :delete,
+                        data: { confirm: 'Are you sure?' }, class: 'button alert tiny delete expand' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Question template', new_admin_question_template_path %>
+<%= link_to 'New Question template', new_admin_question_template_path, class: 'button success tiny' %>

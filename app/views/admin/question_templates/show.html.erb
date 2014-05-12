@@ -1,3 +1,7 @@
+<%= content_for :page_title do %>
+    Question Template #<%= @question_template.id %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Edit', edit_admin_question_template_path(@question_template) %> |
