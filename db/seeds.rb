@@ -11,7 +11,7 @@ Place.geolocate_from_latlong  48.306940, 14.285830   # Linz
   question_template_q[idx] = '?1'
   p = question_template_q.join(' ')
 
-  QuestionTemplate.create!(question: p)
+  QuestionTemplate.create!(question: p, query: p)
 
   QuestionPlaceholder.create!(
     key: '?1',
