@@ -28,7 +28,9 @@ class Admin::QuestionTemplatesController < Admin::ApplicationController
 
     respond_to do |format|
       if @question_template.save
-        format.html { redirect_to admin_question_template_path(@question_template), notice: 'Question template was successfully created.' }
+        format.html do redirect_to admin_question_template_path(@question_template),
+                                   notice: 'Question template was successfully created.'
+        end
         format.json { render action: 'show', status: :created, location: @question_template }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,9 @@ class Admin::QuestionTemplatesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @question_template.update(question_template_params)
-        format.html { redirect_to admin_question_template_path(@question_template), notice: 'Question template was successfully updated.' }
+        format.html do redirect_to admin_question_template_path(@question_template),
+                                   notice: 'Question template was successfully updated.'
+        end
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +60,7 @@ class Admin::QuestionTemplatesController < Admin::ApplicationController
   def destroy
     @question_template.destroy
     respond_to do |format|
-      format.html { redirect_to admin_question_templates_url }
+      format.html { redirect_to admin_question_templates_url, notice: 'Question template was successfully removed.' }
       format.json { head :no_content }
     end
   end

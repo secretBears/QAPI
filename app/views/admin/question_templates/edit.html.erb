@@ -1,6 +1,12 @@
-<h1>Editing question_template</h1>
+<%= content_for :page_title do %>
+  Question Template #<%= @question_template.id %>
+<% end %>
+
+<% if flash[:notice] %>
+    <div data-alert class="alert-box success radius">
+      <%= notice %>
+      <a href="#" class="close">&times;</a>
+    </div>
+<% end %>
 
 <%= render partial: 'form', locals: {question_template: @question_template, url: admin_question_template_path} %>
-
-<%= link_to 'Show', admin_question_template_path %> |
-<%= link_to 'Back', admin_question_templates_path %>
