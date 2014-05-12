@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require foundation_and_overrides
+
+ *= require_tree .
+ */
+
+.fullWidth {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial;
+}
+
+aside {
+  background: #1a1a1a;
+  min-height: 100%;
+  text-align: center;
+  padding-top: 2rem;
+
+
+  h1, h2, a {
+    color: inherit;
+  }
+
+  header {
+    color: white;
+
+
+    h2 {
+      color: inherit;
+      font-size: 1rem;
+    }
+  }
+}
+
+#content {
+  .top-bar {
+    padding-top: 2rem;
+  }
+}

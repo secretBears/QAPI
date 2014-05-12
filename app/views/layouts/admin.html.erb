@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="fullWidth">
+      <aside class="large-2 columns">
+        <header>
+          <h1>QAPI</h1>
+          <h2>by secretBears</h2>
+        </header>
+
+        <%= render partial: "menu" %>
+      </aside>
+
+      <section id="content" class="large-10 columns">
+        <div class="contain-to-grid sticky">
+          <nav class="top-bar" data-topbar data-options="sticky_on: large">
+            <ul class="title-area">
+              <li class="name">
+                <h1><a href="#">My Site</a></h1>
+              </li>
+              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+              <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <%= yield %>
+      </section>
+    </div>
+
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  </body>
+</html>
