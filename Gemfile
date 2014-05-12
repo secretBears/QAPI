@@ -45,7 +45,7 @@ gem 'therubyracer'
 gem 'geokit'
 
 gem 'rubocop'
-gem 'lorem_ipsum_amet', '~> 0.6.2', group: [:development, :test]
+gem 'lorem_ipsum_amet', '~> 0.6.2'
 
 # Use devise to authenticate admins
 gem 'devise'
