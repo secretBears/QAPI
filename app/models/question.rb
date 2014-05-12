@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
   def self.generate_questions
     puts "generate_questions - not implemented"
   end
+
+  def self.random
+    Question.find 1
+  end
 end

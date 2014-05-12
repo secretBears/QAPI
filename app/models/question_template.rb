@@ -5,4 +5,9 @@ class QuestionTemplate < ActiveRecord::Base
 
   validates :question,  presence: true
   validates :query,  presence: true
+
+  def self.random(limit = 1)
+    QuestionTemplate.order('random()').limit(limit)
+  end
+
 end
