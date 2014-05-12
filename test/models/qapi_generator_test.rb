@@ -6,6 +6,8 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
     generator = QAPIGenerator.new place[:latitude], place[:longitude]
     question = generator.get
 
+    puts question.inspect
+
     assert_not_nil question
   end
 end
