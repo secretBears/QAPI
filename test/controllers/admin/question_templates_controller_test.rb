@@ -27,7 +27,7 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to edit_admin_question_template_path(assigns(:question_template))
+    assert_redirected_to admin_question_template_path(assigns(:question_template))
   end
 
   test 'should get edit' do
@@ -41,7 +41,7 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
       question: new_question_text
     }
 
-    assert_redirected_to edit_admin_question_template_path(assigns(:question_template))
+    assert_redirected_to admin_question_template_path(assigns(:question_template))
   end
 
   test 'should destroy question_template' do

@@ -23,7 +23,7 @@
     <% @question_templates.each do |question_template| %>
       <tr>
         <td><%= question_template.query %></td>
-        <td><%= link_to question_template.question, edit_admin_question_template_path(question_template) %></td>
+        <td><%= link_to question_template.question, admin_question_template_path(question_template) %></td>
         <td><%= link_to 'Remove', admin_question_template_path(question_template), method: :delete,
                         data: { confirm: 'Are you sure?' }, class: 'button alert tiny delete expand' %></td>
       </tr>
