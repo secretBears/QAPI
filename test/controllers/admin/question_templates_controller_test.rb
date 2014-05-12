@@ -22,16 +22,12 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
     assert_difference('QuestionTemplate.count') do
       post :create, question_template: {
         question: LoremIpsum.lorem_ipsum(words: 15),
+        query: LoremIpsum.lorem_ipsum(words: 15),
         question_id: 2
       }
     end
 
-    assert_redirected_to admin_question_template_path(assigns(:question_template))
-  end
-
-  test 'should show question_template' do
-    get :show, id: @question_template
-    assert_response :success
+    assert_redirected_to edit_admin_question_template_path(assigns(:question_template))
   end
 
   test 'should get edit' do
@@ -45,7 +41,7 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
       question: new_question_text
     }
 
-    assert_redirected_to admin_question_template_path(assigns(:question_template))
+    assert_redirected_to edit_admin_question_template_path(assigns(:question_template))
   end
 
   test 'should destroy question_template' do
