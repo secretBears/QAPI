@@ -1,7 +1,7 @@
 class QuestionTemplate < ActiveRecord::Base
   has_many :questions
   has_many :question_placeholders
-  belongs_to  :query
+  belongs_to :query
 
   validates :question,  presence: true
   validates :query,  presence: true
@@ -9,5 +9,4 @@ class QuestionTemplate < ActiveRecord::Base
   def self.random(limit = 1)
     QuestionTemplate.order('random()').limit(limit)
   end
-
 end
