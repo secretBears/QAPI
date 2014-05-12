@@ -5,39 +5,34 @@ class QAPIGenerator
 
   def get
     templates = QuestionTemplate.random
-    # location  = @place.city # TODO: should also use country and state
-    questions = []
+    location  = @place.city # TODO: should also use country and state
 
-    templates.each do |template|
-      # query = template.query
-      #
-      # QuestionGenerator
-      #
-      #
-      #
-      #
-      #
-      # answer_g   = AnswerGenerator.new query: query
-      # answer_locations = Place.get_locations_without key: :city, place: location
-      #
-      # question = question_g.get location
-      #
-      # answers = []
-      # answer_locations.each do |answer_location|
-      #   answers.push(
-      #       answers: (answer_g.get answer_location)
-      #   )
-      # end
-      # questions.push(
-      #     question: question,
-      #     answers: answers
-      # )
+    templates.map do |template|
+      query = template.query
+
+      question  = QuestionGenerator.get query, template.question, location
+      right_answer = AnswerGenerator.get location, query
+
+      wrong_cities = Place.get_locations_without key: :city, place: location
+      wrong_cities = Place.as_array wrong_cities, :city
+
+      wrong_answers = AnswerGenerator.get wrong_cities, query
+
+      answers = AnswerGenerator.shuffle_answers right_answer, wrong_answers
+
+      format_question question, answers
     end
-    questions
   end
 
   private
   def get_question(generator, location)
     generator.get location
+  end
+
+  def format_question(question, answers)
+    {
+        question: question,
+        answers: answers
+    }
   end
 end

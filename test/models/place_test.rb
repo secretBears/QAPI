@@ -39,4 +39,15 @@ class PlaceTest < ActiveSupport::TestCase
     assert_equal String, state.class
     assert_equal String, country.class
   end
+
+  test "should get set" do
+    location  = Place.find(1)[:city]
+    locations = Place.get_locations_without key: :city, place: location
+    as_array = Place.as_array locations, :city
+
+    assert_equal Array, as_array.class
+    as_array.each do |item|
+      assert_equal String, item.class
+    end
+  end
 end

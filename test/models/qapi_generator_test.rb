@@ -4,10 +4,14 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
   test 'should get quetion' do
     place = Place.find 1
     generator = QAPIGenerator.new place[:latitude], place[:longitude]
-    question = generator.get
+    questions = generator.get
 
-    puts question.inspect
+    assert_not_nil questions
 
-    assert_not_nil question
+    questions.each do |question|
+      assert question.key? :question
+      assert question.key? :answers
+    end
+
   end
 end

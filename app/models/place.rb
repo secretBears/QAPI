@@ -28,7 +28,7 @@ class Place < ActiveRecord::Base
   # Place.get_locations_without key: :country, place: 'Salzburg'
   # gets 3 places which are not in the country salzburg
   # available keys are [:city, :state, :country]
-  def self.get_locations_without(except, limit = 3)
+  def self.get_locations_without(except,  limit = 3)
     fail ArgumentError, "#{except[:key]} is not a valid identifier for a place" unless location_keys.include? except[:key]
     places = limit(limit) # TODO: should be randomized
     places = places.where.not(except[:key] => except[:place])
@@ -39,4 +39,10 @@ class Place < ActiveRecord::Base
     [:city, :state, :country]
   end
 
+  def self.as_array(records, key)
+    fail ArgumentError, "#{key} is not a valid identifier for a place" unless location_keys.include? key
+    records.map do |record|
+      record[key]
+    end
+  end
 end
