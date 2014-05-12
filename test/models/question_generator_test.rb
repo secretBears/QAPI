@@ -44,4 +44,15 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
     assert_equal question.class, String
     assert_nil question.match(@question_generator.send :regex_placeholder)
   end
+
+  test "should get question from static method" do
+    query     = StaticHelperTest.generate_query
+    templates = QuestionTemplate.random
+    location  = Place.find(1)[:city]
+
+    templates.each do |template|
+      question = QuestionGenerator.get query, template[:question], location
+      assert_equal String, question.class
+    end
+  end
 end

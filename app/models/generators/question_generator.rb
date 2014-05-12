@@ -1,7 +1,7 @@
 class QuestionGenerator
   def initialize(arguments)
-    @query    = arguments[:query]           || (fail ArgumentError, "query is required")
-    @template = arguments[:template].freeze || (fail ArgumentError, "template is required")
+    @query    = arguments[:query]    || (fail ArgumentError, "query is required")
+    @template = arguments[:template] || (fail ArgumentError, "template is required")
   end
 
   def get(location)
@@ -11,6 +11,14 @@ class QuestionGenerator
     return question if question
 
     nil
+  end
+
+  def self.get(query, template, location)
+    generator = QuestionGenerator.new(
+        query: query,
+        template: template
+    )
+    generator.get location
   end
 
   private
