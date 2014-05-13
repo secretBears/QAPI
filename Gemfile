@@ -40,6 +40,8 @@ end
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
+gem 'better_errors', group: :development
+gem 'meta_request', group: :development
 
 gem 'therubyracer'
 gem 'geokit'
