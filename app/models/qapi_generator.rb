@@ -13,7 +13,7 @@ class QAPIGenerator
       question  = QuestionGenerator.get query, template.question, location
       right_answer = AnswerGenerator.get location, query
 
-      wrong_cities = Place.get_locations_without key: :city, place: location
+      wrong_cities = Place.get_without key: :city, place: location
       wrong_cities = Place.as_array wrong_cities, :city
 
       wrong_answers = AnswerGenerator.get wrong_cities, query

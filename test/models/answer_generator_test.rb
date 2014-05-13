@@ -22,7 +22,7 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
   end
 
   test "should get answers in combination with place_without methode" do
-    places = Place.get_locations_without key: :city, place: 'Salzburg'
+    places = Place.get_without key: :city, place: 'Salzburg'
     answers = []
     places.each do |place|
       name = place.to_name :city
@@ -33,7 +33,7 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
   test "should get answer from static method" do
     query     = StaticHelperTest.generate_query
     location  = Place.find(1)[:city]
-    locations = Place.get_locations_without key: :city, place: location
+    locations = Place.get_without key: :city, place: location
     locations = Place.as_array locations, :city
 
     answers = AnswerGenerator.get locations, query
