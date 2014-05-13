@@ -37,14 +37,15 @@ class Place < ActiveRecord::Base
     places
   end
 
-  def self.location_keys
-    [:city, :state, :country]
-  end
-
   def self.as_array(records, key)
     fail ArgumentError, "#{key} is not a valid identifier for a place" unless location_keys.include? key
     records.map do |record|
       record[key]
     end
+  end
+
+  private
+  def self.location_keys
+    [:city, :state, :country]
   end
 end
