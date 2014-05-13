@@ -18,9 +18,7 @@ class Query < ActiveRecord::Base
 
   private
   def parse_hash
-    if query_hash.acts_like_string?
-      self.query_hash = JSON.parse(self.query_hash)
-    end
+    self.query_hash = JSON.parse(self.query_hash)
   end
 
   def stringify_hash
