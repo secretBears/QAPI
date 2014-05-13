@@ -8,15 +8,15 @@ QAPI::Application.routes.draw do
   namespace :admin do
     get '/', to: 'question_templates#index'
 
-    # TODO: are all routes needed?
-    resources :question_templates
+    resources :question_templates, except: [:show, :edit]
+
+    get 'question_templates/:id', to: 'question_templates#edit'
   end
 
   scope 'api', format: 'json' do
     get '/',
         to: 'questions#random'
 
-    # TODO: are all routes needed?
     resources :questions, path: 'question', only: [:show]
 
     get '/:latitude/:longitude/(:count)',

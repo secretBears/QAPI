@@ -5,15 +5,15 @@ Place.geolocate_from_latlong  47.8094888, 13.0550007 # Salzburg
 Place.geolocate_from_latlong  48.208174, 16.373819   # Wien
 Place.geolocate_from_latlong  48.306940, 14.285830   # Linz
 
-query_hash = {
-    "type" => "/people/person",
-    "place_of_birth~=" => "Linz",
-    "limit" => 1,
-    "name" => nil,
-    "profession" => [{
-                         "name" => []
+query_hash = '{
+    "type": "/people/person",
+    "place_of_birth~=": "Linz",
+    "limit": 1,
+    "name": null,
+    "profession": [{
+                         "name": []
                      }]
-}
+}'
 
 location_property = "place_of_birth~="
 answer_property   = "profession"
