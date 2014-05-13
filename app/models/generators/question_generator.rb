@@ -1,19 +1,27 @@
-class QuestionGenerator < AbstractGenerator
+class QuestionGenerator
   def initialize(arguments)
-    super arguments
+    @query    = arguments[:query]    || (fail ArgumentError, "query is required")
+    @template = arguments[:template] || (fail ArgumentError, "template is required")
   end
 
-  def generate(query)
+  def get(location)
     placeholders = extract_placeholder
-    replace      = fire_query query
+    replace      = @query.get location
     question     = replace_placeholder placeholders, replace
     return question if question
 
     nil
   end
 
-  private
+  def self.get(query, template, location)
+    generator = QuestionGenerator.new(
+        query: query,
+        template: template
+    )
+    generator.get location
+  end
 
+  private
   def extract_placeholder
     @template.scan(regex_placeholder).flatten
   end

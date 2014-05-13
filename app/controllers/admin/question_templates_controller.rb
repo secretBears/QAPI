@@ -73,6 +73,6 @@ class Admin::QuestionTemplatesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_template_params
-      params[:question_template].permit(:question, :query)
+      params[:question_template].permit(:question, :query_id)
     end
 end

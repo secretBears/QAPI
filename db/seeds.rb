@@ -5,16 +5,38 @@ Place.geolocate_from_latlong  47.8094888, 13.0550007 # Salzburg
 Place.geolocate_from_latlong  48.208174, 16.373819   # Wien
 Place.geolocate_from_latlong  48.306940, 14.285830   # Linz
 
+query_hash = {
+    "type" => "/people/person",
+    "place_of_birth~=" => "Linz",
+    "limit" => 1,
+    "name" => nil,
+    "profession" => [{
+                         "name" => []
+                     }]
+}
+
+location_property = "place_of_birth~="
+answer_property   = "profession"
+
 (1..10).each do |i|
+  query = Query.create!(
+      query_hash: query_hash,
+      location_property: location_property,
+      answer_property: answer_property
+  )
+
   question_template_q = LoremIpsum.lorem_ipsum(words: 15).split(' ')
   idx = Random.rand(15)
-  question_template_q[idx] = '?1'
+  question_template_q[idx] = '?name'
   p = question_template_q.join(' ')
 
-  QuestionTemplate.create!(question: p, query: p)
+  QuestionTemplate.create!(
+      question: p,
+      query: query
+  )
 
   QuestionPlaceholder.create!(
-    key: '?1',
+    key: '?name',
     value: (LoremIpsum.lorem_ipsum words: 1),
     question_template_id: i
   )

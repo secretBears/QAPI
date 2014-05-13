@@ -19,11 +19,11 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
   end
 
   test 'should create question_template' do
+    query = Query.find 1
     assert_difference('QuestionTemplate.count') do
       post :create, question_template: {
         question: LoremIpsum.lorem_ipsum(words: 15),
-        query: LoremIpsum.lorem_ipsum(words: 15),
-        question_id: 2
+        query_id: query[:id]
       }
     end
 

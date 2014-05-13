@@ -13,6 +13,9 @@ QAPI::Application.routes.draw do
   end
 
   scope 'api', format: 'json' do
+    get '/',
+        to: 'questions#random'
+
     resources :questions, path: 'question', only: [:show]
     get '/:latitude/:longitude',
         to: 'questions#show_lat_long',

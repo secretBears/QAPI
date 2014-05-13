@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512155115) do
+ActiveRecord::Schema.define(version: 20140511153659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 20140512155115) do
     t.string   "country"
   end
 
+  create_table "queries", force: true do |t|
+    t.text "query_hash"
+    t.text "location_property"
+    t.text "answer_property"
+  end
+
   create_table "question_placeholders", force: true do |t|
     t.string   "key"
     t.string   "value"
@@ -46,7 +52,11 @@ ActiveRecord::Schema.define(version: 20140512155115) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "question"
+<<<<<<< HEAD
     t.string   "query"
+=======
+    t.integer  "query_id"
+>>>>>>> c7f37ed67f3d370f52c82f44a284e41d8dbfb948
   end
 
   create_table "questions", force: true do |t|

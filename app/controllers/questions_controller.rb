@@ -3,22 +3,13 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show]
 
   def show
+
   end
 
-  # GET /api/question
-  def show_random
-    @question = Question.random_question
+  # GET /api/
+  def random
+    @question = Question.random
     render 'show'
-  end
-
-  def show_lat_long
-    @question = Question.find_by_lat_long lat_long_params
-
-    if @question.nil?
-      render_error('no result')
-    else
-      render 'show'
-    end
   end
 
   private
