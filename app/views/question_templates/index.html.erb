@@ -14,7 +14,7 @@
   <tbody>
     <% @question_templates.each do |question_template| %>
       <tr>
-        <td><%= question_template.query %></td>
+        <td><%= question_template.sparql %></td>
         <td><%= question_template.question%></td>
         <td><%= link_to 'Show', question_template %></td>
         <td><%= link_to 'Edit', edit_question_template_path(question_template) %></td>

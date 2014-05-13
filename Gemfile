@@ -57,4 +57,7 @@ gem 'figaro'
 
 gem 'haml-rails'
 
+# Use foundation for admin interface styling
+gem 'foundation-rails'
+
 gem 'rails_12factor', group: :production

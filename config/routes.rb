@@ -2,6 +2,7 @@ QAPI::Application.routes.draw do
   lat_lng_validator = Regexp.new '-?[0-9\.]+'
 
   devise_for :users
+
   root 'static#index'
 
   namespace :admin do

@@ -18,7 +18,11 @@ class RoutesTest < ActionDispatch::IntegrationTest
     )
   end
 
-  test 'should get question' do
-
+  test 'should get edit of admin question template' do
+    assert_generates('/admin/question_templates/1/edit',
+                     controller: 'admin/question_templates',
+                     action: 'edit',
+                     id: '1'
+    )
   end
 end
