@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   def show_lat_long
     qg = QAPIGenerator.new(lat_long_params[:latitude], lat_long_params[:longitude])
     @question = qg.get
-    render 'show'
+    render json: @question
   end
 
   private
