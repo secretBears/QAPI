@@ -3,7 +3,7 @@ class QuestionTemplate < ActiveRecord::Base
   has_many :question_placeholders
   belongs_to :query
 
-  validates :question, :query,  presence: true
+  validates :question,  presence: true
 
   accepts_nested_attributes_for :query
 
