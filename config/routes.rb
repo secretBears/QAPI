@@ -19,7 +19,6 @@ QAPI::Application.routes.draw do
     # TODO: are all routes needed?
     resources :questions, path: 'question', only: [:show]
 
-
     get '/:latitude/:longitude/(:count)',
         to: 'questions#show_lat_long',
         constraints: {
