@@ -1,6 +1,6 @@
 class QAPIGenerator
   def initialize(lat, lng)
-    @place = Place.geolocate_from_latlong lat, lng
+    @place = Place.get lat, lng
   end
 
   def get
