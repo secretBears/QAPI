@@ -12,6 +12,12 @@ class QuestionsController < ApplicationController
     render 'show'
   end
 
+  def show_lat_long
+    qg = QAPIGenerator.new(lat_long_params[:latitude], lat_long_params[:longitude])
+    @question = qg.get
+    render 'show'
+  end
+
   private
   def set_question
     @question = Question.find(params[:id])
