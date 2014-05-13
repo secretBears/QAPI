@@ -52,11 +52,7 @@ ActiveRecord::Schema.define(version: 20140511153659) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "question"
-<<<<<<< HEAD
-    t.string   "query"
-=======
     t.integer  "query_id"
->>>>>>> c7f37ed67f3d370f52c82f44a284e41d8dbfb948
   end
 
   create_table "questions", force: true do |t|
