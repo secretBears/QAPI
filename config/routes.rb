@@ -20,15 +20,15 @@ QAPI::Application.routes.draw do
     get '/:latitude/:longitude',
         to: 'questions#show_lat_long',
         constraints: {
-            latitude: /[0-9\.]+/,
-            longitude: /[0-9\.]+/
+            latitude: /-?[0-9\.]+/,
+            longitude: /-?[0-9\.]+/
         }
 
     get '/:latitude/:longitude/:count',
         to: 'questions#show_lat_long',
         constraints: {
-            latitude: /[0-9\.]+/,
-            longitude: /[0-9\.]+/,
+            latitude: /-?[0-9\.]+/,
+            longitude: /-?[0-9\.]+/,
             count: /[0-9\.]+/
         }
   end
