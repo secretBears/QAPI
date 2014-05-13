@@ -18,6 +18,7 @@
         <fieldset class="row">
           <legend>Query Information</legend>
           <div class="field large-6 columns">
+            <% @question_template.query.query_hash = JSON.unparse(@question_template.query.query_hash) %>
             <%= query_fields.input :query_hash, as: :text, input_html: { rows: 6, id: 'query_hash'} , label: 'Query' %>
           </div>
           <div class="large-6 columns">
