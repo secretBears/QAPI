@@ -28,7 +28,7 @@ class RoutesTest < ActionDispatch::IntegrationTest
     @body['answers'].each do |answer|
       assert answer.length, 2
       assert answer.key? 'answer'
-      assert answer.key? 'is_true'
+      assert answer.key? 'isTrue'
     end
   end
 end
