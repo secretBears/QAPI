@@ -1,68 +1,63 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# backend related gems
 gem 'rails', '4.0.1'
 gem 'pg'
 
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'figaro' # environment variables
+gem 'devise' # authentications
+gem 'jbuilder', '~> 1.2'    # build json output
 
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+# api related gems
+gem 'geokit'  # geolocations from different sources
+gem 'freebase-api', :git => 'https://github.com/secretBears/freebase-api' # freebase api
+# gem 'freebase-api', group: [:development, :production] # original freebase api # original freebase gem
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
+# frontend related gems
+gem 'jquery-rails'           # jquery for rails
+gem 'sass-rails', '~> 4.0.0' # sass for rails
+gem 'haml-rails'             # haml layout
+gem 'foundation-rails'       # foundation for backend styling
+gem 'uglifier', '>= 1.3.0'   # uglifiing js and css
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'lorem_ipsum_amet', '~> 0.6.2' # dummy text generator
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+group :development, :test do
+  gem 'rubocop'
+  gem 'debugger'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :development do
+  gem 'better_errors'
+  gem 'meta_request'
+end
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+group :production do
+  gem 'rails_12factor'
+end
 
-# Use debugger
-gem 'debugger', group: [:development, :test]
-gem 'better_errors', group: :development
-gem 'meta_request', group: :development
-
+# TODO: check if these gems are needed
+gem 'turbolinks'
 gem 'therubyracer'
-gem 'geokit'
-
-gem 'rubocop'
-gem 'lorem_ipsum_amet', '~> 0.6.2'
-
-# Use devise to authenticate admins
-gem 'devise'
-
-gem 'freebase-api', :git => 'https://github.com/secretBears/freebase-api'
-# gem 'freebase-api', group: [:development, :production]
-
-gem 'figaro'
-
-gem 'haml-rails'
-
 gem 'simple_form'
 gem 'multi_json'
 
-# Use foundation for admin interface styling
-gem 'foundation-rails'
 
-gem 'rails_12factor', group: :production
+
+
+
+
+
+
+
+
+
+
+
+
