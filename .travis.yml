@@ -21,4 +21,4 @@ deploy:
   app: qapi
   on:
     repo: secretBears/QAPI
-    branch: master
+
