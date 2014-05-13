@@ -15,6 +15,7 @@ class Admin::QuestionTemplatesController < Admin::ApplicationController
   # GET /question_templates/new
   def new
     @question_template = QuestionTemplate.new
+    @question_template.build_query
   end
 
   # GET /question_templates/1/edit
@@ -73,6 +74,7 @@ class Admin::QuestionTemplatesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_template_params
-      params[:question_template].permit(:question, :query_id)
+      params[:question_template].permit(:question, :query_attributes => [:id, :query_hash, :answer_property,
+                                                                         :location_property])
     end
 end

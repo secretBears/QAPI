@@ -1,4 +1,4 @@
-<%= form_for(question_template, url: url) do |f| %>
+<%= simple_form_for(question_template, url: url) do |f| %>
   <% if @question_template.errors.any? %>
     <div id='error_explanation'>
       <h2><%= pluralize(@question_template.errors.count, 'error') %> prohibited this question_template from being saved:</h2>
@@ -11,17 +11,85 @@
     </div>
   <% end %>
 
-  <div class='field template'>
-    <%= f.label :question %><br>
-    <%= f.text_area :question, rows: 5 %>
+  <div class='field template' id="question">
+    <%= f.input :question, as: :text, input_html: {rows: 5}, autofocus: true, label: 'Question' %>
   </div>
-
-  <div class='field template'>
-    <%= f.label :query %><br>
-    <%= f.text_area :query, rows: 5 %>
-  </div>
-
+  <%= f.simple_fields_for :query, question_template.query do |query_fields| %>
+        <fieldset class="row">
+          <legend>Query Information</legend>
+          <div class="field large-6 columns">
+            <%= query_fields.input :query_hash, as: :text, input_html: { rows: 6, id: 'query_hash'} , label: 'Query' %>
+          </div>
+          <div class="large-6 columns">
+            <div class="field template">
+              <%= query_fields.input :location_property, as: :string, input_html: {id: 'location_property'},
+                                     label: 'Location' %>
+            </div>
+            <div class="field template">
+              <%= query_fields.input :answer_property, as: :string, input_html: {id: 'answer_property'},
+                  label: 'Answer' %>
+            </div>
+          </div>
+        </fieldset>
+  <% end %>
   <div class='actions'>
     <%= f.submit 'Save', class: 'button small success' %>
   </div>
+<% end %>
+
+<script>
+    var t = '', activeProperty;
+    var locationProp = document.getElementById('location_property'),
+            answerProp = document.getElementById('answer_property');
+
+    function gText(e) {
+        t = (document.all) ? document.selection.createRange().text : document.getSelection();
+
+        activeProperty.value = t;
+    }
+
+    function setActiveProperty(input) {
+        $(activeProperty).removeClass('activeProperty')
+        activeProperty = input;
+        $(activeProperty).addClass('activeProperty')
+    }
+
+    locationProp.onfocus = function() {
+        setActiveProperty(locationProp);
+    }
+
+    answerProp.onfocus = function() {
+        setActiveProperty(answerProp);
+    }
+
+    document.getElementById('query_hash').onmouseup = gText;
+    if (!document.all) document.captureEvents(Event.MOUSEUP);
+</script>
+
+
+<ol id="joyRideTipContent" class="joyride-list" data-joyride>
+  <li data-id="question" data-text="Next" data-options="tip_location: top">
+    <p>Type your question into this field. Mark placeholders with <code>?</code></p>
+  </li>
+  <li data-id="query_hash" data-class="custom so-awesome" data-text="Next">
+    <h4>Stop #1</h4>
+    <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
+  </li>
+  <li data-id="location_property" data-button="Next" data-options="tip_location:top;tip_animation:fade">
+    <h4>Location property</h4>
+    <p>Select a property from the query field that will be used as location property.<br>You can just click the input
+      and then select some text in the query field.</p>
+  </li>
+  <li data-id="answer_property" data-button="Fine, let's go!">
+    <h4>Answer property</h4>
+    <p>Define the property used for answers here. Works just like location.</p>
+  </li>
+</ol>
+
+<%= content_for :after_scripts do %>
+    <script>
+       $(document).ready(function() {
+           $(document).foundation('joyride', 'start')
+       })
+    </script>
 <% end %>

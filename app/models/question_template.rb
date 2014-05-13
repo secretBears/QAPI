@@ -5,6 +5,8 @@ class QuestionTemplate < ActiveRecord::Base
 
   validates :question, :query,  presence: true
 
+  accepts_nested_attributes_for :query
+
   def self.random(limit = 1)
     QuestionTemplate.order('random()').limit(limit)
   end

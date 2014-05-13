@@ -57,6 +57,9 @@ gem 'figaro'
 
 gem 'haml-rails'
 
+gem 'simple_form'
+gem 'multi_json'
+
 # Use foundation for admin interface styling
 gem 'foundation-rails'
 
