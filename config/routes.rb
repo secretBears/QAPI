@@ -15,15 +15,11 @@ QAPI::Application.routes.draw do
     get '/',
         to: 'questions#random'
 
+    # TODO: are all routes needed?
     resources :questions, path: 'question', only: [:show]
-    get '/:latitude/:longitude',
-        to: 'questions#show_lat_long',
-        constraints: {
-            latitude: lat_lng_validator,
-            longitude: lat_lng_validator
-        }
 
-    get '/:latitude/:longitude/:count',
+
+    get '/:latitude/:longitude/(:count)',
         to: 'questions#show_lat_long',
         constraints: {
             latitude: lat_lng_validator,
