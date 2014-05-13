@@ -4,7 +4,7 @@ class Query < ActiveRecord::Base
   serialize :query_hash, Hash
 
   before_save :parse_hash
-  #after_find :stringify_hash
+  # after_find :stringify_hash
 
   def get(location)
     query = self[:query_hash].clone
@@ -18,11 +18,11 @@ class Query < ActiveRecord::Base
 
   private
   def parse_hash
-    self.query_hash = JSON.parse(self.query_hash)
+    self.query_hash = JSON.parse(query_hash)
   end
 
   def stringify_hash
-    self.query_hash = JSON.unparse(self.query_hash)
+    self.query_hash = JSON.unparse(query_hash)
   end
 
   def fire_query(query)
