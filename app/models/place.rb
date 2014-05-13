@@ -12,6 +12,8 @@ class Place < ActiveRecord::Base
   end
 
   def self.geolocate_from_latlong(lat, lang)
+    lat = lat.to_f
+    lang = lang.to_f
     locations = GoogleGeocoder.reverse_geocode "#{lat}, #{lang}"
     fail Exceptions::PlaceNotFound, "City Name with Coordinates lat=#{lat} long=#{lang} not found" if locations.city.nil?
 
