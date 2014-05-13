@@ -7,6 +7,7 @@ QAPI::Application.routes.draw do
   namespace :admin do
     get '/', to: 'question_templates#index'
 
+    # TODO: are all routes needed?
     resources :question_templates
   end
 
