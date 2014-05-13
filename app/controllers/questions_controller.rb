@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
 
   # GET /api/
   def random
-    @question = Question.random
+    @question = QAPIGenerator.random
     render 'show'
   end
 
