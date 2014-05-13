@@ -24,6 +24,11 @@ class QAPIGenerator
     end
   end
 
+  def self.get(lat, lng)
+    generator = QAPIGenerator.new lat, lng
+    generator.get
+  end
+
   private
   def get_question(generator, location)
     generator.get location

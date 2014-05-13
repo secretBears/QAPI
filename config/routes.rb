@@ -1,7 +1,7 @@
 QAPI::Application.routes.draw do
+  lat_lng_validator = Regexp.new '-?[0-9\.]+'
 
   devise_for :users
-
   root 'static#index'
 
   namespace :admin do
@@ -18,20 +18,18 @@ QAPI::Application.routes.draw do
     get '/:latitude/:longitude',
         to: 'questions#show_lat_long',
         constraints: {
-            latitude: /[0-9\.]+/,
-            longitude: /[0-9\.]+/
+            latitude: lat_lng_validator,
+            longitude: lat_lng_validator
         }
 
     get '/:latitude/:longitude/:count',
         to: 'questions#show_lat_long',
         constraints: {
-            latitude: /[0-9\.]+/,
-            longitude: /[0-9\.]+/,
+            latitude: lat_lng_validator,
+            longitude: lat_lng_validator,
             count: /[0-9\.]+/
         }
   end
-
-  get 'places/:latitude/:longitude', to: 'places#geocode', constraints: {latitude: /[0-9\.]+/, longitude: /[0-9\.]+/}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

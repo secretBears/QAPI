@@ -17,4 +17,8 @@ class RoutesTest < ActionDispatch::IntegrationTest
                      action: 'index'
     )
   end
+
+  test 'should get question' do
+
+  end
 end
