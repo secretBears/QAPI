@@ -3,8 +3,7 @@ class QuestionTemplate < ActiveRecord::Base
   has_many :question_placeholders
   belongs_to :query
 
-  validates :question,  presence: true
-  validates :query,  presence: true
+  validates :question, :query,  presence: true
 
   def self.random(limit = 1)
     QuestionTemplate.order('random()').limit(limit)
