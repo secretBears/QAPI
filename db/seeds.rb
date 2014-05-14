@@ -52,3 +52,4 @@ end
 end
 
 User.create!(email: 'test@email.tld', password: '12345678')
+Admin.create!(email: 'test@email.tld', password: '12345678')
