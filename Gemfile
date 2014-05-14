@@ -32,15 +32,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :test do
-  gem 'capybara'
-end
 
 group :development, :test do
   gem 'rubocop'
   gem 'debugger'
   gem 'heroku'
   gem 'travis'
+  gem 'rest-client', '~> 1.6.7'
 end
 
 group :development do
