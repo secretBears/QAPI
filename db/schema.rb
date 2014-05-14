@@ -83,8 +83,6 @@ ActiveRecord::Schema.define(version: 20140514123044) do
     t.integer  "query_id"
   end
 
-  add_index "question_templates", ["query_id"], name: "index_question_templates_on_query_id", using: :btree
-
   create_table "questions", force: true do |t|
     t.text     "question"
     t.datetime "created_at"
