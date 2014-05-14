@@ -6,21 +6,21 @@ class PlaceTest < ActiveSupport::TestCase
   end
 
   test "should get locations except city" do
-    places = Place.get_locations_without key: :city, place: @location[:city]
+    places = Place.get_without key: :city, place: @location[:city]
     places.each do |place|
       assert_not_equal @location[:city], place[:city]
     end
   end
 
   test "should get locations except country" do
-    places = Place.get_locations_without key: :country, place: @location[:country]
+    places = Place.get_without key: :country, place: @location[:country]
     places.each do |place|
       assert_not_equal @location[:country], place[:country]
     end
   end
 
   test "should get locations except state" do
-    places = Place.get_locations_without key: :state, place: @location[:state]
+    places = Place.get_without key: :state, place: @location[:state]
     places.each do |place|
       assert_not_equal @location[:state], place[:state]
     end
@@ -42,7 +42,7 @@ class PlaceTest < ActiveSupport::TestCase
 
   test "should get set" do
     location  = Place.find(1)[:city]
-    locations = Place.get_locations_without key: :city, place: location
+    locations = Place.get_without key: :city, place: location
     as_array = Place.as_array locations, :city
 
     assert_equal Array, as_array.class

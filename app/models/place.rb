@@ -11,11 +11,11 @@ class Place < ActiveRecord::Base
     self[key].to_s
   end
 
-  def self.geolocate_from_latlong(lat, lang)
+  def self.get(lat, lng)
     lat = lat.to_f
-    lang = lang.to_f
-    locations = GoogleGeocoder.reverse_geocode "#{lat}, #{lang}"
-    fail Exceptions::PlaceNotFound, "City Name with Coordinates lat=#{lat} long=#{lang} not found" if locations.city.nil?
+    lng = lng.to_f
+    locations = GoogleGeocoder.reverse_geocode "#{lat}, #{lng}"
+    fail Exceptions::PlaceNotFound, "City Name with Coordinates lat=#{lat} lng=#{lng} not found" if locations.city.nil?
 
     return Place.find_or_create_by!(
         city:      locations.city,
@@ -27,18 +27,14 @@ class Place < ActiveRecord::Base
   end
 
   # usage:
-  # Place.get_locations_without key: :country, place: 'Salzburg'
+  # Place.get_without key: :country, place: 'Salzburg'
   # gets 3 places which are not in the country salzburg
   # available keys are [:city, :state, :country]
-  def self.get_locations_without(except,  limit = 3)
+  def self.get_without(except,  limit = 3)
     fail ArgumentError, "#{except[:key]} is not a valid identifier for a place" unless location_keys.include? except[:key]
     places = limit(limit) # TODO: should be randomized
     places = places.where.not(except[:key] => except[:place])
     places
-  end
-
-  def self.location_keys
-    [:city, :state, :country]
   end
 
   def self.as_array(records, key)
@@ -46,5 +42,10 @@ class Place < ActiveRecord::Base
     records.map do |record|
       record[key]
     end
+  end
+
+  private
+  def self.location_keys
+    [:city, :state, :country]
   end
 end

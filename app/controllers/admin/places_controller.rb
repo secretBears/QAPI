@@ -62,7 +62,7 @@ class Admin::PlacesController < Admin::AdminController
   end
 
   def geocode
-    @location = Place.geolocate_from_latlong place_params[:latitude], place_params[:longitude] if lat_long_present?
+    @location = Place.get place_params[:latitude], place_params[:longitude] if lat_long_present?
     fail Exceptions::PlaceNotFound if @location.nil?
   end
 
