@@ -1,4 +1,3 @@
-require 'QAPI/exceptions'
 include ActionController::HttpAuthentication::Token::ControllerMethods
 include ActionController::MimeResponds
 
