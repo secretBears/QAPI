@@ -10,10 +10,10 @@ before_script:
 script: bundle exec rake
 env:
   global:
-  - secure: KDVcW3ru0S0q1eOOT2AgNcdfcbt6fGiuIyh8Gl2PJOd5wbnfgAnKMxfjety4+YssJ5Dlk0y9ZMpKF80m0oxeM6e6rVws0jmA6oM7tApMnS5XNs2P40MsqplNWkGfhRsmmXmwTX7BTB305ur1Urr16yXOkt4FrDMYH1cjdj53muI=
-  - secure: Gtb4SMnIeVCRzE7Bg14IVfTElrkTcLZjooi0DvN8oREbxfaSl3WLm7/F9V2hwPfw2FN8O1UPSY0NIap5YnE3QNPb6YKnME0EXn4KMxD0u8L629l94XFYlL8wJTZTV65qtAkXm3aLc//Pu4PfsSP504NkcFQH59fzYo9ALhFYRLs=
-  - secure: hWOtjyQGwxFmSdMfpr5/Nz2aT683F/23c12IAHuNxYF17ydDX2HsuxOvidMwIW92p0wxrg6UXiBmRrc2ZM1ycUk0WxF7HTOHX3DwkXuPPb8RttGYHnsNOd1U41npNoNT6MveMWXGUscNKl3w52NzvAHK5NmhyD9nl+D0iHW9fOM=
-  - secure: EC/VMK6kyh+YuyE6CleRYkOFfT/tF5yvJ3RKwi1ldV2cr214i9BDhlbzg/6v6EvuiO6jabIUSqBU4xEphSJyJA8t3ZZZbKg0uFXxghmXalxaL834nGdEI+Su+B+G6iH+OLHvP3z8uvVhoMMhajF5ntmGuiWTZcJRhbCV8imawgU=
+  - secure: OqKd3CMsK6MhCsccWqUehDJxE8y0LAPWQyzu/F523HDAYYG7wVAtwwkfsL71f6M3YmZtZhJswg0zFYaWh2SQMPnqRDLChIj+kavqxpKiHE9q88ZJsTuy09qu7QLJP/icBPzUbas3JOBQ9nOQwix0+ohFrzKxVUSmRKn+bdRSQao=
+  - secure: pdwcjrOCpxHRuCi1itx1GtIY8RjmZxr3ZErTg1sii95lxFsYmwoGh01R6ROvHT0f5lbyKVFbbVMx8HgVAj+FQ4CRYSywPVb/kCLYEPy6CieyJb656sw6OzwBzvpXoiFV9ISKBJT7Me/B2saoC74obldwPlzUsi0VEe8VSTafzr4=
+  - secure: gk0t5uskt+Sydg+BqAlmgOVs0WzoNFT/ohKZBsWXjgjrl3acEz4PlSYoYpbEr3h6JHqk0r4Rp4lHGLD+ZcG/WFF3FOXkhaAEdpmCs1FMY4eLtaIKhoriRrsye5vnoKVhkDkBLrzP/9GMOy23ctN7Y+exEPpBAthhWU4fZCjes4s=
+  - secure: mM7aUMV4R5YXjM07gCDsvXX6WFRbHmk7Gz4P88ayPtwHKaBIoRfi3yQwg5DkPKg1tnCIBgHICpUNTKWrk8ShvSyUhpBHsz1N5HBXsXUN1v66vuGs5APY+SjHK5EIH2xvKNfIZdbSHD3SXYSI9S85TkUZ7N1h4gzCVKDWwsTQaZg=
 deploy:
   provider: heroku
   api_key:
@@ -21,4 +21,3 @@ deploy:
   app: qapi
   on:
     repo: secretBears/QAPI
-
