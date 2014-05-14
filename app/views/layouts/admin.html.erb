@@ -24,7 +24,7 @@
 
       <section id="content" class="large-10 columns">
         <header class="row">
-          <h1 id="page-title" class="large-10 columns"><%= yield :page_title %></h1>
+          <h1 id="page-title" class="large-8 columns"><%= yield :page_title %></h1>
 
           <nav class="large-2 columns">
             <a href="#" data-dropdown="drop1" class="button expand dropdown">Settings</a><br>
@@ -33,6 +33,10 @@
               <li><a href="#">This is another</a></li>
               <li><a href="#">Yet another</a></li>
             </ul>
+          </nav>
+
+          <nav class="large-2 columns">
+            <%= button_to "Logout", destroy_user_session_path, class: "button expand alert", method: :delete %>
           </nav>
         </header>
 
