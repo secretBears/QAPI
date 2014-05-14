@@ -12,8 +12,26 @@
   </head>
 
   <body>
+      <div class="fullWidth">
+        <aside class="large-2 columns">
+          <header>
+            <h1>QAPI</h1>
+            <h2>by secretBears</h2>
+          </header>
+        </aside>
 
-    <%= yield %>
+        <section id="content" class="large-10 columns">
+            <% if current_user %>
+              <header class="row">
+                <%= render partial: "controls" %>
+              </header>
+            <% else %>
+              <%= link_to "Get your free key", new_user_registration_path, class: "button" %>
+              <%= link_to "Have an account? Log in", new_user_session_path, class: "button" %>
+            <% end %>
+          <%= yield %>
+        </section>
+      </div>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>
