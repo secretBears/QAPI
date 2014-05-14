@@ -1,4 +1,4 @@
-class Admin::QuestionTemplatesController < Admin::ApplicationController
+class Admin::QuestionTemplatesController < Admin::AdminController
   before_action :set_question_template, only: [:show, :edit, :update, :destroy]
 
   # GET /question_templates
