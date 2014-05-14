@@ -6,9 +6,14 @@ class QuestionsController < ApplicationController
 
   end
 
+  def show_lat_lng
+    @question = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
+    render 'show'
+  end
+
   # GET /api/
   def random
-    @question = Question.random
+    @question = QAPIGenerator.random
     render 'show'
   end
 

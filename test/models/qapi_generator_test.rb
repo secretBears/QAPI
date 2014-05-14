@@ -12,6 +12,5 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
       assert question.key? :question
       assert question.key? :answers
     end
-
   end
 end

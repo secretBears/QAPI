@@ -11,13 +11,8 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
     end
   end
 
-  test "should create query" do
-    assert_equal Query, @query.class
-  end
-
   test "should get query" do
     query    = @query.get 'Salzburg'
-    assert query.key? 'answer'
     assert_equal Hash, query.class
   end
 

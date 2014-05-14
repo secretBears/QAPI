@@ -35,5 +35,4 @@ class AnswerGenerator
       }
     end
   end
-
 end

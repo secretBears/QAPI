@@ -22,6 +22,8 @@
 
 /assets
 
+/public/assets
+
 .DS_STORE
 
 # Ignore application configuration
