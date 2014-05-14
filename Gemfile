@@ -8,8 +8,7 @@ gem 'figaro' # environment variables
 gem 'devise' # authentications
 gem 'jbuilder', '~> 1.2'    # build json output
 
-gem 'heroku'
-gem 'travis'
+
 
 
 # api related gems
@@ -34,6 +33,8 @@ end
 group :development, :test do
   gem 'rubocop'
   gem 'debugger'
+  gem 'heroku'
+  gem 'travis'
 end
 
 group :development do
