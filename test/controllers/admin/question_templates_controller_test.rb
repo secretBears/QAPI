@@ -3,8 +3,8 @@ require 'test_helper'
 class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
   setup do
     @question_template = QuestionTemplate.find(1)
-    @user = User.find(1)
-    sign_in @user
+    @admin = Admin.first
+    sign_in @admin
   end
 
   test 'should get index' do
