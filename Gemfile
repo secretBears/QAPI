@@ -1,5 +1,5 @@
-
 source 'https://rubygems.org'
+ruby '2.1.1'
 
 # backend related gems
 gem 'rails', '4.0.1'
@@ -9,7 +9,6 @@ gem 'figaro' # environment variables
 gem 'devise' # authentications
 gem 'jbuilder', '~> 1.2'    # build json output
 gem 'jsonpath', '~> 0.5.6'  # xpath for json
-
 
 
 
@@ -31,6 +30,10 @@ gem 'lorem_ipsum_amet', '~> 0.6.2' # dummy text generator
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :test do
+  gem 'capybara'
 end
 
 group :development, :test do
