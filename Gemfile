@@ -8,6 +8,7 @@ gem 'pg'
 gem 'figaro' # environment variables
 gem 'devise' # authentications
 gem 'jbuilder', '~> 1.2'    # build json output
+gem 'jsonpath', '~> 0.5.6'  # xpath for json
 
 
 
@@ -23,6 +24,7 @@ gem 'sass-rails', '~> 4.0.0' # sass for rails
 gem 'haml-rails'             # haml layout
 gem 'foundation-rails'       # foundation for backend styling
 gem 'uglifier', '>= 1.3.0'   # uglifiing js and css
+
 
 gem 'lorem_ipsum_amet', '~> 0.6.2' # dummy text generator
 

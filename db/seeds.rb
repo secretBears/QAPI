@@ -51,5 +51,5 @@ end
   end
 end
 
-User.create!(email: 'test@email.tld', password: '12345678')
-Admin.create!(email: 'test@email.tld', password: '12345678')
+User.create!(email: 'user@email.tld', password: '12345678')
+Admin.create!(email: 'admin@email.tld', password: '12345678')
