@@ -8,6 +8,9 @@ gem 'figaro' # environment variables
 gem 'devise' # authentications
 gem 'jbuilder', '~> 1.2'    # build json output
 
+gem 'heroku'
+gem 'travis'
+
 
 # api related gems
 gem 'geokit'  # geolocations from different sources
