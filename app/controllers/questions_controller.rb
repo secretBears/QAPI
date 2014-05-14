@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   respond_to :json
   before_action :set_question, only: [:show]
+  before_filter :restrict_access
 
   def show
 

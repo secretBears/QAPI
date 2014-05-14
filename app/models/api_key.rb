@@ -4,7 +4,6 @@ class ApiKey < ActiveRecord::Base
   validates :user, presence: true, uniqueness: true
 
   before_create :generate_token
-  before_create :remove_duplicates
 
   private
   def generate_token
