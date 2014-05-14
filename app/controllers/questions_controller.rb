@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   respond_to :json
   before_action :set_question, only: [:show]
+  before_action :restrict_access
+  before_action :increment_requests
 
   def show
 
@@ -32,5 +34,10 @@ class QuestionsController < ApplicationController
     params.require :latitude
     params.require :longitude
     params.permit :latitude, :longitude
+  end
+
+  def increment_requests
+    @current_user.api_key.requests += 1
+    @current_user.api_key.save
   end
 end
