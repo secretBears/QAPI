@@ -23,7 +23,7 @@ module QAPI
     config.force_ssl = false
 
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**/}')]
-    config.autoload_paths += Dir[Rails.root.join('lib', '{**/}')]
+    config.autoload_paths += Dir[Rails.root.join('lib', 'custom_*', '{**/}')]
 
     config.action_dispatch.default_headers = {
         'Access-Control-Allow-Origin' => '*',
