@@ -18,7 +18,7 @@ query_hash = <<-HERE_DOC
 HERE_DOC
 
 location_property = "place_of_birth~="
-answer_property   = "profession"
+answer_property   = "$.profession[*].name"
 
 (1..10).each do |i|
   query = Query.create!(

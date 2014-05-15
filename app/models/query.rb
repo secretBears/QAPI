@@ -7,10 +7,13 @@ class Query < ActiveRecord::Base
   def get(location)
     query = self[:query_hash].clone
 
-    query[self[:location_property]] = location
+    query = Misc.replace_in_json query, self[:location_property], location
     result = fire_query query
 
-    result['answer'] = result[self[:answer_property]]
+    answer = Misc.find_in_json result, self[:answer_property]
+    answer = answer.join ', '
+    result['answer'] = answer
+
     result.delete(self[:answer_property])
     result
   end
