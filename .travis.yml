@@ -5,6 +5,7 @@ addons:
 rvm:
 - 2.1.1
 before_script:
+- bundle install
 - cp config/database.yml.travis config/database.yml
 - bundle exec rake db:setup
 - bundle exec rake travis:setup
