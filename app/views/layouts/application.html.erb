@@ -21,14 +21,21 @@
         </aside>
 
         <section id="content" class="large-10 columns">
+          <header class="row">
             <% if current_user %>
-              <header class="row">
-                <%= render partial: "controls" %>
-              </header>
+              <%= render partial: "controls" %>
             <% else %>
-              <%= link_to "Get your free key", new_user_registration_path, class: "button" %>
-              <%= link_to "Have an account? Log in", new_user_session_path, class: "button" %>
+                <ul class="button-group">
+                  <li>
+                    <a href="http://github.com/secretBears/QAPI" class="button">View on GitHub</a>
+                  </li>
+                  <li>
+                    <a href="http://github.com/secretBears/QAPI" class="button">Info</a>
+                  </li>
+                </ul>
             <% end %>
+          </header>
+
           <%= yield %>
         </section>
       </div>

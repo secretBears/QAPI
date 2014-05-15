@@ -17,6 +17,9 @@
   <%= f.simple_fields_for :query, question_template.query do |query_fields| %>
         <fieldset class="row">
           <legend>Query Information</legend>
+          <div id="jsoneditor">
+            
+          </div>
           <div class="field large-6 columns">
             <% @question_template.query.query_hash = JSON.unparse(@question_template.query.query_hash) %>
             <%= query_fields.input :query_hash, as: :text, input_html: { rows: 6, id: 'query_hash'} , label: 'Query' %>
@@ -65,6 +68,10 @@
 
     document.getElementById('query_hash').onmouseup = gText;
     if (!document.all) document.captureEvents(Event.MOUSEUP);
+
+    var container = document.getElementById("jsoneditor");
+    var editor = new jsoneditor.JSONEditor(container);
+
 </script>
 
 
