@@ -38,10 +38,14 @@
           <div class="large-6 columns">
             <div class="field template">
               <%= query_fields.input :answer_property, as: :string, input_html: {id: 'answer_property'},
-                  label: 'Answer' %>
+                                     label: 'Answer' %>
             </div>
           </div>
         </fieldset>
+ <!-- output for test-->
+        <div class="row">
+          <textarea id="test-output" contenteditable="false"></textarea>
+        </div>
   <% end %>
   <div class='actions'>
     <%= f.submit 'Save', class: 'button small success' %>

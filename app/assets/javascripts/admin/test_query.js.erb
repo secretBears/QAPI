@@ -1,12 +1,13 @@
 
 $(document).ready(function() {
     window.QAPI = window.QAPI || {};
-    var TestQuery = function(buttonSelector, editorSelector, placeSelector, answerSelector, templateSelector) {
+    var TestQuery = function(buttonSelector, editorSelector, placeSelector, answerSelector, templateSelector, outputSelector) {
         this.$button   = $(buttonSelector);
         this.$editor   = $(editorSelector);
         this.$place    = $(placeSelector);
         this.$answer   = $(answerSelector);
         this.$template = $(templateSelector);
+        this.$output   = $(outputSelector);
 
 
         this.editor = window.QAPI.editor;
@@ -26,7 +27,7 @@ $(document).ready(function() {
             var placeProperty  = encodeURIComponent(this.$place.val());
             var answerProperty = encodeURIComponent(this.$answer.val());
             var templateProperty = encodeURIComponent(this.$template.val());
-            var token = '<%= ApiKey.find(1)[:token] %>'
+            var token = '<%= ApiKey.find(1)[:token] %>' // TODO: find current user
 
             var url = "/api/test/1" +
                       "?location_property=" + placeProperty +
@@ -36,11 +37,17 @@ $(document).ready(function() {
                       "&mql=" + mqlString;
 
             $.ajax(url).done(function(data){
-                console.log(data);
-            });
+                this.$output.html(JSON.stringify(data, null, 4));
+            }.bind(this));
         }
     };
 
-
-    var element = new TestQuery("#test-query", "#query_hash", "#location_property", "#answer_property", "#question_template_question");
+    var element = new TestQuery(
+            "#test-query",
+            "#query_hash",
+            "#location_property",
+            "#answer_property",
+            "#question_template_question",
+            "#test-output"
+    );
 });
