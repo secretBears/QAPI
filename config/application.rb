@@ -22,6 +22,8 @@ module QAPI
     config.i18n.enforce_available_locales = false
     config.force_ssl = false
 
+    config.assets.enabled = true
+
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**/}')]
     config.autoload_paths += Dir[Rails.root.join('lib', 'custom_*', '{**/}')]
 
