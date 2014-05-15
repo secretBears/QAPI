@@ -8,6 +8,7 @@ $(document).ready(function() {
         this.$answer   = $(answerSelector);
         this.$template = $(templateSelector);
 
+
         this.editor = window.QAPI.editor;
 
         this.$button.on('click', function(evt) {
@@ -27,14 +28,16 @@ $(document).ready(function() {
             var templateProperty = encodeURIComponent(this.$template.val());
             var token = '<%= ApiKey.find(1)[:token] %>'
 
-            var url = "api/test/1" +
+            var url = "/api/test/1" +
                       "?location_property=" + placeProperty +
                       "&answer_property=" + answerProperty +
                       "&template_property=" + templateProperty +
                       "&token="+ token +
                       "&mql=" + mqlString;
 
-            console.log(url);
+            $.ajax(url).done(function(data){
+                console.log(data);
+            });
         }
     };
 

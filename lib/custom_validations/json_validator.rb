@@ -3,6 +3,5 @@ class JsonValidator < ActiveModel::EachValidator
     !!JSON.parse(value)
     rescue
       false
-
   end
 end

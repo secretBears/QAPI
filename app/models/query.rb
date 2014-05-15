@@ -8,11 +8,13 @@ class Query < ActiveRecord::Base
     query = self[:query_hash].clone
     query = JSON.parse(query) unless query.class == Hash
 
-    query[self[:location_property]] = location
-
+    query = Misc.replace_in_json query, self[:location_property], location
     result = fire_query query
 
-    result['answer'] = result[self[:answer_property]]
+    answer = Misc.find_in_json result, self[:answer_property]
+    answer = answer.join ', '
+    result['answer'] = answer
+
     result.delete(self[:answer_property])
     result
   end
@@ -23,7 +25,6 @@ class Query < ActiveRecord::Base
   end
 
   def fire_query(query)
-    query = JSON.parse query unless query.class == Hash
     result = FreebaseAPI.session.mqlread query
     fail Exceptions::QueryNotFound, 'No Results for query' + query.to_s if result.nil?
     result

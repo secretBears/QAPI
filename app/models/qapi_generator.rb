@@ -37,8 +37,6 @@ class QAPIGenerator
     )
     query.save!
 
-
-
     template = QuestionTemplate.create(
       question: params['template_property'],
       query: query
@@ -48,7 +46,13 @@ class QAPIGenerator
     place = Place.find params['place_id']
     generator = QAPIGenerator.new place[:latitude], place[:longitude]
 
-    puts generator.get([template]) # dirty hack
+    # TODO: dirty hack to put template in brackets so it is enumurable
+    result = generator.get([template])
+
+    # TODO: find a way that we don't have to store the dummy records in the database
+    query.destroy!
+    template.destroy!
+    result
   end
 
   private

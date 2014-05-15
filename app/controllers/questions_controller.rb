@@ -25,11 +25,10 @@ class QuestionsController < ApplicationController
     render json: @question
   end
 
+  # get /api/test/:location_id/?:location_property&
   def test_query
     params_decoded = Misc.decode_params test_query_params
-
-    QAPIGenerator.get_test params_decoded
-
+    @question = QAPIGenerator.get_test params_decoded
     render json: @question
   end
 
