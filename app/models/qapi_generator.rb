@@ -3,8 +3,8 @@ class QAPIGenerator
     @place = Place.get lat, lng
   end
 
-  def get
-    templates = QuestionTemplate.random
+  def get(templates = nil)
+    templates = QuestionTemplate.random if templates.nil?
     location  = @place.city # TODO: should also use country and state
 
     templates.map do |template|
@@ -27,6 +27,28 @@ class QAPIGenerator
   def self.get(lat, lng)
     generator = QAPIGenerator.new lat, lng
     generator.get
+  end
+
+  def self.get_test(params)
+    query = Query.create(
+      query_hash: params['mql'],
+      answer_property: params['answer_property'],
+      location_property: params['location_property']
+    )
+    query.save!
+
+
+
+    template = QuestionTemplate.create(
+      question: params['template_property'],
+      query: query
+    )
+    template.save!
+
+    place = Place.find params['place_id']
+    generator = QAPIGenerator.new place[:latitude], place[:longitude]
+
+    puts generator.get([template]) # dirty hack
   end
 
   private

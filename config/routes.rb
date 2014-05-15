@@ -27,6 +27,9 @@ QAPI::Application.routes.draw do
             longitude: lat_lng_validator,
             count: /[0-9\.]+/
         }
+
+    get 'test/:place_id',
+        to: 'questions#test_query'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

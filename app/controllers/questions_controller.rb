@@ -25,6 +25,14 @@ class QuestionsController < ApplicationController
     render json: @question
   end
 
+  def test_query
+    params_decoded = Misc.decode_params test_query_params
+
+    QAPIGenerator.get_test params_decoded
+
+    render json: @question
+  end
+
   private
   def set_question
     @question = Question.find(params[:id])
@@ -33,7 +41,17 @@ class QuestionsController < ApplicationController
   def lat_long_params
     params.require :latitude
     params.require :longitude
-    params.permit :latitude, :longitude
+    params.permit :latitude, :longitude, :count
+  end
+
+  def test_query_params
+    params.require :place_id
+    params.require :location_property
+    params.require :answer_property
+    params.require :template_property
+    params.require :token
+    params.require :mql
+    params.permit :place_id, :location_property, :answer_property, :token, :mql, :template_property
   end
 
   def increment_requests

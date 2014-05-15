@@ -1,0 +1,43 @@
+
+$(document).ready(function() {
+    window.QAPI = window.QAPI || {};
+    var TestQuery = function(buttonSelector, editorSelector, placeSelector, answerSelector, templateSelector) {
+        this.$button   = $(buttonSelector);
+        this.$editor   = $(editorSelector);
+        this.$place    = $(placeSelector);
+        this.$answer   = $(answerSelector);
+        this.$template = $(templateSelector);
+
+        this.editor = window.QAPI.editor;
+
+        this.$button.on('click', function(evt) {
+            evt.preventDefault();
+            this.queryQapi();
+        }.bind(this));
+    };
+
+    TestQuery.prototype = {
+        extractFromEditor: function() {
+            return JSON.stringify(this.editor.get());
+        },
+        queryQapi: function() {
+            var mqlString      = encodeURIComponent(this.extractFromEditor());
+            var placeProperty  = encodeURIComponent(this.$place.val());
+            var answerProperty = encodeURIComponent(this.$answer.val());
+            var templateProperty = encodeURIComponent(this.$template.val());
+            var token = '<%= ApiKey.find(1)[:token] %>'
+
+            var url = "api/test/1" +
+                      "?location_property=" + placeProperty +
+                      "&answer_property=" + answerProperty +
+                      "&template_property=" + templateProperty +
+                      "&token="+ token +
+                      "&mql=" + mqlString;
+
+            console.log(url);
+        }
+    };
+
+
+    var element = new TestQuery("#test-query", "#query_hash", "#location_property", "#answer_property", "#question_template_question");
+});

@@ -9,4 +9,10 @@ class Misc
   def self.replace_in_json(element, path, replace)
     JsonPath.for(element).gsub(path) { |v| replace }.to_hash
   end
+
+  def self.decode_params(params)
+    params.merge(params) do|k,param|
+      URI.unescape(param)
+    end
+  end
 end
