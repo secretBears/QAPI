@@ -32,9 +32,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'rubocop'
 
 group :development, :test do
-  gem 'rubocop'
   gem 'debugger'
   gem 'heroku'
   gem 'travis'
