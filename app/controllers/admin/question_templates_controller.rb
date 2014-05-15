@@ -77,4 +77,8 @@ class Admin::QuestionTemplatesController < Admin::AdminController
       params[:question_template].permit(:question, query_attributes: [:id, :query_hash, :answer_property,
                                                                       :location_property])
     end
+
+    def render_json_error
+      render "edit"
+    end
 end

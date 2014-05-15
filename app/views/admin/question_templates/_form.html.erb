@@ -18,17 +18,24 @@
         <fieldset class="row">
           <legend>Query Information</legend>
           <div id="jsoneditor">
-            
+
           </div>
-          <div class="field large-6 columns">
-            <% @question_template.query.query_hash = JSON.unparse(@question_template.query.query_hash) %>
-            <%= query_fields.input :query_hash, as: :text, input_html: { rows: 6, id: 'query_hash'} , label: 'Query' %>
+          <div class="field large-12 columns">
+            <%= query_fields.input :query_hash, as: :hidden,
+                                   input_html: { rows: 6, id: 'query_hash',
+                                                 value: @question_template.query.query_hash.to_json},
+                label: false %>
           </div>
+        </fieldset>
+        <fieldset class="row">
+          <legend>Properties</legend>
           <div class="large-6 columns">
             <div class="field template">
               <%= query_fields.input :location_property, as: :string, input_html: {id: 'location_property'},
                                      label: 'Location' %>
             </div>
+          </div>
+          <div class="large-6 columns">
             <div class="field template">
               <%= query_fields.input :answer_property, as: :string, input_html: {id: 'answer_property'},
                   label: 'Answer' %>
@@ -40,39 +47,6 @@
     <%= f.submit 'Save', class: 'button small success' %>
   </div>
 <% end %>
-
-<script>
-    var t = '', activeProperty;
-    var locationProp = document.getElementById('location_property'),
-            answerProp = document.getElementById('answer_property');
-
-    function gText(e) {
-        t = (document.all) ? document.selection.createRange().text : document.getSelection();
-
-        activeProperty.value = t;
-    }
-
-    function setActiveProperty(input) {
-        $(activeProperty).removeClass('activeProperty')
-        activeProperty = input;
-        $(activeProperty).addClass('activeProperty')
-    }
-
-    locationProp.onfocus = function() {
-        setActiveProperty(locationProp);
-    }
-
-    answerProp.onfocus = function() {
-        setActiveProperty(answerProp);
-    }
-
-    document.getElementById('query_hash').onmouseup = gText;
-    if (!document.all) document.captureEvents(Event.MOUSEUP);
-
-    var container = document.getElementById("jsoneditor");
-    var editor = new jsoneditor.JSONEditor(container);
-
-</script>
 
 
 <ol id="joyRideTipContent" class="joyride-list" data-joyride>
@@ -93,11 +67,3 @@
     <p>Define the property used for answers here. Works just like location.</p>
   </li>
 </ol>
-
-<%= content_for :after_scripts do %>
-    <script>
-       $(document).ready(function() {
-           $(document).foundation('joyride', 'start')
-       })
-    </script>
-<% end %>
