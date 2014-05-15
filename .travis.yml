@@ -7,7 +7,7 @@ before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database qapi_test;' -U postgres
 - rake db:setup
-script: bundle exec rake
+script: bundle exec rake test
 env:
   global:
   - secure: cSn3OWhmG1zwfq35NbhPy1TztwIbTXt2cIbYptsWkwbklBobgD3qISXdF7q8+YMowwoOmOLmhi0zuoAWrZUImzxpUQOprkWBPA7lF3F4hiQIGhT7ggLGCTNsR1vnPw6V+xgMmtZ2rRKACtNMHU2J4HJRgSmYj2A3yH0EL9z7CKI=

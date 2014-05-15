@@ -1,13 +1,12 @@
 class Query < ActiveRecord::Base
   has_one :question_template
   validates_presence_of :query_hash, :location_property, :answer_property
-  serialize :query_hash, Hash
-
-  before_save :parse_hash
-  # after_find :stringify_hash
+  validates :query_hash, json: true
+  after_find :parse_hash
 
   def get(location)
     query = self[:query_hash].clone
+
     query[self[:location_property]] = location
     result = fire_query query
 
@@ -19,10 +18,6 @@ class Query < ActiveRecord::Base
   private
   def parse_hash
     self.query_hash = JSON.parse(query_hash)
-  end
-
-  def stringify_hash
-    self.query_hash = JSON.unparse(query_hash)
   end
 
   def fire_query(query)

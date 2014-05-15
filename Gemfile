@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
 
 # backend related gems
 gem 'rails', '4.0.1'
@@ -7,7 +8,7 @@ gem 'pg'
 gem 'figaro' # environment variables
 gem 'devise' # authentications
 gem 'jbuilder', '~> 1.2'    # build json output
-
+gem 'jsonpath', '~> 0.5.6'  # xpath for json
 
 
 
@@ -23,6 +24,7 @@ gem 'haml-rails'             # haml layout
 gem 'foundation-rails'       # foundation for backend styling
 gem 'uglifier', '>= 1.3.0'   # uglifiing js and css
 
+
 gem 'lorem_ipsum_amet', '~> 0.6.2' # dummy text generator
 
 group :doc do
@@ -30,11 +32,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
 group :development, :test do
   gem 'rubocop'
   gem 'debugger'
   gem 'heroku'
   gem 'travis'
+  gem 'rest-client', '~> 1.6.7'
 end
 
 group :development do

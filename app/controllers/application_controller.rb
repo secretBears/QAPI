@@ -1,4 +1,3 @@
-require 'QAPI/exceptions'
 include ActionController::HttpAuthentication::Token::ControllerMethods
 include ActionController::MimeResponds
 
@@ -23,7 +22,6 @@ class ApplicationController < ActionController::Base
 
   def restrict_access
     fail Exceptions::InvalidTokenError unless restrict_access_by_params || restrict_access_by_header
-
     @current_user = @api_key.user if @api_key
   end
 

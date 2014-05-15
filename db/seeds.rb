@@ -5,15 +5,17 @@ Place.get  47.8094888, 13.0550007 # Salzburg
 Place.get  48.208174, 16.373819   # Wien
 Place.get  48.306940, 14.285830   # Linz
 
-query_hash = '{
+query_hash = <<-HERE_DOC
+  {
     "type": "/people/person",
     "place_of_birth~=": "Linz",
     "limit": 1,
     "name": null,
     "profession": [{
-                         "name": []
-                     }]
-}'
+         "name": []
+     }]
+  }
+HERE_DOC
 
 location_property = "place_of_birth~="
 answer_property   = "profession"
@@ -51,5 +53,8 @@ end
   end
 end
 
-User.create!(email: 'test@email.tld', password: '12345678')
-Admin.create!(email: 'test@email.tld', password: '12345678')
+User.create!(email: 'user@email.tld', password: '12345678')
+Admin.create!(email: 'admin@email.tld', password: '12345678')
+api_key = ApiKey.find 1
+api_key[:token] = '4e31ed23c464a5abe3d7af57ee23ec72'
+api_key.save!

@@ -13,10 +13,10 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:question_templates)
   end
 
-  test 'should get new' do
-    get :new
-    assert_response :success
-  end
+  # test 'should get new' do
+  #   get :new
+  #   assert_response :success
+  # end
 
   test 'should create question_template' do
     query = Query.find 1
@@ -29,13 +29,6 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
 
     assert_redirected_to admin_question_template_path(assigns(:question_template))
   end
-
-  # TODO: i think this route is deprecated
-  #
-  # test 'should show question_template' do
-  #   get :show, id: @question_template
-  #   assert_response :success
-  # end
 
   test 'should get edit' do
     get :edit, id: @question_template

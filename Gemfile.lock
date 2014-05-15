@@ -119,6 +119,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    jsonpath (0.5.6)
+      multi_json
     launchy (2.4.2)
       addressable (~> 2.3)
     libv8 (3.16.14.3)
@@ -263,12 +265,14 @@ DEPENDENCIES
   heroku
   jbuilder (~> 1.2)
   jquery-rails
+  jsonpath (~> 0.5.6)
   lorem_ipsum_amet (~> 0.6.2)
   meta_request
   multi_json
   pg
   rails (= 4.0.1)
   rails_12factor
+  rest-client (~> 1.6.7)
   rubocop
   sass-rails (~> 4.0.0)
   sdoc

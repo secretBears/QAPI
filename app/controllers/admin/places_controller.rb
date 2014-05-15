@@ -61,11 +61,6 @@ class Admin::PlacesController < Admin::AdminController
     end
   end
 
-  def geocode
-    @location = Place.get place_params[:latitude], place_params[:longitude] if lat_long_present?
-    fail Exceptions::PlaceNotFound if @location.nil?
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place

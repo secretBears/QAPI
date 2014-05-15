@@ -14,7 +14,7 @@ class AnswerGenerator
     answers
   end
 
-  def self.get(locations, query)
+  def self.get(locations, query, limit = 3)
     generator = AnswerGenerator.new query: query
     generator.get locations
   end
