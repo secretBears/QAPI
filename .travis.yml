@@ -1,3 +1,4 @@
+---
 language: ruby
 addons:
   postgresql: '9.3'
@@ -9,15 +10,11 @@ before_script:
 - rake db:setup
 script: bundle exec rake test
 env:
-  global:
-  - secure: cSn3OWhmG1zwfq35NbhPy1TztwIbTXt2cIbYptsWkwbklBobgD3qISXdF7q8+YMowwoOmOLmhi0zuoAWrZUImzxpUQOprkWBPA7lF3F4hiQIGhT7ggLGCTNsR1vnPw6V+xgMmtZ2rRKACtNMHU2J4HJRgSmYj2A3yH0EL9z7CKI=
-  - secure: EnmkLQz8SdmUSCSkssxo8dc31CSLv4Ls+c3qef/s5LG20CP0r8UZEcaU5ppYP+P3MqlJkUb2P66n6TEGB0IUcJpeBuR1WjUzY04BRvD6U4ZQh8joi5H04ZnsOBukbhM+V0CqLPdkI3QiiGnkgeX00ub3jqh450jUk27jWei6ElE=
-  - secure: Hxv7GjmySkoao15+6GUw8QZMlO8BVE6gsKq9lUbtGoTkVbdFvtNFbgsCsM249W1jYJYoREBHgPyY1kzFKHIpTCaXoPTx1JBNLW93QxlVC7c7ixth9vNioi5o9b0S/TY1CEa202ObAoQ7MI41URxHvNil1//UaTizsGevkcFtb6A=
-  - secure: fuxjLY3Z9MS+ToKIeaF2B5osYVq2jrX1jw6bVvm1STlnXgGLni4vyFqQ2Cve0/d+6B3iEHm6bjMrqODVHvR0aW6ep+VEQnjML6W9udQzMHz9xhEuCxJ7jV5+3l3tb432+PdnMwp19XFUbbjgOkzfhXVXaflM+8N1b9cFOGsqWw8=
+  global: []
 deploy:
   provider: heroku
   api_key:
     secure: atRxuL4Qls6E1PG+gZwTFZkcfBje/d4eLYZ1UmZc8Z0YkdyqeDSx4kF3syNGq9V8TlAzr6JFvxXizD1Axd4t7PhoQUwaYppXJxYUCgd6iH/iLu/PiY+EB1cE3St7OQ8XvToDdxNkDfYqsDPuTy1enU2FNL8mKsiF2JF+7kPmiN0=
   app: qapi
-  on:
+  true:
     repo: secretBears/QAPI
