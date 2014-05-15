@@ -30,18 +30,8 @@ class QAPIGenerator
   end
 
   def self.get_test(params)
-    query = Query.create(
-      query_hash: params['mql'],
-      answer_property: params['answer_property'],
-      location_property: params['location_property']
-    )
-    query.save!
-
-    template = QuestionTemplate.create(
-      question: params['template_property'],
-      query: query
-    )
-    template.save!
+    query = QAPIGenerator.generate_query_from_params params
+    template = QAPIGenerator.generate_template_from_params params, query
 
     place = Place.find params['place_id']
     generator = QAPIGenerator.new place[:latitude], place[:longitude]
@@ -65,5 +55,21 @@ class QAPIGenerator
         question: question,
         answers: answers
     }
+  end
+
+  # TODO: should be placed in models
+  def self.generate_query_from_params(params)
+    Query.create!(
+        query_hash:  params['mql'],
+        answer_property: params['answer_property'],
+        location_property: params['location_property']
+    )
+  end
+
+  def self.generate_template_from_params(params, query)
+    QuestionTemplate.create!(
+        question: params['template_property'],
+        query: query
+    )
   end
 end
