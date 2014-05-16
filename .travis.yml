@@ -8,6 +8,8 @@ before_script:
 - cp config/database.yml.travis config/database.yml
 - bundle exec rake db:setup
 script: bundle exec rake test
+after_script:
+- rake assets:precompile
 env:
   global:
   - secure: Aife3Vpi94/bVLXuXydwLd2WuBKY4xEaWawceQRBQENWkltUd81pcmNqeIaF88FNTcS3ACJSj7vIBEedIZGvPrnx72L9hNL4NiqUJMVa3Fay7ZX+sw83GFZdZQ24oFAqGwv9wVb/AX8y6TStjRPfYJlcKsbNYKQ2loj4MAZu/y8=
