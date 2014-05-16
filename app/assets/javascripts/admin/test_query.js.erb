@@ -1,5 +1,4 @@
-
-$(document).ready(function() {
+function initTestQuery() {
     window.QAPI = window.QAPI || {};
     var TestQuery = function(buttonSelector, editorSelector, placeSelector, answerSelector, templateSelector, outputSelector) {
         this.$button   = $(buttonSelector);
@@ -50,4 +49,6 @@ $(document).ready(function() {
             "#question_template_question",
             "#test-output"
     );
-});
+};
+
+$(window).on('page:change', initTestQuery);
