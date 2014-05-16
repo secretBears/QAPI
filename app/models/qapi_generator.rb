@@ -30,19 +30,22 @@ class QAPIGenerator
   end
 
   def self.get_test(params)
-    query = QAPIGenerator.generate_query_from_params params
-    template = QAPIGenerator.generate_template_from_params params, query
+    ActiveRecord::Base.transaction do
+      query = QAPIGenerator.generate_query_from_params params
+      template = QAPIGenerator.generate_template_from_params params, query
 
-    place = Place.find params['place_id']
-    generator = QAPIGenerator.new place[:latitude], place[:longitude]
+      place = Place.find params['place_id']
+      generator = QAPIGenerator.new place[:latitude], place[:longitude]
 
-    # TODO: dirty hack to put template in brackets so it is enumurable
-    result = generator.get([template])
+      # TODO: dirty hack to put template in brackets so it is enumurable
+      result = generator.get([template])
 
-    # TODO: find a way that we don't have to store the dummy records in the database
-    query.destroy!
-    template.destroy!
-    result
+      # TODO: find a way that we don't have to store the dummy records in the database
+      query.destroy!
+      template.destroy!
+      return result
+    end
+    nil
   end
 
   private
