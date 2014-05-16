@@ -29,7 +29,9 @@ function initPage() {
         window.QAPI = window.QAPI || {};
         window.QAPI.editor = editor;
         window.QAPI.extractFromEditor = extractJson;
+
+    infuseJson();
 };
 
 $(window).on('page:change', initPage);
-$(document).on('ready', initPage);
+// $(document).on('ready', initPage);
