@@ -1,4 +1,4 @@
-<%= simple_form_for(question_template, url: url) do |f| %>
+<%= simple_form_for(question_template, url: url, :html=> { class: 'question_template_form' }) do |f| %>
   <% if @question_template.errors.any? %>
     <div id='error_explanation'>
       <h2><%= pluralize(@question_template.errors.count, 'error') %> prohibited this question_template from being saved:</h2>
@@ -23,7 +23,7 @@
           <div class="field large-12 columns">
             <%= query_fields.input :query_hash, as: :hidden,
                                    input_html: { rows: 6, id: 'query_hash',
-                                                 value: @question_template.query.query_hash.to_json},
+                                                 value: @question_template.query.query_hash},
                 label: false %>
           </div>
         </fieldset>

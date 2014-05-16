@@ -1,4 +1,3 @@
----
 language: ruby
 addons:
   postgresql: '9.3'
@@ -8,14 +7,17 @@ before_script:
 - bundle install
 - cp config/database.yml.travis config/database.yml
 - bundle exec rake db:setup
-- bundle exec rake travis:setup
 script: bundle exec rake test
 env:
-  global: []
+  global:
+  - secure: Aife3Vpi94/bVLXuXydwLd2WuBKY4xEaWawceQRBQENWkltUd81pcmNqeIaF88FNTcS3ACJSj7vIBEedIZGvPrnx72L9hNL4NiqUJMVa3Fay7ZX+sw83GFZdZQ24oFAqGwv9wVb/AX8y6TStjRPfYJlcKsbNYKQ2loj4MAZu/y8=
+  - secure: DKeeR3jBl4kLqC8NlP9rUX/XTVtdIlNFYXZjFjDz9Fsev9CWQ8SJlR3EjTy0Ug/e0GaxryjTINIn+7lBVbcZDXlsFhJRkjkQ6k0DtE+sDGZzpeN+BwjjEFKKJXWJ7aEQKPd0t0vecxrRYADrpHEODPW2uS6XgxA7Ryf+I+6xLIo=
+  - secure: mLea0hKgtqK1teG4jaAbza10pbfJbadg1v4yc/qFrv7zFCBbKeiWy7oJn93AgZvy+IgP6jYaauqTlMY2fSVlV8akWbZBmjVWZfQr4iXJ6EzWOgJyXmDX6n1z/Hezz4QeurtutPFOFDpJo5RCcAogkITctvpGtBBO7czLsanT7bc=
+  - secure: JnCBWmk/3u36ovsf18IfQ/p+4yRJsW+GubP3PlB78a57QCIGdNcwhpYCGrHAZ/n7tMNTnRpkCl2Ww9/SsMEblYGEqh0faGnLlIbPl5PK0/kOft4aBR4sWSHB+vjrJDVKufdD82mP5f4XLwlAnHrm+6aLRbmofcK/2xVUYJT4Re8=
 deploy:
   provider: heroku
   api_key:
     secure: atRxuL4Qls6E1PG+gZwTFZkcfBje/d4eLYZ1UmZc8Z0YkdyqeDSx4kF3syNGq9V8TlAzr6JFvxXizD1Axd4t7PhoQUwaYppXJxYUCgd6iH/iLu/PiY+EB1cE3St7OQ8XvToDdxNkDfYqsDPuTy1enU2FNL8mKsiF2JF+7kPmiN0=
   app: qapi
-  true:
+  on:
     repo: secretBears/QAPI

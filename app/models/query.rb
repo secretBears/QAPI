@@ -2,7 +2,6 @@ class Query < ActiveRecord::Base
   has_one :question_template
   validates_presence_of :query_hash, :location_property, :answer_property
   validates :query_hash, json: true
-  after_find :parse_hash
 
   def get(location)
     query = self[:query_hash].clone
@@ -20,10 +19,6 @@ class Query < ActiveRecord::Base
   end
 
   private
-  def parse_hash
-    self.query_hash = JSON.parse(query_hash)
-  end
-
   def fire_query(query)
     result = FreebaseAPI.session.mqlread query
     fail Exceptions::QueryNotFound, 'No Results for query' + query.to_s if result.nil?
