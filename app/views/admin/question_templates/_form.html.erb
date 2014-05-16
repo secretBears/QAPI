@@ -43,15 +43,18 @@
           </div>
         </fieldset>
  <!-- output for test-->
-        <div class="row">
-          <textarea id="test-output" contenteditable="false"></textarea>
-        </div>
+        <fieldset class="row">
+          <legend>Test Query</legend>
+          <textarea id="test-output" contenteditable="false" rows="10"></textarea>
+
+          <button id="test-query" class="button small success">
+            Run test
+          </button>
+        </fieldset>
   <% end %>
+    <hr>
   <div class='actions'>
     <%= f.submit 'Save', class: 'button small success' %>
-    <button id="test-query" class="button small success">
-        Test Question
-    </button>
   </div>
 <% end %>
 
