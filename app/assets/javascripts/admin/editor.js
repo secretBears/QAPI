@@ -5,7 +5,7 @@ function initPage() {
         /**
          * Before form is submitted,
          */
-        $('.edit_question_template').on('submit', function(e) {
+        $('.question_template_form').on('submit', function(e) {
             e.preventDefault();
             extractJson();
             this.submit();
