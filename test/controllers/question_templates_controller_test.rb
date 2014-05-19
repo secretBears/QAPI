@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
+class QuestionTemplatesControllerTest < ActionController::TestCase
   setup do
     @question_template = QuestionTemplate.find(1)
-    @admin = Admin.first
+    @admin = User.admins.first
     sign_in @admin
   end
 
@@ -20,14 +20,14 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
 
   test 'should create question_template' do
     query = Query.find 1
-    assert_difference('QuestionTemplate.count') do
+    assert_difference 'QuestionTemplate.count' do
       post :create, question_template: {
         question: LoremIpsum.lorem_ipsum(words: 15),
-        query_id: query[:id]
+        query: query
       }
     end
 
-    assert_redirected_to admin_question_template_path(assigns(:question_template))
+    assert_redirected_to question_template_path(assigns(:question_template))
   end
 
   test 'should get edit' do
@@ -41,7 +41,7 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
       question: new_question_text
     }
 
-    assert_redirected_to admin_question_template_path(assigns(:question_template))
+    assert_redirected_to question_template_path(assigns(:question_template))
   end
 
   test 'should destroy question_template' do
@@ -49,7 +49,7 @@ class Admin::QuestionTemplatesControllerTest < ActionController::TestCase
       delete :destroy, id: @question_template
     end
 
-    assert_redirected_to admin_question_templates_path
+    assert_redirected_to question_templates_path
   end
 
   test 'test extract params' do

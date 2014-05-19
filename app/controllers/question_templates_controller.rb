@@ -1,10 +1,10 @@
 class QuestionTemplatesController < ApplicationController
   before_action :set_question_template, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
 
-  # GET /question_templates
+                                  # GET /question_templates
   # GET /question_templates.json
   def index
+    authorize! :manage, :all
     @question_templates = QuestionTemplate.all
   end
 
@@ -30,7 +30,7 @@ class QuestionTemplatesController < ApplicationController
 
     respond_to do |format|
       if @question_template.save
-        format.html do redirect_to admin_question_template_path(@question_template),
+        format.html do redirect_to question_template_path(@question_template),
                                    notice: 'Question template was successfully created.'
         end
         format.json { render action: 'show', status: :created, location: @question_template }
@@ -46,7 +46,7 @@ class QuestionTemplatesController < ApplicationController
   def update
     respond_to do |format|
       if @question_template.update(question_template_params)
-        format.html do redirect_to admin_question_template_path(@question_template),
+        format.html do redirect_to question_template_path(@question_template),
                                    notice: 'Question template was successfully updated.'
         end
         format.json { head :no_content }
@@ -62,7 +62,7 @@ class QuestionTemplatesController < ApplicationController
   def destroy
     @question_template.destroy
     respond_to do |format|
-      format.html { redirect_to admin_question_templates_url, notice: 'Question template was successfully removed.' }
+      format.html { redirect_to question_templates_url, notice: 'Question template was successfully removed.' }
       format.json { head :no_content }
     end
   end
@@ -75,8 +75,8 @@ class QuestionTemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_template_params
-      params[:question_template].permit(:question, query_attributes: [:id, :query_hash, :answer_property,
-                                                                      :location_property])
+      params.require(:question_template).permit(:question, query_attributes: [:id, :query_hash, :answer_property,
+                                                                              :location_property])
     end
 
     def render_json_error

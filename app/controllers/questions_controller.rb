@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   respond_to :json
   before_action :set_question, only: [:show]
-  before_action :restrict_access
+  before_action :check_authorization
   before_action :increment_requests
 
   def show
@@ -33,6 +33,13 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def check_authorization
+    authorize! :manage, :all
+    rescue CanCan::AccessDenied
+      validate_token
+  end
+
   def set_question
     @question = Question.find(params[:id])
   end

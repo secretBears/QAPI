@@ -8,7 +8,8 @@ gem 'pg'
 
 gem 'figaro' # environment variables
 gem 'devise' # authentications
-gem 'cancan' # authorization
+# gem 'cancan' # authorization
+gem 'cancancan', '~> 1.8' # switching from cancan to cancancan to support Rails 4 strong params
 gem 'jbuilder', '~> 1.2'    # build json output
 gem 'jsonpath', '~> 0.5.6',  :git => 'https://github.com/secretBears/jsonpath' # xpath for json
 

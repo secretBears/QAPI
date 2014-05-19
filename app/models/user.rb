@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   after_create :create_api_key
 
+  scope :admins, -> { where(type: "Admin") }
+
   def admin?
     false
   end

@@ -6,11 +6,22 @@ class QuestionsControllerTest < ActionController::TestCase
     @controller = QuestionsController.new
     @question = Question.first
     @token = User.first.api_key.token
+    @admin = User.admins.first
   end
 
-  test 'should not get result without token' do
+  test 'should not get result without token and logging in' do
     get :show, id: @question
-    assert_response 401
+    assert_response 403
+  end
+
+  test 'should get response as admin' do
+    sign_in @admin
+
+    get :show, id: @question, token: @token
+    assert_response :success, 'could not get question with token as admin'
+
+    get :show, id: @question
+    assert_response :success, 'could not get question without token as admin'
   end
 
   test 'should get result with token' do
