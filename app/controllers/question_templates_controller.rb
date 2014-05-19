@@ -15,17 +15,20 @@ class QuestionTemplatesController < ApplicationController
 
   # GET /question_templates/new
   def new
+    authorize! :manage, :all
     @question_template = QuestionTemplate.new
     @question_template.build_query
   end
 
   # GET /question_templates/1/edit
   def edit
+    authorize! :manage, :all
   end
 
   # POST /question_templates
   # POST /question_templates.json
   def create
+    authorize! :manage, :all
     @question_template = QuestionTemplate.new(question_template_params)
 
     respond_to do |format|
@@ -44,6 +47,7 @@ class QuestionTemplatesController < ApplicationController
   # PATCH/PUT /question_templates/1
   # PATCH/PUT /question_templates/1.json
   def update
+    authorize! :manage, :all
     respond_to do |format|
       if @question_template.update(question_template_params)
         format.html do redirect_to question_template_path(@question_template),
@@ -60,6 +64,7 @@ class QuestionTemplatesController < ApplicationController
   # DELETE /question_templates/1
   # DELETE /question_templates/1.json
   def destroy
+    authorize! :manage, :all
     @question_template.destroy
     respond_to do |format|
       format.html { redirect_to question_templates_url, notice: 'Question template was successfully removed.' }
@@ -68,6 +73,11 @@ class QuestionTemplatesController < ApplicationController
   end
 
   private
+
+  def render_authorization_error(message)
+    redirect_to root_url
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_question_template
       @question_template = QuestionTemplate.find(params[:id])
