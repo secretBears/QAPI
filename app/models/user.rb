@@ -8,10 +8,11 @@ class User < ActiveRecord::Base
 
   after_create :create_api_key
 
-  scope :admins, -> { where(type: "Admin") }
+  default_scope order(email: :asc)
+  scope :admins, -> { where(admin: true) }
 
   def admin?
-    false
+    admin == true
   end
 
   private
