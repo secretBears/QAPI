@@ -1,7 +1,6 @@
 class StaticController < ApplicationController
-  authorize_user!
-  
+  before_action :authenticate_user!
+
   def index
-    render "logs" if current_user
   end
 end
