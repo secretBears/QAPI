@@ -54,7 +54,7 @@ end
 end
 
 User.create!(email: 'user@email.tld', password: '12345678')
-User.create!(email: 'user2@email.tld', password: '12345678', type: 'Admin')
+User.create!(email: 'user2@email.tld', password: '12345678', admin: 'true')
 api_key = ApiKey.find 1
 api_key[:token] = '4e31ed23c464a5abe3d7af57ee23ec72'
 api_key.save!

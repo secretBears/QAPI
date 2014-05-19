@@ -14,7 +14,16 @@ class ApplicationController < ActionController::Base
   end
 
   def render_authorization_error(message)
-    render template: 'layouts/error', formats: 'json', locals: {message: message.to_s, status: 403}, status: 403
+    respond_to do |format|
+      format.json do
+        render template: 'layouts/error', formats: %w(json html), locals: {message: message.to_s, status: 403},
+               status: 403
+      end
+
+      format.html do
+        redirect_to root_url
+      end
+    end
   end
 
   protect_from_forgery with: :exception

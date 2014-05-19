@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
   private
 
   def check_authorization
-    authorize! :manage, :all
+    authorize! :manage, QuestionTemplate
     rescue CanCan::AccessDenied
       validate_token
   end

@@ -10,22 +10,22 @@ class QuestionsControllerTest < ActionController::TestCase
   end
 
   test 'should not get result without token as guest' do
-    get :show, id: @question
+    get :show, id: @question, format: :json
     assert_response 403
   end
 
   test 'should get result as admin' do
     sign_in @admin
 
-    get :show, id: @question, token: @token
+    get :show, id: @question, token: @token, format: :json
     assert_response :success, 'could not get question with token as admin'
 
-    get :show, id: @question
+    get :show, id: @question, format: :json
     assert_response :success, 'could not get question without token as admin'
   end
 
   test 'should get result with token' do
-    get :show, id: @question, token: @token
+    get :show, id: @question, token: @token, format: :json
     assert_response :success
   end
 
