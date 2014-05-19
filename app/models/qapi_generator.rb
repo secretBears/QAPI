@@ -29,6 +29,13 @@ class QAPIGenerator
     generator.get
   end
 
+  def self.get_from_template(place_id, template_id)
+    place    = Place.find place_id
+    template = QuestionTemplate.find template_id
+    generator = QAPIGenerator.new place[:latitude], place[:longitude]
+    generator.get([template])
+  end
+
   def self.get_test(params)
     ActiveRecord::Base.transaction do
       query = QAPIGenerator.generate_query_from_params params
