@@ -18,6 +18,7 @@
             <h1>QAPI</h1>
             <h2>by secretBears</h2>
           </header>
+          <%= render partial: "admin_menu" if can? :manage, :all %>
         </aside>
 
         <section id="content" class="large-10 columns">

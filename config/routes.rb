@@ -5,13 +5,9 @@ QAPI::Application.routes.draw do
 
   root 'static#index'
 
-  namespace :admin do
-    get '/', to: 'question_templates#index'
+  resources :question_templates, except: [:show, :edit]
 
-    resources :question_templates, except: [:show, :edit]
-
-    get 'question_templates/:id', to: 'question_templates#edit'
-  end
+  get 'question_templates/:id', to: 'question_templates#edit'
 
   scope 'api', format: 'json' do
     get '/',

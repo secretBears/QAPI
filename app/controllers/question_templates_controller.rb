@@ -1,5 +1,6 @@
-class Admin::QuestionTemplatesController < Admin::AdminController
+class QuestionTemplatesController < ApplicationController
   before_action :set_question_template, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /question_templates
   # GET /question_templates.json

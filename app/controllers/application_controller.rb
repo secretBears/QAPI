@@ -1,4 +1,3 @@
-include ActionController::HttpAuthentication::Token::ControllerMethods
 include ActionController::MimeResponds
 
 class ApplicationController < ActionController::Base
@@ -21,16 +20,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def restrict_access
-    fail Exceptions::InvalidTokenError unless restrict_access_by_params || restrict_access_by_header
-    @current_user = @api_key.user if @api_key
+    if has_token
+      fail Exceptions::InvalidTokenError unless restrict_access_by_params
+      @current_user = @api_key.user if @api_key
+    else
+      authorize! :manage, :all
+      @current_user = current_user
+    end
   end
 
-  def restrict_access_by_header
-    return true if @api_key
-
-    authenticate_with_http_token do |token|
-      @api_key = ApiKey.find_by_token(token)
-    end
+  def has_token
+    params[:token] != nil
   end
 
   def restrict_access_by_params

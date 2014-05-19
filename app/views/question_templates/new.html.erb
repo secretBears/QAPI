@@ -1,0 +1,7 @@
+<% content_for :page_title do %>
+    Add new question template
+<% end %>
+
+<%= render partial: 'form', locals: {question_template: @question_template, url: question_templates_path} %>
+
+<%= link_to 'Back', question_templates_path %>
