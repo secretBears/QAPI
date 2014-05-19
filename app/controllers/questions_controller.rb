@@ -13,7 +13,6 @@ class QuestionsController < ApplicationController
     render 'show'
   end
 
-
   def show_from_template_and_place
     params = tpl_place_params
     @question = QAPIGenerator.get_from_template params[:place_id], params[:template_id]
@@ -25,8 +24,6 @@ class QuestionsController < ApplicationController
     @question = QAPIGenerator.random
     render 'show'
   end
-
-
 
   # get /api/test/:location_id/?:location_property&
   def test_query
