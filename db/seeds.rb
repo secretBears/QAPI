@@ -35,7 +35,6 @@ query_hash = <<-HERE_DOC
   }
 HERE_DOC
 
-
 QuestionTemplate.create!(
     question: "What was the profession of ?name?",
     query: Query.create(

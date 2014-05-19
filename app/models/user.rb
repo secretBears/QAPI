@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   after_create :create_api_key
 
-  default_scope order(email: :asc)
+  default_scope { order(email: :asc) }
   scope :admins, -> { where(admin: true) }
 
   def admin?
