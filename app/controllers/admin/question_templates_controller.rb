@@ -20,6 +20,7 @@ class Admin::QuestionTemplatesController < Admin::AdminController
 
   # GET /question_templates/1/edit
   def edit
+    @places = Place.all
   end
 
   # POST /question_templates
