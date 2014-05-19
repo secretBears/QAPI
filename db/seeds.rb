@@ -5,38 +5,7 @@ Place.get  47.8094888, 13.0550007 # Salzburg
 Place.get  48.208174, 16.373819   # Wien
 Place.get  48.306940, 14.285830   # Linz
 
-query_hash = <<-HERE_DOC
-  {
-    "type": "/people/person",
-    "place_of_birth~=": "Linz",
-    "limit": 1,
-    "name": null,
-    "profession": [{
-         "name": []
-     }]
-  }
-HERE_DOC
-
-location_property = "place_of_birth~="
-answer_property   = "$.profession[*].name"
-
 (1..10).each do |i|
-  query = Query.create!(
-      query_hash: query_hash,
-      location_property: location_property,
-      answer_property: answer_property
-  )
-
-  question_template_q = LoremIpsum.lorem_ipsum(words: 15).split(' ')
-  idx = Random.rand(15)
-  question_template_q[idx] = '?name'
-  p = question_template_q.join(' ')
-
-  QuestionTemplate.create!(
-      question: p,
-      query: query
-  )
-
   QuestionPlaceholder.create!(
     key: '?name',
     value: (LoremIpsum.lorem_ipsum words: 1),
@@ -53,8 +22,74 @@ end
   end
 end
 
+query_hash = <<-HERE_DOC
+  {
+    "type": "/people/person",
+    "place_of_birth~=": "Linz",
+    "limit": 1,
+    "name": null,
+    "profession": [{
+         "name": [],
+         "limit": 1
+     }]
+  }
+HERE_DOC
+
+QuestionTemplate.create!(
+    question: "What was the profession of ?name?",
+    query: Query.create(
+        query_hash: query_hash,
+        location_property: 'place_of_birth~=',
+        answer_property: '$.profession[0].name'
+    )
+)
+
+birthday_hash = <<-HERE_DOC
+  {
+    "type": "/people/person",
+    "place_of_birth~=": "Linz",
+    "date_of_birth": null,
+    "limit": 1,
+    "name": null,
+    "profession": [{
+         "name": "Politician"
+     }]
+  }
+HERE_DOC
+
+QuestionTemplate.create!(
+    question: "When was the birthday of ?name?",
+    query: Query.create(
+        query_hash: birthday_hash,
+        location_property: 'place_of_birth~=',
+        answer_property: '$.date_of_birth'
+    )
+)
+
+music_hash = <<-HERE_DOC
+  {
+    "type": "/music/artist",
+    "origin": "Linz",
+    "limit": 1,
+    "name": null,
+    "genre":  [{
+         "name": null,
+          "limit": 1
+    }]
+  }
+HERE_DOC
+
+QuestionTemplate.create!(
+    question: "Which genre is the music of ?name attributed to",
+    query: Query.create(
+        query_hash: music_hash,
+        location_property: 'origin',
+        answer_property: '$.genre[*].name'
+    )
+)
+
 User.create!(email: 'user@email.tld', password: '12345678')
-User.create!(email: 'user2@email.tld', password: '12345678', type: 'Admin')
+User.create!(email: 'user2@email.tld', password: '12345678', admin: 'true')
 api_key = ApiKey.find 1
 api_key[:token] = '4e31ed23c464a5abe3d7af57ee23ec72'
 api_key.save!

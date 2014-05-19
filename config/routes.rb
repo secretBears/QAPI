@@ -6,8 +6,13 @@ QAPI::Application.routes.draw do
   root 'static#index'
 
   resources :question_templates, except: [:show, :edit]
-
   get 'question_templates/:id', to: 'question_templates#edit'
+
+  resources :users do
+    member do
+      put 'toggle_admin'
+    end
+  end
 
   scope 'api', format: 'json' do
     get '/',

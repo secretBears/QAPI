@@ -1,0 +1,34 @@
+<h1>Listing users</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>User</th>
+    <th>API Key</th>
+    <th>Requests</th>
+    <th>Admin?</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.email, edit_user_path(user) %></td>
+        <td><%= user.api_key.token %></td>
+        <td><%= user.api_key.requests %></td>
+        <td>
+          <%= button_to toggle_admin_user_path(user), method: :put, class: 'button tiny' do %>
+              <%= user.admin? ? 'Yes' : 'No' %>
+          <% end %>
+        </td>
+        <td><%= button_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' },
+                          class: 'button alert tiny' %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
