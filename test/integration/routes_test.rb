@@ -83,4 +83,13 @@ class RoutesTest < ActionDispatch::IntegrationTest
                      id: '1'
     )
   end
+
+  test 'should get bypassed route' do
+    assert_generates('/api/bypass/1/1',
+                     controller: 'questions',
+                     action: 'show_from_template_and_place',
+                     place_id: 1,
+                     template_id: 1
+    )
+  end
 end

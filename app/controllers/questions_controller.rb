@@ -13,17 +13,20 @@ class QuestionsController < ApplicationController
     render 'show'
   end
 
+
+  def show_from_template_and_place
+    params = tpl_place_params
+    @question = QAPIGenerator.get_from_template params[:place_id], params[:template_id]
+    render 'show'
+  end
+
   # GET /api/
   def random
     @question = QAPIGenerator.random
     render 'show'
   end
 
-  def show_lat_long
-    qg = QAPIGenerator.new(lat_long_params[:latitude], lat_long_params[:longitude])
-    @question = qg.get
-    render json: @question
-  end
+
 
   # get /api/test/:location_id/?:location_property&
   def test_query
@@ -63,5 +66,11 @@ class QuestionsController < ApplicationController
   def increment_requests
     @current_user.api_key.requests += 1
     @current_user.api_key.save
+  end
+
+  def tpl_place_params
+    params.require :template_id
+    params.require :place_id
+    params.permit :template_id, :place_id
   end
 end

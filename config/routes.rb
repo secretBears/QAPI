@@ -13,6 +13,9 @@ QAPI::Application.routes.draw do
     get '/',
         to: 'questions#random'
 
+    get '/bypass/:template_id/:place_id',
+        to: 'questions#show_from_template_and_place'
+
     resources :questions, path: 'question', only: [:show]
 
     get '/:latitude/:longitude/(:count)',
