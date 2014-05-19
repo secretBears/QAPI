@@ -18,11 +18,13 @@ class QuestionTemplatesController < ApplicationController
     authorize! :manage, :all
     @question_template = QuestionTemplate.new
     @question_template.build_query
+    @places = Place.all
   end
 
   # GET /question_templates/1/edit
   def edit
     authorize! :manage, :all
+    @places = Place.all
   end
 
   # POST /question_templates

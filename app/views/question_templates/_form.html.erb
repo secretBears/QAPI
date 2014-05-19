@@ -1,9 +1,16 @@
 <%= simple_form_for(question_template, url: url, :html=> { class: 'question_template_form' }) do |f| %>
     <%= f.simple_fields_for :query, question_template.query do |query_fields| %>
         <!-- Question errors -->
-        <div class="large-12 columns">
-          <%= render partial: 'errors', locals: {question_template: @question_template, url: admin_question_template_path} %>
+        <% if @question_template.errors.any? %>
+        <div class="large-12 columns" id='error_explanation'>
+            <h2><%= pluralize(@question_template.errors.count, 'error') %> prohibited this question_template from being saved:</h2>
+            <ul>
+              <% @question_template.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
         </div>
+        <% end %>
         <!-- Question Textbox -->
         <div class="large-12 columns">
           <div class='field template' id="question">
@@ -21,7 +28,6 @@
         <!-- MQL Editor -->
         <div class="large-12 columns">
           <div id="jsoneditor">
-            <!-- placeholder for json editor -->
           </div>
           <%= query_fields.input( :query_hash,
                                   as: :hidden,
