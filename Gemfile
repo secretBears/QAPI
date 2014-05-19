@@ -8,6 +8,7 @@ gem 'pg'
 
 gem 'figaro' # environment variables
 gem 'devise' # authentications
+gem 'cancan' # authorization
 gem 'jbuilder', '~> 1.2'    # build json output
 gem 'jsonpath', '~> 0.5.6',  :git => 'https://github.com/secretBears/jsonpath' # xpath for json
 
