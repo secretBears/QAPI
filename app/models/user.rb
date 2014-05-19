@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
 
   after_create :create_api_key
 
+  def admin?
+    false
+  end
+
   private
 
   def create_api_key
