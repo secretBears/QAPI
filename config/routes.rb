@@ -1,5 +1,4 @@
 QAPI::Application.routes.draw do
-  devise_for :admins
   lat_lng_validator = Regexp.new '-?[0-9\.]+'
 
   devise_for :users
