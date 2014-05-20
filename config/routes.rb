@@ -24,7 +24,7 @@ QAPI::Application.routes.draw do
     resources :questions, path: 'question', only: [:show]
 
     get '/:latitude/:longitude/(:count)',
-        to: 'questions#show_lat_long',
+        to: 'questions#show_lat_lng',
         constraints: {
             latitude: lat_lng_validator,
             longitude: lat_lng_validator,
