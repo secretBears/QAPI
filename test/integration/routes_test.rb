@@ -92,4 +92,11 @@ class RoutesTest < ActionDispatch::IntegrationTest
                      template_id: 1
     )
   end
+
+  test 'should get docs' do
+    assert_generates('/docs',
+                     controller: 'static',
+                     action: 'docs'
+    )
+  end
 end

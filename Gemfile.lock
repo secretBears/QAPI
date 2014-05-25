@@ -137,6 +137,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    markdown-rails (0.2.1)
+      rails
+      rdiscount (>= 1.6.8, < 2.0)
     meta_request (0.2.8)
       callsite
       rack-contrib
@@ -189,6 +192,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
     rake (10.2.2)
+    rdiscount (1.6.8)
     rdoc (4.1.1)
       json (~> 1.4)
     ref (1.0.5)
@@ -278,6 +282,7 @@ DEPENDENCIES
   jquery-rails
   jsonpath (~> 0.5.6)!
   lorem_ipsum_amet (~> 0.6.2)
+  markdown-rails
   meta_request
   multi_json
   pg

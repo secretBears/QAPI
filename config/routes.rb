@@ -8,6 +8,8 @@ QAPI::Application.routes.draw do
   resources :question_templates, except: [:show, :edit]
   get 'question_templates/:id', to: 'question_templates#edit'
 
+  get 'docs', to: 'static#docs'
+
   resources :users do
     member do
       put 'toggle_admin'
