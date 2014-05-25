@@ -14,4 +14,16 @@ class APITest < ActionDispatch::IntegrationTest
       assert question.key? 'answers'
     end
   end
+
+  test 'should have answers' do
+    get "/api/47.8094888/13.0550007/?token=#{@token}"
+    response = JSON.parse response_from_page.to_s
+
+    response.each do |question|
+      question['answers'].each do |answer|
+        assert answer.key? 'answer'
+        assert answer.key? 'is_true'
+      end
+    end
+  end
 end
