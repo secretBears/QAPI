@@ -5,12 +5,11 @@ class QuestionsController < ApplicationController
   before_action :increment_requests
 
   def show
-
   end
 
   def show_lat_lng
-    @question = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
-    render 'show'
+    @questions = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
+    render json: @questions
   end
 
   def show_from_template_and_place
