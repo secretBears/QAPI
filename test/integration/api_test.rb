@@ -10,8 +10,8 @@ class APITest < ActionDispatch::IntegrationTest
     response = JSON.parse response_from_page.to_s
 
     response.each do |question|
-      assert question.has_key? 'question'
-      assert question.has_key? 'answers'
+      assert question.key? 'question'
+      assert question.key? 'answers'
     end
   end
 end
