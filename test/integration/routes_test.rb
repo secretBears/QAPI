@@ -28,7 +28,7 @@ class RoutesTest < ActionDispatch::IntegrationTest
                        method: :get
                    }, {
                        controller: 'questions',
-                       action: 'show_lat_long',
+                       action: 'show_lat_lng',
                        latitude: "47.8094888",
                        longitude: "13.0550007",
                        format: 'json'
@@ -41,7 +41,7 @@ class RoutesTest < ActionDispatch::IntegrationTest
                        method: :get
                    }, {
                        controller: 'questions',
-                       action: 'show_lat_long',
+                       action: 'show_lat_lng',
                        latitude: "-47.8094888",
                        longitude: "-13.0550007",
                        format: 'json'
@@ -54,7 +54,7 @@ class RoutesTest < ActionDispatch::IntegrationTest
                        method: :get
                    }, {
                        controller: 'questions',
-                       action: 'show_lat_long',
+                       action: 'show_lat_lng',
                        format: 'json',
                        latitude: "47.8094888",
                        longitude: "13.0550007",
@@ -68,7 +68,7 @@ class RoutesTest < ActionDispatch::IntegrationTest
                        method: :get
                    }, {
                        controller: 'questions',
-                       action: 'show_lat_long',
+                       action: 'show_lat_lng',
                        format: 'json',
                        latitude: "-47.8094888",
                        longitude: "-13.0550007",
