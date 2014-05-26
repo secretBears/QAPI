@@ -16,7 +16,7 @@ gem 'jsonpath', '~> 0.5.6',  :git => 'https://github.com/secretBears/jsonpath' #
 
 
 # api related gems
-gem 'geokit'  # geolocations from different sources
+gem 'geokit', :git => 'https://github.com/secretBears/geokit'  # geolocations from different sources
 gem 'freebase-api', :git => 'https://github.com/secretBears/freebase-api' # freebase api
 # gem 'freebase-api', group: [:development, :production] # original freebase api # original freebase gem
 
