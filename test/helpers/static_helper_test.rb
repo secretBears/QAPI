@@ -15,12 +15,12 @@ class StaticHelperTest < ActionView::TestCase
 
   def self.query
     {
-        "type" => "/people/person",
-        "place_of_birth~=" => "Linz",
-        "limit" => 1,
-        "name" => nil,
-        "profession" => [{
-             "name" => []
+      "type" => "/people/person",
+      "place_of_birth~=" => "Linz",
+      "limit" => 1,
+      "name" => nil,
+      "profession" => [{
+        "name" => []
          }]
     }
   end

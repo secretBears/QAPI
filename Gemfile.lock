@@ -6,6 +6,13 @@ GIT
       httparty (~> 0.10)
 
 GIT
+  remote: https://github.com/secretBears/geokit
+  revision: ca1abf3b05752647ed18c17296ed65dd6482a8cb
+  specs:
+    geokit (1.8.4)
+      multi_json (>= 1.3.2)
+
+GIT
   remote: https://github.com/secretBears/jsonpath
   revision: 0862f719d3e8f97657d0f602477935e552cecbb0
   specs:
@@ -90,8 +97,6 @@ GEM
     foundation-rails (5.2.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    geokit (1.8.4)
-      multi_json (>= 1.3.2)
     gh (0.13.2)
       addressable
       backports
@@ -275,7 +280,7 @@ DEPENDENCIES
   figaro
   foundation-rails
   freebase-api!
-  geokit
+  geokit!
   haml-rails
   heroku
   jbuilder (~> 1.2)

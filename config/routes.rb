@@ -28,9 +28,9 @@ QAPI::Application.routes.draw do
     get '/:latitude/:longitude/(:count)',
         to: 'questions#show_lat_lng',
         constraints: {
-            latitude: lat_lng_validator,
-            longitude: lat_lng_validator,
-            count: /[0-9\.]+/
+          latitude: lat_lng_validator,
+          longitude: lat_lng_validator,
+          count: /[0-9\.]+/
         }
 
     get 'test/:place_id',

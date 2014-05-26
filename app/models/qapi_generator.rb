@@ -62,8 +62,8 @@ class QAPIGenerator
 
   def format_question(question, answers)
     {
-        question: question,
-        answers: answers
+      question: question,
+      answers: answers
     }
   end
 

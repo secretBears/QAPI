@@ -28,8 +28,8 @@ module QAPI
     config.autoload_paths += Dir[Rails.root.join('lib', 'custom_*', '{**/}')]
 
     config.action_dispatch.default_headers = {
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Request-Method' => '*'
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => '*'
     }
   end
 end

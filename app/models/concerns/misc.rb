@@ -7,11 +7,11 @@ class Misc
   end
 
   def self.replace_in_json(element, path, replace)
-    JsonPath.for(element).gsub(path) { |v| replace }.to_hash
+    JsonPath.for(element).gsub(path) { |_v| replace }.to_hash
   end
 
   def self.decode_params(params)
-    params.merge(params) do|k, param|
+    params.merge(params) do|_k, param|
       URI.unescape(param)
     end
   end

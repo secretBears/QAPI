@@ -3,76 +3,76 @@ require 'test_helper'
 class RoutesTest < ActionDispatch::IntegrationTest
   test 'should get index' do
     assert_routing({
-                       path: '/',
-                       method: :get
+                     path: '/',
+                     method: :get
                    }, {
-                        controller: 'static',
-                        action: 'index'
+                     controller: 'static',
+                     action: 'index'
                    })
   end
 
   test 'should get /api => random question' do
     assert_routing({
-                       path: 'api',
-                       method: :get
+                     path: 'api',
+                     method: :get
                    }, {
-                       controller: 'questions',
-                       action: 'random',
-                       format: 'json'
+                     controller: 'questions',
+                     action: 'random',
+                     format: 'json'
                    })
   end
 
   test 'should get /api/:lat/:lng' do
     assert_routing({
-                       path: 'api/47.8094888/13.0550007',
-                       method: :get
+                     path: 'api/47.8094888/13.0550007',
+                     method: :get
                    }, {
-                       controller: 'questions',
-                       action: 'show_lat_lng',
-                       latitude: "47.8094888",
-                       longitude: "13.0550007",
-                       format: 'json'
+                     controller: 'questions',
+                     action: 'show_lat_lng',
+                     latitude: "47.8094888",
+                     longitude: "13.0550007",
+                     format: 'json'
                    })
   end
 
   test 'should get /api/:lat/:lng with negativ coords' do
     assert_routing({
-                       path: 'api/-47.8094888/-13.0550007',
-                       method: :get
+                     path: 'api/-47.8094888/-13.0550007',
+                     method: :get
                    }, {
-                       controller: 'questions',
-                       action: 'show_lat_lng',
-                       latitude: "-47.8094888",
-                       longitude: "-13.0550007",
-                       format: 'json'
+                     controller: 'questions',
+                     action: 'show_lat_lng',
+                     latitude: "-47.8094888",
+                     longitude: "-13.0550007",
+                     format: 'json'
                    })
   end
 
   test 'should get /api/:lat/:lng/:count' do
     assert_routing({
-                       path: 'api/47.8094888/13.0550007/2',
-                       method: :get
+                     path: 'api/47.8094888/13.0550007/2',
+                     method: :get
                    }, {
-                       controller: 'questions',
-                       action: 'show_lat_lng',
-                       format: 'json',
-                       latitude: "47.8094888",
-                       longitude: "13.0550007",
-                       count: "2"
+                     controller: 'questions',
+                     action: 'show_lat_lng',
+                     format: 'json',
+                     latitude: "47.8094888",
+                     longitude: "13.0550007",
+                     count: "2"
                    })
   end
 
   test 'should get /api/:lat/:lng/:count with negative coords' do
     assert_routing({
-                       path: 'api/-47.8094888/-13.0550007/2',
-                       method: :get
+                     path: 'api/-47.8094888/-13.0550007/2',
+                     method: :get
                    }, {
-                       controller: 'questions',
-                       action: 'show_lat_lng',
-                       format: 'json',
-                       latitude: "-47.8094888",
-                       longitude: "-13.0550007",
-                       count: "2"
+                     controller: 'questions',
+                     action: 'show_lat_lng',
+                     format: 'json',
+                     latitude: "-47.8094888",
+                     longitude: "-13.0550007",
+                     count: "2"
                    })
   end
 
