@@ -1,7 +1,7 @@
 class QuestionTemplatesController < ApplicationController
   before_action :set_question_template, only: [:show, :edit, :update, :destroy]
 
-                                  # GET /question_templates
+  # GET /question_templates
   # GET /question_templates.json
   def index
     authorize! :manage, :all
@@ -76,7 +76,7 @@ class QuestionTemplatesController < ApplicationController
 
   private
 
-  def render_authorization_error(message)
+  def render_authorization_error(_message)
     redirect_to root_url
   end
 

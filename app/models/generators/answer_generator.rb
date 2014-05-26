@@ -14,7 +14,7 @@ class AnswerGenerator
     answers
   end
 
-  def self.get(locations, query, limit = 3)
+  def self.get(locations, query, _limit = 3)
     generator = AnswerGenerator.new query: query
     generator.get locations
   end
@@ -30,8 +30,8 @@ class AnswerGenerator
   def self.as_set(answers, is_right)
     answers.map do |answer|
       {
-          answer: answer,
-          is_true: is_right
+        answer: answer,
+        is_true: is_right
       }
     end
   end

@@ -15,7 +15,7 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
   end
 
   test "should get answers from array" do
-    answer = @answer_generator.get %w'Linz Salzburg'
+    answer = @answer_generator.get %w(Linz Salzburg)
 
     assert_not_nil answer
     assert_equal Set, answer.class
@@ -42,7 +42,7 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
 
   test "should shuffle answers" do
     right_answer = Set.new ['i am right']
-    wrong_answers = Set.new %w'wrong1 wrong2 wrong3'
+    wrong_answers = Set.new %w(wrong1 wrong2 wrong3)
 
     shuffle = AnswerGenerator.shuffle_answers right_answer, wrong_answers
     assert_equal Array, shuffle.class

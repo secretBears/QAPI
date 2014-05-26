@@ -1,9 +1,9 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-Place.get  47.8094888, 13.0550007 # Salzburg
-Place.get  48.208174, 16.373819   # Wien
-Place.get  48.306940, 14.285830   # Linz
+Place.get 47.8094888, 13.0550007 # Salzburg
+Place.get 48.208174, 16.373819   # Wien
+Place.get 48.306940, 14.285830   # Linz
 
 (1..10).each do |i|
   QuestionPlaceholder.create!(

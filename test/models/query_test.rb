@@ -19,9 +19,9 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
   test "should raise query not found" do
     assert_raise Exceptions::QueryNotFound do
       query = {
-          type: '/music/artist',
-          name: 'dskfjlsakdsjflajdlkföjsflsfjl314', # i hope that this is not a valid band name =)
-          album: []
+        type: '/music/artist',
+        name: 'dskfjlsakdsjflajdlkföjsflsfjl314', # i hope that this is not a valid band name =)
+        album: []
       }
       @query.send :fire_query, query
     end
@@ -29,9 +29,9 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
 
   test "should get the police" do
     query = {
-        type: '/music/artist',
-        name: 'The Police',
-        album: []
+      type: '/music/artist',
+      name: 'The Police',
+      album: []
     }
     result = @query.send :fire_query, query
 
@@ -41,12 +41,12 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
 
   test "should get people from linz" do
     query = {
-        "type" => "/people/person",
-        "place_of_birth~=" => "Linz",
-        "limit" => 1,
-        "name" => nil,
-        "profession" => [{
-                             "name" => []
+      "type" => "/people/person",
+      "place_of_birth~=" => "Linz",
+      "limit" => 1,
+      "name" => nil,
+      "profession" => [{
+        "name" => []
                          }]
     }
     result =  @query.send :fire_query, query
@@ -56,12 +56,12 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
 
   test "should get people from vienna" do
     query = {
-        "type" => "/people/person",
-        "place_of_birth~=" => "vienna",
-        "limit" => 1,
-        "name" => nil,
-        "profession" => [{
-                             "name" => []
+      "type" => "/people/person",
+      "place_of_birth~=" => "vienna",
+      "limit" => 1,
+      "name" => nil,
+      "profession" => [{
+        "name" => []
                          }]
     }
     result =  @query.send :fire_query, query
