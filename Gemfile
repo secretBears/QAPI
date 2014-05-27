@@ -35,6 +35,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test do
+  gem 'capybara'
+end
+
 gem 'rubocop'
 
 group :development, :test do

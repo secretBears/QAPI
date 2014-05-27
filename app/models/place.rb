@@ -44,6 +44,7 @@ class Place < ActiveRecord::Base
     end
   end
 
+  private
   def self.location_keys
     [:city, :state, :country]
   end
