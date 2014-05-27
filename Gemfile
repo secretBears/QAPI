@@ -39,6 +39,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-webkit'
 end
 
 gem 'rubocop'
