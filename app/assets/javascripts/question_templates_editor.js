@@ -31,12 +31,9 @@ function initPage() {
         $('#query_hash').val(JSON.stringify(editor.get()));
     };
 
-
     window.QAPI = window.QAPI || {};
     window.QAPI.editor = editor;
     window.QAPI.extractFromEditor = extractJson;
-
-
-};  
+};
 
 $(window).on('page:change', initPage);
