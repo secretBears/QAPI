@@ -4,16 +4,18 @@ addons:
 rvm:
 - 2.1.1
 before_script:
+- export DISPLAY=:0.0
+- bundle install
 - cp config/database.yml.travis config/database.yml
-- psql -c 'create database qapi_test;' -U postgres
-- rake db:setup
-script: bundle exec rake
+- bundle exec rake db:setup
+script: bundle exec rake test
 env:
   global:
-  - secure: KDVcW3ru0S0q1eOOT2AgNcdfcbt6fGiuIyh8Gl2PJOd5wbnfgAnKMxfjety4+YssJ5Dlk0y9ZMpKF80m0oxeM6e6rVws0jmA6oM7tApMnS5XNs2P40MsqplNWkGfhRsmmXmwTX7BTB305ur1Urr16yXOkt4FrDMYH1cjdj53muI=
-  - secure: Gtb4SMnIeVCRzE7Bg14IVfTElrkTcLZjooi0DvN8oREbxfaSl3WLm7/F9V2hwPfw2FN8O1UPSY0NIap5YnE3QNPb6YKnME0EXn4KMxD0u8L629l94XFYlL8wJTZTV65qtAkXm3aLc//Pu4PfsSP504NkcFQH59fzYo9ALhFYRLs=
-  - secure: hWOtjyQGwxFmSdMfpr5/Nz2aT683F/23c12IAHuNxYF17ydDX2HsuxOvidMwIW92p0wxrg6UXiBmRrc2ZM1ycUk0WxF7HTOHX3DwkXuPPb8RttGYHnsNOd1U41npNoNT6MveMWXGUscNKl3w52NzvAHK5NmhyD9nl+D0iHW9fOM=
-  - secure: EC/VMK6kyh+YuyE6CleRYkOFfT/tF5yvJ3RKwi1ldV2cr214i9BDhlbzg/6v6EvuiO6jabIUSqBU4xEphSJyJA8t3ZZZbKg0uFXxghmXalxaL834nGdEI+Su+B+G6iH+OLHvP3z8uvVhoMMhajF5ntmGuiWTZcJRhbCV8imawgU=
+  - secure: ewt0H2XynJ7mK/fOiHQgr9j6Qc8FMtrf00qqspSaYQKjuHwEK7h80qv8Ov1IZl1Gkq3TOgUNX5EVspEjCzEDAuPIgsN7dbTDlkm3Gfddo8OTD34d+PINR9zdauPtuoA9f68bmfxMYoQn0RXZrIBcpwcezGy59bQVyYLq82Yi/m0=
+  - secure: iMj5Nu/SWYSfNZLpoW1Guw2rQSVLVczRfjn/sLQs3PQMKUDxOQLeyywx9zjzaWuRWt3wxeRBSHal9MVGuDJBqSvodQiAloo3MBjwbXCnWDkapHoLt8YMmRyAWTLfhBSbhKXh8SJcghl+5Ts0elvvNQwFmgHNrnTmR62RhIDAeYM=
+  - secure: T1WUuEdZMkn/yLNXSadHttU3pIhZs58Kx9r5FMaaMPwe95xktMW5xCo3l8siEWQaX4j3CCJNhVEHkqHSm30PHayUEgGx9sgPGUt+T7k7skLctSLb895BYbqAF1FlwltsDKgRRJFHS33yy0ksU1TFdY9dHr5+YRz7uL40ZkZrubM=
+  - secure: gr1LASYbQwwNXc11qmdQYVRBPrq3kn2IAbFgplttKkqqqId2pImy1zSb+kx5j1iaurJQjIcE463pphsncCRH2WkdsMQJFkJ/A0PBysGzLxiALrpk0Vg+ymHwSUFSwtyfHyyWakDEVpFFdka3Z4z2MIEgnFPfRbeNBXSayB2YJNo=
+  - secure: fF/UR+kixc9bgbEn6XM3+raKKrfWlzgMcL5s/zjtBxB/jw54Z3wFIJunb/2MZoG7cvwDEH1bQT9ky7SAhh7p+rOAo+8vbdibb9HKWSx8VX2Rn5uulBWjchEjrnw50O6UIl2Oj/f7t+eZWzyqvnsUEIKbhn0uNQ/D+rLs7sifyWQ=
 deploy:
   provider: heroku
   api_key:
@@ -21,4 +23,3 @@ deploy:
   app: qapi
   on:
     repo: secretBears/QAPI
-    branch: master

@@ -1,27 +1,95 @@
-<%= form_for(@question_template) do |f| %>
-  <% if @question_template.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@question_template.errors.count, "error") %> prohibited this question_template from being saved:</h2>
+<%= simple_form_for(question_template, url: url, :html=> { class: 'question_template_form' }) do |f| %>
+    <%= f.simple_fields_for :query, question_template.query do |query_fields| %>
+        <!-- Question errors -->
+        <% if @question_template.errors.any? %>
+        <div class="large-12 columns" id='error_explanation'>
+            <h2><%= pluralize(@question_template.errors.count, 'error') %> prohibited this question_template from being saved:</h2>
+            <ul>
+              <% @question_template.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <!-- Question Textbox -->
+        <div class="large-12 columns">
+          <div class='field template' id="question">
+            <%= f.input(:question,
+                        as: :text,
+                        input_html: {
+                                rows: 5
+                        },
+                        autofocus: true,
+                        label: 'Question'
+            ) %>
+          </div>
+        </div>
 
-      <ul>
-      <% @question_template.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+        <!-- MQL Editor -->
+        <div class="large-12 columns">
+          <div id="jsoneditor">
+          </div>
+          <%= query_fields.input( :query_hash,
+                                  as: :hidden,
+                                  input_html: {
+                                          rows: 6,
+                                          id: 'query_hash',
+                                          value: @question_template.query.query_hash
+                                  },
+                                  label: false
+              )%>
+        </div>
+
+        <!-- Question Parameter -->
+        <div class="large-6 columns">
+          <%= query_fields.input( :location_property,
+                                  as: :string,
+                                  input_html: {
+                                          id: 'location_property'
+                                  },
+                                  label: 'Location'
+              )%>
+
+          <%= query_fields.input :answer_property,
+                                 as: :string,
+                                 input_html: {
+                                         id: 'answer_property'
+                                 },
+                                 label: 'Answer' %>
+
+          <%= f.submit 'Save', class: 'button small success' %>
+        </div>
+
+        <!-- Test Query -->
+        <div class="large-6 columns">
+          <%= label 'place', 'id', 'Place to test for' %>
+          <%= select('place', 'id',  @places.collect {|a| [a.city, a.id]}) %>
+
+          <%= label 'test', 'output', 'Result' %>
+          <textarea id="test-output" contenteditable="false"></textarea>
+          <button id="test-query" class="button small success">
+            Test Question
+          </button>
+        </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :question %><br>
-    <%= f.text_area :question %>
-  </div>
-
-  <div class="field">
-    <%= f.label :sparql %><br>
-    <%= f.text_area :sparql %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
+
+
+<ol id="joyRideTipContent" class="joyride-list" data-joyride>
+  <li data-id="question" data-text="Next" data-options="tip_location: top">
+    <p>Type your question into this field. Mark placeholders with <code>?</code></p>
+  </li>
+  <li data-id="query_hash" data-class="custom so-awesome" data-text="Next">
+    <h4>Stop #1</h4>
+    <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
+  </li>
+  <li data-id="location_property" data-button="Next" data-options="tip_location:top;tip_animation:fade">
+    <h4>Location property</h4>
+    <p>Select a property from the query field that will be used as location property.<br>You can just click the input
+      and then select some text in the query field.</p>
+  </li>
+  <li data-id="answer_property" data-button="Fine, let's go!">
+    <h4>Answer property</h4>
+    <p>Define the property used for answers here. Works just like location.</p>
+  </li>
+</ol>

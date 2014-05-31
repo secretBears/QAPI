@@ -1,60 +1,80 @@
-source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
+
+source 'https://rubygems.org'
+ruby '2.1.1'
+
+# backend related gems
 gem 'rails', '4.0.1'
 gem 'pg'
 
+gem 'figaro' # environment variables
+gem 'devise' # authentications
+# gem 'cancan' # authorization
+gem 'cancancan', '~> 1.8' # switching from cancan to cancancan to support Rails 4 strong params
+gem 'jbuilder', '~> 1.2'    # build json output
+gem 'jsonpath', '~> 0.5.6',  :git => 'https://github.com/secretBears/jsonpath' # xpath for json
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'markdown-rails'
 
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
+# api related gems
+gem 'geokit', :git => 'https://github.com/secretBears/geokit'  # geolocations from different sources
+gem 'freebase-api', :git => 'https://github.com/secretBears/freebase-api' # freebase api
+# gem 'freebase-api', group: [:development, :production] # original freebase api # original freebase gem
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# frontend related gems
+gem 'jquery-rails'           # jquery for rails
+gem 'sass-rails', '~> 4.0.0' # sass for rails
+gem 'haml-rails'             # haml layout
+gem 'foundation-rails'       # foundation for backend styling
+gem 'uglifier', '>= 1.3.0'   # uglifiing js and css
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+
+gem 'lorem_ipsum_amet', '~> 0.6.2' # dummy text generator
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-gem 'debugger', group: [:development, :test]
-
-gem 'therubyracer'
-gem 'geokit'
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+end
 
 gem 'rubocop'
-gem 'lorem_ipsum_amet', '~> 0.6.2', group: [:development, :test]
 
-# Use devise to authenticate admins
-gem 'devise'
+group :development, :test do
+  gem 'debugger'
+  gem 'heroku'
+  gem 'travis'
+  gem 'rest-client', '~> 1.6.7'
+end
 
-gem 'freebase-api', :git => 'https://github.com/secretBears/freebase-api'
-# gem 'freebase-api', group: [:development, :production]
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
 
-gem 'figaro'
+group :production do
+  gem 'rails_12factor'
+end
 
-gem 'haml-rails'
+# TODO: check if these gems are needed
+gem 'turbolinks'
+gem 'therubyracer'
+gem 'simple_form'
+gem 'multi_json'
 
-gem 'rails_12factor', group: :production
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+<div class="row" id="sign-in">
+  <div class="large-12 columns">
+    <div class="panel">
+      <h1>
+        <%= image_tag 'logo.svg', id: 'qapi-logo' %>
+      </h1>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div>
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+          <div>
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+              <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+          <% end -%>
+
+          <div><%= f.submit "Sign in", class: 'button expand'%></div>
+      <% end %>
+
+      <%= link_to "Create an Account", new_user_registration_path, class: "button expand success" %>
+    </div>
+  </div>
+</div>
+
+
+

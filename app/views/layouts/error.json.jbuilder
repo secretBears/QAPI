@@ -1,2 +1,2 @@
-json.set! :error, 404
+json.set! :error, status
 json.set! :message, message

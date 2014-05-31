@@ -1,7 +1,7 @@
 require 'rubocop/rake_task'
 
-Rubocop::RakeTask.new(:rubocop) do |task|
-  task.patterns = %w'lib/**/*.rb app/**/*.rb test/**/*.rb'
+task :rubocop do
+  system "(cd #{Rails.root} && exec rubocop -a)"
 end
 
 task :default => [:rubocop]

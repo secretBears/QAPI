@@ -23,6 +23,7 @@
 /assets
 
 
+.DS_STORE
 
 # Ignore application configuration
 /config/application.yml

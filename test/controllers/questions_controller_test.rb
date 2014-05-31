@@ -5,17 +5,45 @@ class QuestionsControllerTest < ActionController::TestCase
   setup do
     @controller = QuestionsController.new
     @question = Question.first
+    @token = User.first.api_key.token
+    @admin = User.admins.first
   end
 
-  test 'should return 404' do
-    get :show_lat_long, latitude: 1_000_000, longitude: 1_000_000, format: :json
-    assert_response :not_found
+  test 'should not get result without token as guest' do
+    get :show, id: @question, format: :json
+    assert_response 403
   end
 
-  test 'should find no existing questions' do
-    # values for city gramastetten
-    lat  = 48.379944
-    long = 14.192699
-    get :show_lat_long, latitude: lat, longitude: long, format: :json
+  test 'should get result as admin' do
+    sign_in @admin
+
+    get :show, id: @question, token: @token, format: :json
+    assert_response :success, 'could not get question with token as admin'
+
+    get :show, id: @question, format: :json
+    assert_response :success, 'could not get question without token as admin'
   end
+
+  test 'should get result with token' do
+    get :show, id: @question, token: @token, format: :json
+    assert_response :success
+  end
+
+  test 'should get response for test template' do
+    mql  = '%7B%22type%22%3A%22%2Fpeople%2Fperson%22%2C%22place_of_birth~%3D%22%3A%22Linz%22%2C%22limit%22%3A1%2C%22name%22%3Anull%2C%22'
+    mql += 'profession%22%3A%5B%7B%22name%22%3A%5B%5D%7D%5D%7D'
+
+    template  = 'Lorem%20ipsum%20dolor%20sit%20amet%2C%20consectetuer%'
+    template += '20adipiscing%20elit.%20Nam%20cursus.%20Morbi%20%3Fname%20mi.%20Nullam%20enim'
+
+    get :test_query,
+        place_id: 1,
+        mql: mql,
+        location_property: 'place_of_birth~%3D',
+        answer_property: '%24.profession%5B*%5D.name',
+        template_property: template,
+        token: '4e31ed23c464a5abe3d7af57ee23ec72'
+   assert_response :success
+  end
+
 end

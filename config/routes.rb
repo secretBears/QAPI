@@ -1,34 +1,41 @@
 QAPI::Application.routes.draw do
+  lat_lng_validator = Regexp.new '-?[0-9\.]+'
 
   devise_for :users
 
   root 'static#index'
 
-  namespace :admin do
-    get '/', to: 'question_templates#index'
+  resources :question_templates, except: [:show, :edit]
+  get 'question_templates/:id', to: 'question_templates#edit'
 
-    resources :question_templates
+  get 'docs', to: 'static#docs'
+
+  resources :users do
+    member do
+      put 'toggle_admin'
+    end
   end
 
   scope 'api', format: 'json' do
+    get '/',
+        to: 'questions#random'
+
+    get '/bypass/:template_id/:place_id',
+        to: 'questions#show_from_template_and_place'
+
     resources :questions, path: 'question', only: [:show]
-    get '/:latitude/:longitude',
-        to: 'questions#show_lat_long',
+
+    get '/:latitude/:longitude/(:count)',
+        to: 'questions#show_lat_lng',
         constraints: {
-            latitude: /[0-9\.]+/,
-            longitude: /[0-9\.]+/
+          latitude: lat_lng_validator,
+          longitude: lat_lng_validator,
+          count: /[0-9\.]+/
         }
 
-    get '/:latitude/:longitude/:count',
-        to: 'questions#show_lat_long',
-        constraints: {
-            latitude: /[0-9\.]+/,
-            longitude: /[0-9\.]+/,
-            count: /[0-9\.]+/
-        }
+    get 'test/:place_id',
+        to: 'questions#test_query'
   end
-
-  get 'places/:latitude/:longitude', to: 'places#geocode', constraints: {latitude: /[0-9\.]+/, longitude: /[0-9\.]+/}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

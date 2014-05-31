@@ -1,29 +1,36 @@
-<h1>Listing question_templates</h1>
+<% content_for :page_title do %>
+    Listing Question Templates
+<% end %>
 
-<table>
+
+<% if flash[:notice] %>
+    <div data-alert class="alert-box success radius">
+      <%= notice %>
+      <a href="#" class="close">&times;</a>
+    </div>
+<% end %>
+
+<table class="index">
   <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <tr>
+    <th>Question</th>
+    <th>Query</th>
+    <th></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @question_templates.each do |question_template| %>
+  <% @question_templates.each do |question_template| %>
       <tr>
-        <td><%= question_template.sparql %></td>
-        <td><%= question_template.question%></td>
-        <td><%= link_to 'Show', question_template %></td>
-        <td><%= link_to 'Edit', edit_question_template_path(question_template) %></td>
-        <td><%= link_to 'Destroy', question_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to question_template.question, question_template_path(question_template) %></td>
+        <td><%= question_template.query.query_hash %></td>
+        <td><%= button_to 'Remove', question_template_path(question_template), method: :delete,
+                          data: { confirm: "Are you sure?" }, class: 'button alert tiny delete expand' %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Question template', new_question_template_path %>
+<%= link_to 'New Question template', new_question_template_path, class: 'button success tiny' %>

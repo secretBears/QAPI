@@ -11,33 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505181743) do
+ActiveRecord::Schema.define(version: 20140519185636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: true do |t|
-    t.text    "answer"
+    t.text "answer"
     t.integer "question_id"
     t.boolean "is_true"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
-  create_table "places", force: true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "city"
+  create_table "api_keys", force: true do |t|
+    t.string "token"
+    t.integer "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state"
-    t.string   "country"
+    t.integer "requests"
+  end
+
+  add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id", using: :btree
+
+  create_table "places", force: true do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.string "city"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "state"
+    t.string "country"
+  end
+
+  create_table "queries", force: true do |t|
+    t.text "query_hash"
+    t.text "location_property"
+    t.text "answer_property"
   end
 
   create_table "question_placeholders", force: true do |t|
-    t.string   "key"
-    t.string   "value"
-    t.integer  "question_template_id"
+    t.string "key"
+    t.string "value"
+    t.integer "question_template_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,16 +61,16 @@ ActiveRecord::Schema.define(version: 20140505181743) do
   create_table "question_templates", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "question"
-    t.string   "sparql"
+    t.string "question"
+    t.integer "query_id"
   end
 
   create_table "questions", force: true do |t|
-    t.text     "question"
+    t.text "question"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "place_id"
-    t.integer  "question_template_id"
+    t.integer "place_id"
+    t.integer "question_template_id"
   end
 
   add_index "questions", ["place_id"], name: "index_questions_on_place_id", using: :btree
@@ -62,16 +78,17 @@ ActiveRecord::Schema.define(version: 20140505181743) do
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email",                  default: "", null: false
+    t.string "encrypted_password",     default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.boolean "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
