@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
   before_action :increment_requests
 
   def show
+    @question = {question: @question.question, answers: @question.answers}
+    render 'show'
   end
 
   def show_lat_lng
