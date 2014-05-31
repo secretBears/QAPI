@@ -19,7 +19,7 @@ env:
 deploy:
   provider: heroku
   api_key:
-    secure: atRxuL4Qls6E1PG+gZwTFZkcfBje/d4eLYZ1UmZc8Z0YkdyqeDSx4kF3syNGq9V8TlAzr6JFvxXizD1Axd4t7PhoQUwaYppXJxYUCgd6iH/iLu/PiY+EB1cE3St7OQ8XvToDdxNkDfYqsDPuTy1enU2FNL8mKsiF2JF+7kPmiN0=
+    secure: EqR6M+iws60nQJ0a0QgwVfHJhVVmJ6NRgtp9tqEdiBprbSPQSvV2uTgGw4U/jcDWAAhc46WHyj5NF3Gtmc9+AnKUW2lbHVOdyuDcbFA96ZSkE5rhFZecVxY7vdutGNUKca5pC+GhJK80DdoBDlGWjKTIATsfGpSx4V6QLocVkP8=
   app: qapi
   on:
     repo: secretBears/QAPI
