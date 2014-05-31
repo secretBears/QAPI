@@ -8,8 +8,8 @@ class QuestionsController < ApplicationController
   end
 
   def show_lat_lng
-    @questions = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
-    render json: @questions
+    @question = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
+    render 'show'
   end
 
   def show_from_template_and_place

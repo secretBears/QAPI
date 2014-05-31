@@ -6,6 +6,7 @@ class QAPIGenerator
   def get(templates = nil)
     templates = QuestionTemplate.random if templates.nil?
     location  = @place.city # TODO: should also use country and state
+    format = nil
 
     templates.map do |template|
       query = template.query
@@ -20,8 +21,9 @@ class QAPIGenerator
 
       answers = AnswerGenerator.shuffle_answers right_answer, wrong_answers
 
-      format_question question, answers
+      format = format_question question, answers
     end
+    format
   end
 
   def self.get(lat, lng)
