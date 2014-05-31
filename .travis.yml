@@ -11,15 +11,18 @@ before_script:
 script: bundle exec rake test
 env:
   global:
-  - secure: CQkmyMUDFQ9SW4zUuGF/Woy9F2KiOdF1yfO134i7SWtUjfbLSbj6jjMcB3wya/2+oJMnh0q9H+iARTKCCDl2vOWnnePa3RFnGAPPQUB37/Ii+erq/ChbJrYdIuppNGsMlATPdsM8mLBx5j7UidW2gbJA7S2JuQFXiPkY3dUPggY=
-  - secure: VBGBM9LzCfopewoYqnuo8CgHgntqUFo3R3WKPgjFU330JPDcuHjHvEXc0jITgM4QVT3PlDpSL9oBsnFiLQdQajPnuUScJjq4Yhv+vZ1SUg+WDR4aGlMBfsetsKRwpvVH4VGbiQZ/Ch9tdSPOgOFVET+9Ag+foLbsSPChBy+d7W8=
-  - secure: RtXNcYwY4YBomtxc5ssJIcuBUgpX1RUxk3GLBkf50vk55d/MYiT0iM2LHygyLZ23MY0Db9UPzHyeIG/M8GMPKFENUwSuCJY/xEDaWEU+HDvWbEyo/g0EkRI/SyuihwrGgWX71ZIlMiMV45pJB4uyEI3VSS1fc22GBvzEafe6yeY=
-  - secure: H4cRi0/y7GKwp+5BUjxKACajqqeQ7dSvxRbxxJ19QTjove9G02JEhKopjFfXlZOluYEUPnbCQ9jLi4JQ3ER8Zo1JkjWLNjMnTB9+8kCRBSEBHoqC6tPnCPHWT5nZfv+YLvulvGQH3TjjAg+SgCqm7OHzEW6fhtc61/F7dWY07+g=
-  - secure: F+3Xi5uQVX7yg63kzh6qZLIkZd42H0e0ez6Oj6P1J3qYy5kz2bE4q2n6pGSkBKguRBCGGNpTr/GFs+0x9GgRIHNdAPhg5VN7nx3WVrMLA3UbZRwhUwivgmCfN7zyKhwABPHTZxBEH63kgib7Y2rhZcTCcAfoxO2sLr2WiGl6T9Q=
+  - secure: anZHhLi0ysEF1b8S4H5Xxy6yKsHAj0TFOMJDw4bmVK2/18HAn7+WcM/6rH7a5J6tml1zhRpJL2gbDwZOCOI1cW/H+w5UP/uQ6kxfuGY9xhYgVO684mNSEoFLwLppldkvRuB1h59A+yhAd9aesFZC+b36sJEBqXLF086APc/9Jq4=
+  - secure: VC/5adrnR9Ht48NPdfmxsC5xHNC0OlXqsD0pIP3SDWT6FoOZWnrmxi3dhZlcTyrRonLr4ytiMW33zuhv6oOG0XV0sKJspxihCuwwBYAYawzy3kPEKbAOEZYAp//2GNHCRPd4f8ixv/T3uSuRwA1c6NjWiTH1U8fX84qv9W8jcuU=
+  - secure: ixxG71E2Wlj9bYgHNBpXyvYJYilNxHtQAsw5lSjqFf7u4JKkVAo/dNIxoDertG18w30UcRZtUH2+sfv2Y4BJTupQ3MlCAeDNTKucY1RlYFACIFzpS9A9fWkzXKZb6ywAomEVX1g/PbEXM7XITdx7eAe2BBWrzyPockgaGgBc9rE=
+  - secure: QPwj/UVhk3QLa3nBgMW1EyO1Yphose+GEAmFPX3Tu3KNTtiZWxP8zTkIt4sp/yrwwtDggiltJXyLdQv33OdUEVL6Jw57dxqWFHUuaBteEPgD2LG2+RY67TjjPW+oTr/6/Z0/4vtLlU0IFsWUg8HCFms86Kt9Pi2XEAwzBeMTUkQ=
+  - secure: IkUsRYx+PHVCKQ6hvTr10/RDfuUc4fDUi9IACI8mpnjPsM8XBD1GYl+5Oj6NFklV/T8143f0Opc52r6KAxTa3bbcD8MR496o43PNhJXYc22F0rsP/zGpDPHs61oCbciqdS2nckXZh6J6xG0wHMQaVPOlEto26+sejivZT46C/ug=
+  - secure: BfmvrLX8vlVoGILk+PNYWeWXWAk12jl+qtaXc6jqkKpS7207HvClNp4lkWzb+h0Qd3/FP3Nf2ZcHcPkZ6jz07+xxNPP0UIYqnW2PDGjPLglyD4VOANFwC7W5AqF9anokNYhZ0u5IdHbOjo3zfz+7P+jSAbH0CDeVtSpQnpsEQBk=
 deploy:
   provider: heroku
   api_key:
-    secure: EqR6M+iws60nQJ0a0QgwVfHJhVVmJ6NRgtp9tqEdiBprbSPQSvV2uTgGw4U/jcDWAAhc46WHyj5NF3Gtmc9+AnKUW2lbHVOdyuDcbFA96ZSkE5rhFZecVxY7vdutGNUKca5pC+GhJK80DdoBDlGWjKTIATsfGpSx4V6QLocVkP8=
+    secure: oOSEuqxOSA5LH7JGXxefGbaQDnFiujaZ3S0x+9rSQrI18ihOVzbkdoGDKFY+Y946mXBXS7HVWMZwbDT153IMChKQZ6jp1N0qEbSlzisU9AfJXCCeCfkcNuo/xnnPaO1g2/vuw+H8wb3Hjl3htkpRAeFaSYMCThh4XJ39xMBxlNY=
   app: qapi
-  on:
-    repo: secretBears/QAPI
+  on: master
+  run:
+  - "rake db:migrate"
+  - "rake cleanup"
