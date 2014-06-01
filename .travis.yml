@@ -19,8 +19,10 @@ env:
   - secure: BfmvrLX8vlVoGILk+PNYWeWXWAk12jl+qtaXc6jqkKpS7207HvClNp4lkWzb+h0Qd3/FP3Nf2ZcHcPkZ6jz07+xxNPP0UIYqnW2PDGjPLglyD4VOANFwC7W5AqF9anokNYhZ0u5IdHbOjo3zfz+7P+jSAbH0CDeVtSpQnpsEQBk=
 deploy:
   provider: heroku
-  skip_cleanup: true
   api_key:
     secure: oOSEuqxOSA5LH7JGXxefGbaQDnFiujaZ3S0x+9rSQrI18ihOVzbkdoGDKFY+Y946mXBXS7HVWMZwbDT153IMChKQZ6jp1N0qEbSlzisU9AfJXCCeCfkcNuo/xnnPaO1g2/vuw+H8wb3Hjl3htkpRAeFaSYMCThh4XJ39xMBxlNY=
   app: qapi
   on: master
+  run:
+    - bundle install
+    - bundle exec rake db:migrate
