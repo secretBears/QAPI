@@ -10,4 +10,12 @@ class QuestionTemplate < ActiveRecord::Base
   def self.random(limit = 1)
     QuestionTemplate.order('random()').limit(limit)
   end
+
+  def self.create_from_params!(params, query)
+    # TODO: i dont know why QuestionTemplate.create! is not working but self.create!
+    self.create!(
+        question: params['template_property'],
+        query: query
+    )
+  end
 end

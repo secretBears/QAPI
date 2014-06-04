@@ -9,8 +9,8 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
     assert_not_nil questions
 
     questions.each do |question|
-      assert question.key? :question
-      assert question.key? :answers
+      assert question[:question]
+      assert question[:answers]
     end
   end
 
@@ -19,8 +19,7 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
     assert_not_nil questions
 
     questions.each do |question|
-      assert question.key? :question
-      assert question.key? :answers
+      assert question[:question]
     end
   end
 end

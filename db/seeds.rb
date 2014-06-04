@@ -5,23 +5,6 @@ Place.get 47.8094888, 13.0550007 # Salzburg
 Place.get 48.208174, 16.373819   # Wien
 Place.get 48.306940, 14.285830   # Linz
 
-(1..10).each do |i|
-  QuestionPlaceholder.create!(
-    key: '?name',
-    value: (LoremIpsum.lorem_ipsum words: 1),
-    question_template_id: i
-  )
-end
-
-(1..20).each do |q|
-  question = Question.create!(question: "Frage #{q}", place_id: (q % Place.count) + 1)
-
-  true_idx = rand(1..4)
-  (1..4).each do |a|
-    Answer.create!(question_id: question.id, answer: "#{q} answer #{a}", is_true: (true_idx == a))
-  end
-end
-
 query_hash = <<-HERE_DOC
   {
     "type": "/people/person",
@@ -43,6 +26,23 @@ QuestionTemplate.create!(
         answer_property: '$.profession[0].name'
     )
 )
+
+(1..10).each do |i|
+  QuestionPlaceholder.create!(
+    key: '?name',
+    value: (LoremIpsum.lorem_ipsum words: 1),
+    question_template_id: i
+  )
+end
+
+(1..20).each do |q|
+  question = Question.create!(question: "Frage #{q}", place_id: (q % Place.count) + 1, question_template: QuestionTemplate.first)
+
+  true_idx = rand(1..4)
+  (1..4).each do |a|
+    Answer.create!(question_id: question.id, answer: "#{q} answer #{a}", is_true: (true_idx == a))
+  end
+end
 
 birthday_hash = <<-HERE_DOC
   {
