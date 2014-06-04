@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
   before_action :increment_requests
 
   def show
+    # TODO: show should use template from index
   end
 
   def show_lat_lng
