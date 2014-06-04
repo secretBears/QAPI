@@ -14,7 +14,7 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
   end
 
   test 'should get question from template' do
-    questions = QAPIGenerator.get_from_template 1, 1
+    questions = QAPIGenerator.get_from_ids 1, 1
     assert_not_nil questions
   end
 

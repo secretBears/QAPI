@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
 
   def show_from_template_and_place
     params = tpl_place_params
-    @questions = QAPIGenerator.get_from_template params[:place_id], params[:template_id]
+    @questions = QAPIGenerator.get_from_ids params[:place_id], params[:template_id]
     render 'index'
   end
 

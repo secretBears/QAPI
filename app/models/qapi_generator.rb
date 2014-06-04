@@ -80,8 +80,9 @@ class QAPIGenerator
   end
 
   # get a question from a template_id and a place_id
-  # @deprecated
-  def self.get_from_template(place_id, template_id)
+  #
+  #   QAPIGenerator.get_from_ids 1, 3
+  def self.get_from_ids(place_id, template_id)
     place    = Place.find place_id
     template = QuestionTemplate.find template_id
     QAPIGenerator.get_from_template_and_place template, place

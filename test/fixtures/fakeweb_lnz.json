@@ -1,0 +1,560 @@
+{
+    "results" : [
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Nibelungenbrücke",
+                    "short_name" : "B129",
+                    "types" : [ "route" ]
+                },
+                {
+                    "long_name" : "Rathausviertel",
+                    "short_name" : "Rathausviertel",
+                    "types" : [ "neighborhood", "political" ]
+                },
+                {
+                    "long_name" : "Innenstadt",
+                    "short_name" : "Innenstadt",
+                    "types" : [ "sublocality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "4020",
+                    "short_name" : "4020",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Nibelungenbrücke, 4020 Linz, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.3070162,
+                        "lng" : 14.2859066
+                    },
+                    "southwest" : {
+                        "lat" : 48.3069146,
+                        "lng" : 14.2858303
+                    }
+                },
+                "location" : {
+                    "lat" : 48.3069654,
+                    "lng" : 14.2858685
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.3083143802915,
+                        "lng" : 14.2872174302915
+                    },
+                    "southwest" : {
+                        "lat" : 48.3056164197085,
+                        "lng" : 14.2845194697085
+                    }
+                }
+            },
+            "types" : [ "route" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Hauptplatz",
+                    "short_name" : "Hauptplatz",
+                    "types" : [ "transit_station", "establishment" ]
+                },
+                {
+                    "long_name" : "Innenstadt",
+                    "short_name" : "Innenstadt",
+                    "types" : [ "sublocality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "4020",
+                    "short_name" : "4020",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Hauptplatz, 4020 Linz, Austria",
+            "geometry" : {
+                "location" : {
+                    "lat" : 48.306566,
+                    "lng" : 14.285973
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.30791498029151,
+                        "lng" : 14.2873219802915
+                    },
+                    "southwest" : {
+                        "lat" : 48.30521701970851,
+                        "lng" : 14.2846240197085
+                    }
+                }
+            },
+            "types" : [ "transit_station", "establishment" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Rathausviertel",
+                    "short_name" : "Rathausviertel",
+                    "types" : [ "neighborhood", "political" ]
+                },
+                {
+                    "long_name" : "Innenstadt",
+                    "short_name" : "Innenstadt",
+                    "types" : [ "sublocality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Rathausviertel, Linz, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.317026,
+                        "lng" : 14.301214
+                    },
+                    "southwest" : {
+                        "lat" : 48.299988,
+                        "lng" : 14.284834
+                    }
+                },
+                "location" : {
+                    "lat" : 48.3087168,
+                    "lng" : 14.2936643
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.317026,
+                        "lng" : 14.301214
+                    },
+                    "southwest" : {
+                        "lat" : 48.299988,
+                        "lng" : 14.284834
+                    }
+                }
+            },
+            "types" : [ "neighborhood", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Innenstadt",
+                    "short_name" : "Innenstadt",
+                    "types" : [ "sublocality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Innenstadt, Linz, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.317026,
+                        "lng" : 14.308185
+                    },
+                    "southwest" : {
+                        "lat" : 48.287259,
+                        "lng" : 14.246256
+                    }
+                },
+                "location" : {
+                    "lat" : 48.3029569,
+                    "lng" : 14.2889705
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.317026,
+                        "lng" : 14.308185
+                    },
+                    "southwest" : {
+                        "lat" : 48.287259,
+                        "lng" : 14.246256
+                    }
+                }
+            },
+            "types" : [ "sublocality", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "4020",
+                    "short_name" : "4020",
+                    "types" : [ "postal_code" ]
+                },
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "4020, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.3246013,
+                        "lng" : 14.3432564
+                    },
+                    "southwest" : {
+                        "lat" : 48.2534528,
+                        "lng" : 14.2332728
+                    }
+                },
+                "location" : {
+                    "lat" : 48.29684719999999,
+                    "lng" : 14.3171502
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.3246013,
+                        "lng" : 14.3432564
+                    },
+                    "southwest" : {
+                        "lat" : 48.2534528,
+                        "lng" : 14.2332728
+                    }
+                }
+            },
+            "types" : [ "postal_code" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Linz, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.37876,
+                        "lng" : 14.40908
+                    },
+                    "southwest" : {
+                        "lat" : 48.2113699,
+                        "lng" : 14.24573
+                    }
+                },
+                "location" : {
+                    "lat" : 48.30694,
+                    "lng" : 14.28583
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.37876,
+                        "lng" : 14.40908
+                    },
+                    "southwest" : {
+                        "lat" : 48.2113699,
+                        "lng" : 14.24573
+                    }
+                }
+            },
+            "types" : [ "administrative_area_level_2", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Linz, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.37876,
+                        "lng" : 14.40908
+                    },
+                    "southwest" : {
+                        "lat" : 48.2113699,
+                        "lng" : 14.24573
+                    }
+                },
+                "location" : {
+                    "lat" : 48.30694,
+                    "lng" : 14.28583
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.37876,
+                        "lng" : 14.40908
+                    },
+                    "southwest" : {
+                        "lat" : 48.2113699,
+                        "lng" : 14.24573
+                    }
+                }
+            },
+            "types" : [ "locality", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Linz, Donau",
+                    "short_name" : "Linz, Donau",
+                    "types" : [ "postal_town" ]
+                },
+                {
+                    "long_name" : "Franckviertel",
+                    "short_name" : "Franckviertel",
+                    "types" : [ "neighborhood", "political" ]
+                },
+                {
+                    "long_name" : "Lustenau",
+                    "short_name" : "Lustenau",
+                    "types" : [ "sublocality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Linz",
+                    "short_name" : "Linz",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "4020",
+                    "short_name" : "4020",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Linz, Donau, 4020 Linz, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.3896866,
+                        "lng" : 14.4090776
+                    },
+                    "southwest" : {
+                        "lat" : 48.21138819999999,
+                        "lng" : 14.2177066
+                    }
+                },
+                "location" : {
+                    "lat" : 48.3001572,
+                    "lng" : 14.2910136
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.3896866,
+                        "lng" : 14.4090776
+                    },
+                    "southwest" : {
+                        "lat" : 48.21138819999999,
+                        "lng" : 14.2177066
+                    }
+                }
+            },
+            "types" : [ "postal_town" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Upper Austria",
+                    "short_name" : "OÖ",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Upper Austria, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.7726901,
+                        "lng" : 14.99129
+                    },
+                    "southwest" : {
+                        "lat" : 47.46098,
+                        "lng" : 12.74895
+                    }
+                },
+                "location" : {
+                    "lat" : 48.025854,
+                    "lng" : 13.9723665
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.7726901,
+                        "lng" : 14.99129
+                    },
+                    "southwest" : {
+                        "lat" : 47.46098,
+                        "lng" : 12.74895
+                    }
+                }
+            },
+            "types" : [ "administrative_area_level_1", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 49.0206081,
+                        "lng" : 17.1606861
+                    },
+                    "southwest" : {
+                        "lat" : 46.37233579999999,
+                        "lng" : 9.530783399999999
+                    }
+                },
+                "location" : {
+                    "lat" : 47.516231,
+                    "lng" : 14.550072
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 49.0206081,
+                        "lng" : 17.1606861
+                    },
+                    "southwest" : {
+                        "lat" : 46.37233579999999,
+                        "lng" : 9.530783399999999
+                    }
+                }
+            },
+            "types" : [ "country", "political" ]
+        }
+    ],
+    "status" : "OK"
+}
