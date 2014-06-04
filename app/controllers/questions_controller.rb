@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
   before_action :increment_requests
 
   def show
+    @questions = [{question: @question.question, answers: @question.answers}]
+    render 'show'
   end
 
   def show_lat_lng
@@ -14,20 +16,20 @@ class QuestionsController < ApplicationController
 
   def show_from_template_and_place
     params = tpl_place_params
-    @question = QAPIGenerator.get_from_template params[:place_id], params[:template_id]
+    @questions = QAPIGenerator.get_from_template params[:place_id], params[:template_id]
     render 'show'
   end
 
   # GET /api/
   def random
-    @question = QAPIGenerator.random
+    @questions = QAPIGenerator.random
     render 'show'
   end
 
-  # get /api/test/:location_id/?:location_property&
+  # GET /api/test/:location_id/?:location_property&
   def test_query
     params_decoded = Misc.decode_params test_query_params
-    @question = QAPIGenerator.get_test params_decoded
+    @questions = QAPIGenerator.get_test params_decoded
     render json: @question
   end
 
