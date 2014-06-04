@@ -1,0 +1,12 @@
+{
+    "result": {
+        "profession": [
+            {
+                "name": "Politician"
+            }
+        ],
+        "date_of_birth": "1932-11-04",
+        "type": "/people/person",
+        "name": "Thomas Klestil"
+    }
+}
