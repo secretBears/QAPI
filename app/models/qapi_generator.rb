@@ -33,6 +33,15 @@ class QAPIGenerator
     @place = Place.get lat, lng
   end
 
+  # gets a question including answers
+  #
+  #   generator = QAPIGenerator.new(12, 32)
+  #   question = generator.get
+  #
+  # additionaly a template can be passed
+  #
+  #   template = QuestionTemplate.first
+  #   question = generator.get template
   def get(templates = nil)
     templates = QuestionTemplate.random if templates.nil?
     questions = QAPIGenerator.get_from_template_and_place templates, @place
@@ -41,11 +50,24 @@ class QAPIGenerator
     templates.map { |template| map_template template }
   end
 
+  # static member for getting a question to a given position
+  #
+  #   question = QAPIGenerator.get 12, 23
   def self.get(lat, lng)
     generator = QAPIGenerator.new lat, lng
     generator.get
   end
 
+  # static member for getting a question from a given template and a place
+  #
+  #   template = QuestionTemplate.first
+  #   place = Place.first
+  #   questions = QAPIGenerator.get_from_template_and_place template, place
+  #
+  # multiple templates can be passed in
+  #
+  #   templates = QuestionTemplate.all
+  #   questions = QAPIGenerator.get_from_template_and_place template, place
   def self.get_from_template_and_place(templates, place)
     templates = Array.wrap(templates)
     template_ids = templates.map { |template| template[:id] }
@@ -57,12 +79,15 @@ class QAPIGenerator
     questions unless questions.blank?
   end
 
+  # get a question from a template_id and a place_id
+  # @deprecated
   def self.get_from_template(place_id, template_id)
     place    = Place.find place_id
     template = QuestionTemplate.find template_id
     QAPIGenerator.get_from_template_and_place template, place
   end
 
+  # TODO: write documentation
   def self.get_test(params)
     ActiveRecord::Base.transaction do
       query = Query.create_from_prams! params
