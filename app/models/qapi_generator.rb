@@ -108,6 +108,6 @@ class QAPIGenerator
 
     answers = AnswerGenerator.shuffle_answers right_answer, wrong_answers
 
-    format_question question, answers
+    Question.generate! question, answers, @place, template
   end
 end

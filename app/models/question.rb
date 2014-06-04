@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   has_many :answers, dependent: :delete_all
+
   belongs_to :place
   belongs_to :question_template
 
@@ -13,21 +14,21 @@ class Question < ActiveRecord::Base
   end
 
   def self.generate!(question, answers, place, template)
-    fail Exceptions::InvalidAmountOfQuestion if answers.count != QAPI::Application.config.question_amount
+    # fail Exceptions::InvalidAmountOfAnswers if (answers.count-1) != QAPI::Application.config.answers_amount
 
-    question_obj = Question.create!(
+    question = Question.create!(
       place:             place,
       question:          question,
       question_template: template
     )
 
     answers.each do |answer|
-      Answer.create!(
-          question: question_obj,
+      question.answers.create(
           answer: answer[:answer],
           is_true: answer[:is_true]
       )
     end
+    question
   end
 
   def self.random

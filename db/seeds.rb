@@ -4,6 +4,7 @@
 Place.get 47.8094888, 13.0550007 # Salzburg
 Place.get 48.208174, 16.373819   # Wien
 Place.get 48.306940, 14.285830   # Linz
+Place.get(-33.867487, 151.206990) # Sydney
 
 query_hash = <<-HERE_DOC
   {
@@ -36,11 +37,19 @@ QuestionTemplate.create!(
 end
 
 (1..20).each do |q|
-  question = Question.create!(question: "Frage #{q}", place_id: (q % Place.count) + 1, question_template: QuestionTemplate.first)
+  question = Question.create!(
+      question: "Frage #{q}",
+      place_id: (q % Place.count) + 1,
+      question_template: QuestionTemplate.first
+  )
 
   true_idx = rand(1..4)
   (1..4).each do |a|
-    Answer.create!(question_id: question.id, answer: "#{q} answer #{a}", is_true: (true_idx == a))
+    Answer.create!(
+        question_id: question.id,
+        answer: "#{q} answer #{a}",
+        is_true: (true_idx == a)
+    )
   end
 end
 

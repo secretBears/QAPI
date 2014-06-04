@@ -5,32 +5,30 @@ class QuestionsController < ApplicationController
   before_action :increment_requests
 
   def show
-    @questions = [{question: @question.question, answers: @question.answers}]
-    render 'show'
   end
 
   def show_lat_lng
     @questions = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
-    render json: @questions
+    render 'index'
   end
 
   def show_from_template_and_place
     params = tpl_place_params
     @questions = QAPIGenerator.get_from_template params[:place_id], params[:template_id]
-    render 'show'
+    render 'index'
   end
 
   # GET /api/
   def random
     @questions = QAPIGenerator.random
-    render 'show'
+    render 'index'
   end
 
-  # GET /api/test/:location_id/?:location_property&
+  # get /api/test/:location_id/?:location_property&
   def test_query
     params_decoded = Misc.decode_params test_query_params
     @questions = QAPIGenerator.get_test params_decoded
-    render json: @question
+    render json: @questions
   end
 
   private
@@ -42,11 +40,12 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    @question = Question.find(params[:id])
+    @questions = Question.find(params[:id])
   end
 
   def lat_long_params
     params.require :latitude
+    params.require :longitude
     params.require :longitude
     params.permit :latitude, :longitude, :count
   end

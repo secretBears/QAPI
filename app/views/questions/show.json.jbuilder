@@ -1,9 +1,7 @@
 
-@questions.each do |question|
-  json.question question[:question]
-  json.answers question[:answers] do |answer|
-    json.answer answer[:answer]
-    json.isTrue answer[:is_true]
+  json.question @questions.inspect
+  json.answers @questions.answers do |answer|
+    json.answer answer.answer
+    json.isTrue answer.is_true
   end
-end
 

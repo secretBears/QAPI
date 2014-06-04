@@ -13,11 +13,6 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:question_templates)
   end
 
-  # test 'should get new' do
-  #   get :new
-  #   assert_response :success
-  # end
-
   test 'should create question_template' do
     query = Query.find 1
     assert_difference 'QuestionTemplate.count' do
@@ -50,9 +45,5 @@ class QuestionTemplatesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to question_templates_path
-  end
-
-  test 'test extract params' do
-
   end
 end
