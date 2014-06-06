@@ -47,7 +47,7 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
       "name" => nil,
       "profession" => [{
         "name" => []
-                         }]
+      }]
     }
     result =  @query.send :fire_query, query
     assert_not_nil result
@@ -62,7 +62,7 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
       "name" => nil,
       "profession" => [{
         "name" => []
-                         }]
+      }]
     }
     result =  @query.send :fire_query, query
     assert_not_nil result
