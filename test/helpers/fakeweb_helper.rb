@@ -1,6 +1,6 @@
 require 'fakeweb'
 
-FakeWeb.allow_net_connect = false
+# FakeWeb.allow_net_connect = false
 
 def json_response(file_name)
   File.open(File.dirname(__FILE__) + '/../fixtures/fakeweb_' + file_name + '.json').read
