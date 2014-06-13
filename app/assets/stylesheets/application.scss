@@ -53,6 +53,7 @@ aside {
 }
 
 #content {
+  margin-top: 3em;
   overflow: hidden;
   
   header {
@@ -66,7 +67,7 @@ aside {
 .index {
   width: 100%;
 
-  .delete {
+  .delete, .button {
     margin: 0;
   }
 }
