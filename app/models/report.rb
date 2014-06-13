@@ -13,6 +13,6 @@ class Report < ActiveRecord::Base
   validates :problem, problem: true
 
   def self.valid_problems
-    ['Incorrect answer', 'Question not related to location']
+    ['Incorrect answer', 'Question not related to location', 'Other problem']
   end
 end
