@@ -11,17 +11,6 @@ class RoutesTest < ActionDispatch::IntegrationTest
                    })
   end
 
-  test 'should get /api => random question' do
-    assert_routing({
-                     path: 'api',
-                     method: :get
-                   }, {
-                     controller: 'questions',
-                     action: 'random',
-                     format: 'json'
-                   })
-  end
-
   test 'should get /api/:lat/:lng' do
     assert_routing({
                      path: 'api/47.8094888/13.0550007',
