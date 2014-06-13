@@ -1,0 +1,12 @@
+{
+    "result": {
+        "name": "Wolfgang Amadeus Mozart",
+        "genre": [
+            {
+                "name": "Classical music"
+            }
+        ],
+        "type": "/music/artist",
+        "origin": "Salzburg"
+    }
+}

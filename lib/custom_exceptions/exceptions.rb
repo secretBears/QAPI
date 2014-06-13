@@ -4,4 +4,5 @@ module Exceptions
   class QuestionNotFound < StandardError; end
   class InitializationError < StandardError; end
   class InvalidTokenError < StandardError; end
+  class InvalidAmountOfAnswers < StandardError; end
 end

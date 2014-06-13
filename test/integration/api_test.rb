@@ -7,9 +7,9 @@ class APITest < ActionDispatch::IntegrationTest
 
   test 'should get question' do
     get "/api/47.8094888/13.0550007/?token=#{@token}"
-    response = JSON.parse response_from_page.to_s
+    questions = JSON.parse response_from_page.to_s
 
-    response.each do |question|
+    questions.each do |question|
       assert question.key? 'question'
       assert question.key? 'answers'
     end
@@ -22,7 +22,7 @@ class APITest < ActionDispatch::IntegrationTest
     response.each do |question|
       question['answers'].each do |answer|
         assert answer.key? 'answer'
-        assert answer.key? 'is_true'
+        assert answer.key? 'isTrue'
       end
     end
   end

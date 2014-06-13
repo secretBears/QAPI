@@ -1,0 +1,487 @@
+{
+    "results" : [
+        {
+            "address_components" : [
+                {
+                    "long_name" : "23-25",
+                    "short_name" : "23-25",
+                    "types" : [ "street_number" ]
+                },
+                {
+                    "long_name" : "Vogelweiderstraße",
+                    "short_name" : "Vogelweiderstr.",
+                    "types" : [ "route" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Sbg.",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "5020",
+                    "short_name" : "5020",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Vogelweiderstraße 23-25, 5020 Salzburg, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 47.8100517,
+                        "lng" : 13.0551444
+                    },
+                    "southwest" : {
+                        "lat" : 47.8090326,
+                        "lng" : 13.0548554
+                    }
+                },
+                "location" : {
+                    "lat" : 47.8094888,
+                    "lng" : 13.0550007
+                },
+                "location_type" : "RANGE_INTERPOLATED",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 47.8108911302915,
+                        "lng" : 13.0563488802915
+                    },
+                    "southwest" : {
+                        "lat" : 47.8081931697085,
+                        "lng" : 13.0536509197085
+                    }
+                }
+            },
+            "types" : [ "street_address" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "21",
+                    "short_name" : "21",
+                    "types" : [ "street_number" ]
+                },
+                {
+                    "long_name" : "Salzburger Straße",
+                    "short_name" : "B150",
+                    "types" : [ "route" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Sbg.",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "5020",
+                    "short_name" : "5020",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Salzburger Straße 21, 5020 Salzburg, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 47.8100517,
+                        "lng" : 13.0551444
+                    },
+                    "southwest" : {
+                        "lat" : 47.8090326,
+                        "lng" : 13.0548554
+                    }
+                },
+                "location" : {
+                    "lat" : 47.8094888,
+                    "lng" : 13.0550007
+                },
+                "location_type" : "RANGE_INTERPOLATED",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 47.8108911302915,
+                        "lng" : 13.0563488802915
+                    },
+                    "southwest" : {
+                        "lat" : 47.8081931697085,
+                        "lng" : 13.0536509197085
+                    }
+                }
+            },
+            "types" : [ "street_address" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Salzburg Pauernfeindstraße",
+                    "short_name" : "Salzburg Pauernfeindstraße",
+                    "types" : [ "bus_station", "transit_station", "establishment" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Sbg.",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "5020",
+                    "short_name" : "5020",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Salzburg Pauernfeindstraße, 5020 Salzburg, Austria",
+            "geometry" : {
+                "location" : {
+                    "lat" : 47.810392,
+                    "lng" : 13.054735
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 47.8117409802915,
+                        "lng" : 13.0560839802915
+                    },
+                    "southwest" : {
+                        "lat" : 47.8090430197085,
+                        "lng" : 13.0533860197085
+                    }
+                }
+            },
+            "types" : [ "bus_station", "transit_station", "establishment" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "5020",
+                    "short_name" : "5020",
+                    "types" : [ "postal_code" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Sbg.",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "5020, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 47.8544134,
+                        "lng" : 13.1096604
+                    },
+                    "southwest" : {
+                        "lat" : 47.7512204,
+                        "lng" : 12.9823872
+                    }
+                },
+                "location" : {
+                    "lat" : 47.8051393,
+                    "lng" : 13.0380686
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 47.8544134,
+                        "lng" : 13.1096604
+                    },
+                    "southwest" : {
+                        "lat" : 47.7512204,
+                        "lng" : 12.9823872
+                    }
+                }
+            },
+            "types" : [ "postal_code" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "postal_town" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Sbg.",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "5020",
+                    "short_name" : "5020",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Salzburg, 5020 Salzburg, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 47.8543664,
+                        "lng" : 13.1096766
+                    },
+                    "southwest" : {
+                        "lat" : 47.7511733,
+                        "lng" : 12.9824034
+                    }
+                },
+                "location" : {
+                    "lat" : 47.8051393,
+                    "lng" : 13.0380686
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 47.8543664,
+                        "lng" : 13.1096766
+                    },
+                    "southwest" : {
+                        "lat" : 47.7511733,
+                        "lng" : 12.9824034
+                    }
+                }
+            },
+            "types" : [ "postal_town" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Sbg.",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Salzburg, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 47.85431,
+                        "lng" : 13.1268799
+                    },
+                    "southwest" : {
+                        "lat" : 47.75131,
+                        "lng" : 12.9859801
+                    }
+                },
+                "location" : {
+                    "lat" : 47.80949,
+                    "lng" : 13.05501
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 47.85431,
+                        "lng" : 13.1268799
+                    },
+                    "southwest" : {
+                        "lat" : 47.75131,
+                        "lng" : 12.9859801
+                    }
+                }
+            },
+            "types" : [ "administrative_area_level_2", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Salzburg",
+                    "types" : [ "administrative_area_level_2", "political" ]
+                },
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Sbg.",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Salzburg, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 47.85431,
+                        "lng" : 13.1268799
+                    },
+                    "southwest" : {
+                        "lat" : 47.75131,
+                        "lng" : 12.9859801
+                    }
+                },
+                "location" : {
+                    "lat" : 47.80949,
+                    "lng" : 13.05501
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 47.85431,
+                        "lng" : 13.1268799
+                    },
+                    "southwest" : {
+                        "lat" : 47.75131,
+                        "lng" : 12.9859801
+                    }
+                }
+            },
+            "types" : [ "locality", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Salzburg",
+                    "short_name" : "Sbg.",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Salzburg, Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 48.04121,
+                        "lng" : 13.9965099
+                    },
+                    "southwest" : {
+                        "lat" : 46.94347,
+                        "lng" : 12.07669
+                    }
+                },
+                "location" : {
+                    "lat" : 47.80949,
+                    "lng" : 13.05501
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 48.04121,
+                        "lng" : 13.9965099
+                    },
+                    "southwest" : {
+                        "lat" : 46.94347,
+                        "lng" : 12.07669
+                    }
+                }
+            },
+            "types" : [ "administrative_area_level_1", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Austria",
+                    "short_name" : "AT",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Austria",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : 49.0206081,
+                        "lng" : 17.1606861
+                    },
+                    "southwest" : {
+                        "lat" : 46.37233579999999,
+                        "lng" : 9.530783399999999
+                    }
+                },
+                "location" : {
+                    "lat" : 47.516231,
+                    "lng" : 14.550072
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : 49.0206081,
+                        "lng" : 17.1606861
+                    },
+                    "southwest" : {
+                        "lat" : 46.37233579999999,
+                        "lng" : 9.530783399999999
+                    }
+                }
+            },
+            "types" : [ "country", "political" ]
+        }
+    ],
+    "status" : "OK"
+}

@@ -1,0 +1,12 @@
+{
+    "result": {
+        "name": "Benita Ferrero-Waldner",
+        "type": "/people/person",
+        "date_of_birth": "1948-09-05",
+        "profession": [
+            {
+                "name": "Politician"
+            }
+        ]
+    }
+}

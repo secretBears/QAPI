@@ -1,3 +1,6 @@
+# answer_generator.rb
+# is used to generate answers to a given query
+
 require 'set'
 class AnswerGenerator
   def initialize(arguments)

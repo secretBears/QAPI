@@ -42,6 +42,7 @@ end
 group :test do
   gem 'capybara'
   gem 'poltergeist'
+  gem 'fakeweb', '~> 1.3'
 end
 
 gem 'rubocop'

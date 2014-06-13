@@ -21,7 +21,7 @@ class StaticHelperTest < ActionView::TestCase
       "name" => nil,
       "profession" => [{
         "name" => []
-         }]
+      }]
     }
   end
 end

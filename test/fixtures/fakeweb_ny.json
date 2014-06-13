@@ -1,0 +1,516 @@
+{
+    "results" : [
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Ground Floor, David Jones",
+                    "short_name" : "Ground Floor, David Jones",
+                    "types" : [ "subpremise" ]
+                },
+                {
+                    "long_name" : "86-108",
+                    "short_name" : "86-108",
+                    "types" : [ "street_number" ]
+                },
+                {
+                    "long_name" : "Castlereagh Street",
+                    "short_name" : "Castlereagh St",
+                    "types" : [ "route" ]
+                },
+                {
+                    "long_name" : "NSW",
+                    "short_name" : "NSW",
+                    "types" : [ "sublocality", "political" ]
+                },
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "2000",
+                    "short_name" : "2000",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Ground Floor, David Jones/86-108 Castlereagh Street, Sydney NSW 2000, Australia",
+            "geometry" : {
+                "location" : {
+                    "lat" : -33.8675184,
+                    "lng" : 151.2070232
+                },
+                "location_type" : "ROOFTOP",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -33.86616941970851,
+                        "lng" : 151.2083721802915
+                    },
+                    "southwest" : {
+                        "lat" : -33.8688673802915,
+                        "lng" : 151.2056742197085
+                    }
+                }
+            },
+            "types" : [ "street_address" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "6",
+                    "short_name" : "6",
+                    "types" : [ "subpremise" ]
+                },
+                {
+                    "long_name" : "16-20",
+                    "short_name" : "16-20",
+                    "types" : [ "street_number" ]
+                },
+                {
+                    "long_name" : "Barrack Street",
+                    "short_name" : "Barrack St",
+                    "types" : [ "route" ]
+                },
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "2000",
+                    "short_name" : "2000",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "6/16-20 Barrack Street, Sydney NSW 2000, Australia",
+            "geometry" : {
+                "location" : {
+                    "lat" : -33.8676028,
+                    "lng" : 151.2065104
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -33.8662538197085,
+                        "lng" : 151.2078593802915
+                    },
+                    "southwest" : {
+                        "lat" : -33.8689517802915,
+                        "lng" : 151.2051614197085
+                    }
+                }
+            },
+            "types" : [ "subpremise" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "York St Near Barrack St",
+                    "short_name" : "York St Near Barrack St",
+                    "types" : [ "bus_station", "transit_station", "establishment" ]
+                },
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "colloquial_area", "locality", "political" ]
+                },
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "2000",
+                    "short_name" : "2000",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "York St Near Barrack St, Sydney NSW 2000, Australia",
+            "geometry" : {
+                "location" : {
+                    "lat" : -33.8679199,
+                    "lng" : 151.2060489
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -33.86657091970849,
+                        "lng" : 151.2073978802915
+                    },
+                    "southwest" : {
+                        "lat" : -33.86926888029149,
+                        "lng" : 151.2046999197085
+                    }
+                }
+            },
+            "types" : [ "bus_station", "transit_station", "establishment" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Wynyard Station, York St - Stand J",
+                    "short_name" : "Wynyard Station, York St - Stand J",
+                    "types" : [ "bus_station", "transit_station", "establishment" ]
+                },
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "colloquial_area", "locality", "political" ]
+                },
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                },
+                {
+                    "long_name" : "2000",
+                    "short_name" : "2000",
+                    "types" : [ "postal_code" ]
+                }
+            ],
+            "formatted_address" : "Wynyard Station, York St - Stand J, Sydney NSW 2000, Australia",
+            "geometry" : {
+                "location" : {
+                    "lat" : -33.8667715,
+                    "lng" : 151.2059061
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -33.8654225197085,
+                        "lng" : 151.2072550802915
+                    },
+                    "southwest" : {
+                        "lat" : -33.8681204802915,
+                        "lng" : 151.2045571197085
+                    }
+                }
+            },
+            "types" : [ "bus_station", "transit_station", "establishment" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "locality", "political" ]
+                },
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Sydney NSW, Australia",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : -33.8561177,
+                        "lng" : 151.2229549
+                    },
+                    "southwest" : {
+                        "lat" : -33.879786,
+                        "lng" : 151.1971341
+                    }
+                },
+                "location" : {
+                    "lat" : -33.873651,
+                    "lng" : 151.2068896
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -33.8561177,
+                        "lng" : 151.2229549
+                    },
+                    "southwest" : {
+                        "lat" : -33.879786,
+                        "lng" : 151.1971341
+                    }
+                }
+            },
+            "types" : [ "locality", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "2000",
+                    "short_name" : "2000",
+                    "types" : [ "postal_code" ]
+                },
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "colloquial_area", "locality", "political" ]
+                },
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Sydney NSW 2000, Australia",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : -33.8535146,
+                        "lng" : 151.2229549
+                    },
+                    "southwest" : {
+                        "lat" : -33.8854162,
+                        "lng" : 151.1971341
+                    }
+                },
+                "location" : {
+                    "lat" : -33.8657305,
+                    "lng" : 151.20733
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -33.8535146,
+                        "lng" : 151.2229549
+                    },
+                    "southwest" : {
+                        "lat" : -33.8854162,
+                        "lng" : 151.1971341
+                    }
+                }
+            },
+            "types" : [ "postal_code" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Sydney CBD",
+                    "short_name" : "Sydney CBD",
+                    "types" : [ "political" ]
+                },
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "colloquial_area", "locality", "political" ]
+                },
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Sydney CBD, Sydney NSW, Australia",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : -33.8535146,
+                        "lng" : 151.2229549
+                    },
+                    "southwest" : {
+                        "lat" : -33.8854162,
+                        "lng" : 151.1860603
+                    }
+                },
+                "location" : {
+                    "lat" : -33.8708464,
+                    "lng" : 151.20733
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -33.8535146,
+                        "lng" : 151.2229549
+                    },
+                    "southwest" : {
+                        "lat" : -33.8854162,
+                        "lng" : 151.1860603
+                    }
+                }
+            },
+            "types" : [ "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Sydney",
+                    "short_name" : "Sydney",
+                    "types" : [ "colloquial_area", "locality", "political" ]
+                },
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Sydney NSW, Australia",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : -33.4245981,
+                        "lng" : 151.3426361
+                    },
+                    "southwest" : {
+                        "lat" : -34.1692489,
+                        "lng" : 150.502229
+                    }
+                },
+                "location" : {
+                    "lat" : -33.8674869,
+                    "lng" : 151.2069902
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -33.4245981,
+                        "lng" : 151.3426361
+                    },
+                    "southwest" : {
+                        "lat" : -34.1692489,
+                        "lng" : 150.502229
+                    }
+                }
+            },
+            "types" : [ "colloquial_area", "locality", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "New South Wales",
+                    "short_name" : "NSW",
+                    "types" : [ "administrative_area_level_1", "political" ]
+                },
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "New South Wales, Australia",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : -28.156192,
+                        "lng" : 153.6386738
+                    },
+                    "southwest" : {
+                        "lat" : -37.5050318,
+                        "lng" : 140.9992123
+                    }
+                },
+                "location" : {
+                    "lat" : -31.2532183,
+                    "lng" : 146.921099
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -28.156192,
+                        "lng" : 153.6386738
+                    },
+                    "southwest" : {
+                        "lat" : -37.5050318,
+                        "lng" : 140.9992123
+                    }
+                }
+            },
+            "types" : [ "administrative_area_level_1", "political" ]
+        },
+        {
+            "address_components" : [
+                {
+                    "long_name" : "Australia",
+                    "short_name" : "AU",
+                    "types" : [ "country", "political" ]
+                }
+            ],
+            "formatted_address" : "Australia",
+            "geometry" : {
+                "bounds" : {
+                    "northeast" : {
+                        "lat" : -9.2210836,
+                        "lng" : 159.2555283
+                    },
+                    "southwest" : {
+                        "lat" : -54.7772185,
+                        "lng" : 112.9214544
+                    }
+                },
+                "location" : {
+                    "lat" : -25.274398,
+                    "lng" : 133.775136
+                },
+                "location_type" : "APPROXIMATE",
+                "viewport" : {
+                    "northeast" : {
+                        "lat" : -9.2268057,
+                        "lng" : 153.6386738
+                    },
+                    "southwest" : {
+                        "lat" : -43.658327,
+                        "lng" : 112.9239721
+                    }
+                }
+            },
+            "types" : [ "country", "political" ]
+        }
+    ],
+    "status" : "OK"
+}
+

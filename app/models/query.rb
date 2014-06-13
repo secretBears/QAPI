@@ -18,6 +18,15 @@ class Query < ActiveRecord::Base
     result
   end
 
+  def self.create_from_prams!(params)
+    # TODO: i dont know why Query.create! is not working but self.create!
+    self.create!(
+        query_hash:  params['mql'],
+        answer_property: params['answer_property'],
+        location_property: params['location_property']
+    )
+  end
+
   private
   def fire_query(query)
     result = FreebaseAPI.session.mqlread query

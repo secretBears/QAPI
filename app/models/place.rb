@@ -11,6 +11,10 @@ class Place < ActiveRecord::Base
     self[key].to_s
   end
 
+  def self.get_from_lat_lng(lat, lng)
+    Place.find latitude: lat, longitude: lng
+  end
+
   def self.get(lat, lng)
     lat = lat.to_f
     lng = lng.to_f
