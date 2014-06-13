@@ -17,8 +17,6 @@ QAPI::Application.routes.draw do
   end
 
   scope 'api', format: 'json' do
-    get '/',
-        to: 'questions#random'
 
     get '/bypass/:template_id/:place_id',
         to: 'questions#show_from_template_and_place'

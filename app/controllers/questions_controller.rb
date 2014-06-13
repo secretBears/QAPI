@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
     # TODO: show should use template from index
   end
 
+  # GET /api/:latitude/:longitude/(:count)
   def show_lat_lng
     @questions = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
     render 'index'
@@ -16,12 +17,6 @@ class QuestionsController < ApplicationController
   def show_from_template_and_place
     params = tpl_place_params
     @questions = QAPIGenerator.get_from_ids params[:place_id], params[:template_id]
-    render 'index'
-  end
-
-  # GET /api/
-  def random
-    @questions = QAPIGenerator.random
     render 'index'
   end
 
