@@ -18,9 +18,6 @@ QAPI::Application.routes.draw do
 
   scope 'api', format: 'json' do
 
-    get '/bypass/:template_id/:place_id',
-        to: 'questions#show_from_template_and_place'
-
     resources :questions, path: 'question', only: [:show]
 
     get '/:latitude/:longitude/(:count)',
@@ -30,6 +27,9 @@ QAPI::Application.routes.draw do
           longitude: lat_lng_validator,
           count: /[0-9\.]+/
         }
+
+    get '/bypass/:template_id/:place_id',
+        to: 'questions#show_from_template_and_place'
 
     get 'test/:place_id',
         to: 'questions#test_query'
