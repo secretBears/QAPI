@@ -4,10 +4,6 @@ class QuestionsController < ApplicationController
   before_action :check_authorization
   before_action :increment_requests
 
-  def show
-    # TODO: show should use template from index
-  end
-
   def show_lat_lng
     @questions = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
     render 'index'
