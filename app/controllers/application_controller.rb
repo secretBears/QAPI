@@ -13,11 +13,11 @@ class ApplicationController < ActionController::Base
     render template: 'layouts/error', formats: 'json', locals: {message: message.to_s, status: 404}, status: 404
   end
 
-  def render_authorization_error(message)
+  def render_authorization_error(_message)
     respond_to do |format|
       format.json do
         render template: 'layouts/error', formats: %w(json html), locals: {message: "You are not authorized to access
- this resource", status: 403},
+ this resource",                                                           status: 403},
                status: 403
       end
 
