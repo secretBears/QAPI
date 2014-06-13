@@ -17,14 +17,13 @@ QAPI::Application.routes.draw do
   end
 
   scope 'api', format: 'json' do
-
     resources :questions, path: 'question', only: [:show]
 
-    get '/:latitude/:longitude/(:count)',
-        to: 'questions#show_lat_lng',
+    get '/:lat/:lng/(:count)',
+        to: 'questions#index_lat_lng',
         constraints: {
-          latitude: lat_lng_validator,
-          longitude: lat_lng_validator,
+          lat: lat_lng_validator,
+          lng: lat_lng_validator,
           count: /[0-9\.]+/
         }
 

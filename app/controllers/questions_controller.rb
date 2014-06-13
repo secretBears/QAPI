@@ -9,8 +9,8 @@ class QuestionsController < ApplicationController
   end
 
   # GET /api/:latitude/:longitude/(:count)
-  def show_lat_lng
-    @questions = QAPIGenerator.get lat_long_params[:latitude], lat_long_params[:longitude]
+  def index_lat_lng
+    @questions = QAPIGenerator.get lat_lng_params[:lat], lat_lng_params[:lng]
     render 'index'
   end
 
@@ -39,11 +39,10 @@ class QuestionsController < ApplicationController
     @questions = Question.find(params[:id])
   end
 
-  def lat_long_params
-    params.require :latitude
-    params.require :longitude
-    params.require :longitude
-    params.permit :latitude, :longitude, :count
+  def lat_lng_params
+    params.require :lat
+    params.require :lng
+    params.permit  :lat, :lng, :count
   end
 
   def test_query_params

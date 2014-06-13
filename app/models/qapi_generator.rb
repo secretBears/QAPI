@@ -69,6 +69,7 @@ class QAPIGenerator
   #   templates = QuestionTemplate.all
   #   questions = QAPIGenerator.get_from_template_and_place template, place
   def self.get_from_template_and_place(templates, place)
+
     templates = Array.wrap(templates)
     template_ids = templates.map { |template| template[:id] }
 

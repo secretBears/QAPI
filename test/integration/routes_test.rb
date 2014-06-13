@@ -17,9 +17,9 @@ class RoutesTest < ActionDispatch::IntegrationTest
                      method: :get
                    }, {
                      controller: 'questions',
-                     action: 'show_lat_lng',
-                     latitude: "47.8094888",
-                     longitude: "13.0550007",
+                     action: 'index_lat_lng',
+                     lat: "47.8094888",
+                     lng: "13.0550007",
                      format: 'json'
                    })
   end
@@ -30,9 +30,9 @@ class RoutesTest < ActionDispatch::IntegrationTest
                      method: :get
                    }, {
                      controller: 'questions',
-                     action: 'show_lat_lng',
-                     latitude: "-47.8094888",
-                     longitude: "-13.0550007",
+                     action: 'index_lat_lng',
+                     lat: "-47.8094888",
+                     lng: "-13.0550007",
                      format: 'json'
                    })
   end
@@ -43,10 +43,10 @@ class RoutesTest < ActionDispatch::IntegrationTest
                      method: :get
                    }, {
                      controller: 'questions',
-                     action: 'show_lat_lng',
+                     action: 'index_lat_lng',
                      format: 'json',
-                     latitude: "47.8094888",
-                     longitude: "13.0550007",
+                     lat: "47.8094888",
+                     lng: "13.0550007",
                      count: "2"
                    })
   end
@@ -57,10 +57,10 @@ class RoutesTest < ActionDispatch::IntegrationTest
                      method: :get
                    }, {
                      controller: 'questions',
-                     action: 'show_lat_lng',
+                     action: 'index_lat_lng',
                      format: 'json',
-                     latitude: "-47.8094888",
-                     longitude: "-13.0550007",
+                     lat: "-47.8094888",
+                     lng: "-13.0550007",
                      count: "2"
                    })
   end
