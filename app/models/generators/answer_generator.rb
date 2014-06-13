@@ -29,7 +29,6 @@ class AnswerGenerator
     answers.shuffle!
   end
 
-  private
   def self.as_set(answers, is_right)
     answers.map do |answer|
       {

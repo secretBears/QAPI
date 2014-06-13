@@ -1,6 +1,6 @@
 class Query < ActiveRecord::Base
   has_one :question_template
-  validates_presence_of :query_hash, :location_property, :answer_property
+  validates :query_hash, :location_property, :answer_property, presence: true
   validates :query_hash, json: true
 
   def get(location)
