@@ -1,32 +1,43 @@
+<% content_for :after_javascript do %>
+    <%= javascript_include_tag "question_templates_editor" %>
+<% end %>
+
 <%= simple_form_for(question_template, url: url, :html=> { class: 'question_template_form' }) do |f| %>
     <%= f.simple_fields_for :query, question_template.query do |query_fields| %>
         <!-- Question errors -->
         <% if @question_template.errors.any? %>
-        <div class="large-12 columns" id='error_explanation'>
-            <h2><%= pluralize(@question_template.errors.count, 'error') %> prohibited this question_template from being saved:</h2>
-            <ul>
-              <% @question_template.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-            </ul>
-        </div>
+            <div class="large-12 columns" id='error_explanation'>
+              <h2><%= pluralize(@question_template.errors.count, 'error') %> prohibited this question_template from being saved:</h2>
+              <ul>
+                <% @question_template.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
         <% end %>
-        <!-- Question Textbox -->
-        <div class="large-12 columns">
-          <div class='field template' id="question">
-            <%= f.input(:question,
-                        as: :text,
-                        input_html: {
-                                rows: 5
-                        },
-                        autofocus: true,
-                        label: 'Question'
-            ) %>
-          </div>
-        </div>
 
-        <!-- MQL Editor -->
-        <div class="large-12 columns">
+        <fieldset>
+          <legend>Question</legend>
+            <!-- Question Textbox -->
+            <div class="large-12 columns">
+              <div class='field template' id="question">
+                <%= f.input(:question,
+                            as: :text,
+                            input_html: {
+                                    rows: 5
+                            },
+                            autofocus: true,
+                            label: false
+                ) %>
+              </div>
+            </div>
+        </fieldset>
+
+    <div class="row">
+      <div class="large-6 columns">
+        <fieldset>
+          <legend>Query Builder</legend>
+          <!-- MQL Editor -->
           <div id="jsoneditor">
           </div>
           <%= query_fields.input( :query_hash,
@@ -38,10 +49,13 @@
                                   },
                                   label: false
               )%>
-        </div>
+        </fieldset>
+      </div>
 
-        <!-- Question Parameter -->
-        <div class="large-6 columns">
+      <!-- Question Parameter -->
+      <div class="large-6 columns">
+        <fieldset>
+          <legend>Question Parameters</legend>
           <%= query_fields.input( :location_property,
                                   as: :string,
                                   input_html: {
@@ -56,21 +70,28 @@
                                          id: 'answer_property'
                                  },
                                  label: 'Answer' %>
-
-          <%= f.submit 'Save', class: 'button small success' %>
-        </div>
+        </fieldset>
 
         <!-- Test Query -->
-        <div class="large-6 columns">
+        <fieldset>
+          <legend>Test it!</legend>
           <%= label 'place', 'id', 'Place to test for' %>
           <%= select('place', 'id',  @places.collect {|a| [a.city, a.id]}) %>
 
           <%= label 'test', 'output', 'Result' %>
           <textarea id="test-output" contenteditable="false"></textarea>
-          <button id="test-query" class="button small success">
-            Test Question
+          <button id="test-query" class="button small">
+            Test Question Template
           </button>
-        </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns large-12">
+        <%= f.submit 'Save Template', class: 'button small success' %>
+      </div>
+    </div>
   <% end %>
 <% end %>
 

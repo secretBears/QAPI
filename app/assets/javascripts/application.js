@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//= require_tree .
+//= require question_templates
+//= require question_templates_testquery
