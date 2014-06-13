@@ -1,0 +1,44 @@
+<h1>Reports</h1>
+
+<table class="index">
+  <thead>
+    <tr>
+      <th>Question ID</th>
+      <th>Problem</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.question_id %></td>
+        <td><%= report.problem %></td>
+        <td>
+          <% unless report.comment.nil? %>
+            <i class="icon-bubble">
+              <span>Comment present</span>
+            </i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "#", data: { "reveal-id" => "report-#{report.id}" } do %>
+              <i class="icon-eye">
+                <span>Show</span>
+              </i>
+            <% end %>
+              <div id="report-<%= report.id %>" class="reveal-modal" data-reveal>
+                <h2><%= report.problem %></h2>
+                <p class="lead">The comment to this report is:</p>
+                <blockquote><%= report.comment %></blockquote>
+                <a class="close-reveal-modal">&#215;</a>
+              </div>
+         </td>
+        <td><%= button_to 'Destroy', report, method: :delete, class: "delete button alert tiny",
+                          data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

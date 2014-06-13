@@ -51,6 +51,9 @@
         </section>
       </div>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+      <script>
+        $(document).foundation();
+      </script>
     <%= yield :after_javascript %>
   </body>
 </html>
