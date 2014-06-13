@@ -30,7 +30,6 @@ function initTestQuery() {
             var placeID = this.$location.val();
             var token = '<%= ApiKey.first[:token] %>' // TODO: find current user
 
-            console.log();
 
             var url = "/api/test/" + placeID +
                       "?location_property=" + placeProperty +
