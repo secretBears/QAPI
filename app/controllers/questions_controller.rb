@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
     render 'index'
   end
 
+  # TODO: see if we need this
   def show_from_template_and_place
     params = tpl_place_params
     @questions = QAPIGenerator.get_from_ids params[:place_id], params[:template_id]
@@ -42,7 +43,7 @@ class QuestionsController < ApplicationController
   def lat_lng_params
     params.require :lat
     params.require :lng
-    params.permit  :lat, :lng, :count
+    params.permit :lat, :lng, :count
   end
 
   def test_query_params

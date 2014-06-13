@@ -29,27 +29,6 @@
 # )
 
 class QAPIGenerator
-  def initialize(lat, lng)
-    @place = Place.get lat, lng
-  end
-
-  # gets a question including answers
-  #
-  #   generator = QAPIGenerator.new(12, 32)
-  #   question = generator.get
-  #
-  # additionaly a template can be passed
-  #
-  #   template = QuestionTemplate.first
-  #   question = generator.get template
-  def get(templates = nil)
-    templates = QuestionTemplate.random if templates.nil?
-    questions = QAPIGenerator.get_from_template_and_place templates, @place
-    return questions unless questions.nil?
-
-    templates.map { |template| map_template template }
-  end
-
   # static member for getting a question to a given position
   #
   #   question = QAPIGenerator.get 12, 23
@@ -58,35 +37,11 @@ class QAPIGenerator
     generator.get
   end
 
-  # static member for getting a question from a given template and a place
-  #
-  #   template = QuestionTemplate.first
-  #   place = Place.first
-  #   questions = QAPIGenerator.get_from_template_and_place template, place
-  #
-  # multiple templates can be passed in
-  #
-  #   templates = QuestionTemplate.all
-  #   questions = QAPIGenerator.get_from_template_and_place template, place
-  def self.get_from_template_and_place(templates, place)
-
-    templates = Array.wrap(templates)
-    template_ids = templates.map { |template| template[:id] }
-
-    questions = Question.where(
-        question_template_id: template_ids,
-        place_id:             place[:id]
-    )
-    questions unless questions.blank?
-  end
-
   # get a question from a template_id and a place_id
-  #
+  # @deprecated
   #   QAPIGenerator.get_from_ids 1, 3
   def self.get_from_ids(place_id, template_id)
-    place    = Place.find place_id
-    template = QuestionTemplate.find template_id
-    QAPIGenerator.get_from_template_and_place template, place
+    Question.where(question_template_id: template_id, place_id: place_id)
   end
 
   # TODO: write documentation
@@ -109,16 +64,33 @@ class QAPIGenerator
     nil
   end
 
+  def initialize(lat, lng)
+    @place = Place.get lat, lng
+  end
+
+  # gets a question including answers
+  #
+  #   generator = QAPIGenerator.new(12, 32)
+  #   question = generator.get
+  #
+  # additionaly a template can be passed
+  #
+  #   template = QuestionTemplate.first
+  #   question = generator.get template
+  # TODO: refactor templates to get_from_templates
+  # TODO: refactor change name meaningfull name
+  def get(templates = nil)
+    templates = QuestionTemplate.random if templates.nil?
+    questions = Question.where(question_template_id: templates, place: @place)
+
+    return questions unless questions.count == 0
+
+    templates.map { |template| map_template template }
+  end
+
   private
   def get_question(generator, location)
     generator.get location
-  end
-
-  def format_question(question, answers)
-    {
-      question: question,
-      answers: answers
-    }
   end
 
   def map_template(template)

@@ -18,11 +18,4 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
     assert_not_nil questions
   end
 
-  test 'should get question from place and template' do
-    template = QuestionTemplate.first
-    place    = Place.first
-    question = QAPIGenerator.get_from_template_and_place template, place
-
-    assert_not_nil question
-  end
 end
