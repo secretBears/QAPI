@@ -4,7 +4,7 @@ class Place < ActiveRecord::Base
   has_many :questions, dependent: :delete_all
   include Geokit::Geocoders
 
-  validates_uniqueness_of :latitude, scope: :longitude
+  validates :latitude, uniqueness: {scope: :longitude}
   validates :city, :state, :country, :latitude, :longitude, presence: true
 
   def to_name(key)
@@ -48,7 +48,6 @@ class Place < ActiveRecord::Base
     end
   end
 
-  private
   def self.location_keys
     [:city, :state, :country]
   end
