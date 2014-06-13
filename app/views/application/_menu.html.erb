@@ -5,12 +5,34 @@
       </a>
     </li>
 <% end %>
-<li>
-    <%= link_to "Question Templates", question_templates_path if can? :manage, QuestionTemplate %>
-</li>
-<li>
-    <%= link_to "Users", users_path if can? :manage, User %>
-</li>
+<% if can? :manage, QuestionTemplate %>
+    <li>
+        <%= link_to question_templates_path do %>
+              <span class="icon-list">
+                <span>Question Templates</span>
+              </span>
+        <% end %>
+    </li>
+<% end %>
+
+<% if can? :manage, User %>
+    <li>
+        <%= link_to users_path do %>
+            <span class="icon-users">
+              <span>Users</span>
+            </span>
+        <% end %>
+    </li>
+<% end %>
+<% if can? :manage, Report %>
+    <li>
+      <%= link_to reports_path do %>
+            <span class="icon-bug">
+              <span>Reports</span>
+            </span>
+      <% end %>
+    </li>
+<% end %>
 <li>
   <%= button_to "Logout", destroy_user_session_path, class: "button tiny alert", method: :delete if current_user %>
 </li>

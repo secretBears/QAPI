@@ -1,21 +1,8 @@
+//= require jsoneditor-min
+
 function initPage() {
     var container = $("#jsoneditor")[0];
-
-    var editor;
-
-    if(container) {
-        editor = new jsoneditor.JSONEditor(container);
-        infuseJson();
-    }
-
-    /**
-     * Before form is submitted,
-     */
-    $('.question_template_form').on('submit', function(e) {
-        e.preventDefault();
-        extractJson();
-        this.submit();
-    });
+    var editor = null;
 
     /**
      * Parse value of query_hash field and set it as content of the editor.
@@ -31,12 +18,25 @@ function initPage() {
         $('#query_hash').val(JSON.stringify(editor.get()));
     };
 
+    if(container) {
+        $(container).empty();
+        editor = new jsoneditor.JSONEditor(container);
+        infuseJson();
+    }
+
+    /**
+     * Before form is submitted,
+     */
+    $('.question_template_form').on('submit', function(e) {
+        e.preventDefault();
+        extractJson();
+        this.submit();
+    });
+
 
     window.QAPI = window.QAPI || {};
     window.QAPI.editor = editor;
     window.QAPI.extractFromEditor = extractJson;
-
-
 }
 
 $(window).on('page:change', initPage);

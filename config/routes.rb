@@ -8,6 +8,8 @@ QAPI::Application.routes.draw do
   resources :question_templates, except: [:show, :edit]
   get 'question_templates/:id', to: 'question_templates#edit'
 
+  resources :reports, except: [:new, :create, :edit, :update]
+
   get 'docs', to: 'static#docs'
 
   resources :users do
@@ -27,11 +29,12 @@ QAPI::Application.routes.draw do
           count: /[0-9\.]+/
         }
 
-    get '/bypass/:template_id/:place_id',
-        to: 'questions#show_from_template_and_place'
+    get '/bypass/:template_id/:place_id', to: 'questions#show_from_template_and_place'
 
-    get 'test/:place_id',
-        to: 'questions#test_query'
+    get 'test/:place_id', to: 'questions#test_query'
+
+    get 'report/:question_id' => 'reports#new', as: 'new_api_report', format: :html
+    post 'reports' => 'reports#create', as: 'api_reports', format: :html
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

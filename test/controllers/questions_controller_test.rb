@@ -6,26 +6,23 @@ class QuestionsControllerTest < ActionController::TestCase
     @controller = QuestionsController.new
     @question = Question.first
     @token = User.first.api_key.token
+    @place = Place.first
     @admin = User.admins.first
   end
 
   test 'should not get result without token as guest' do
-    get :show, id: @question, format: :json
-    assert_response 403
+    get :show_lat_lng, latitude: @place.latitude, longitude: @place.longitude, format: :json
+    assert_response 403, 'could get questions without token as non-admin'
   end
 
-  test 'should get result as admin' do
+  test 'should get result as admin without token' do
     sign_in @admin
-
-    get :show, id: @question, token: @token, format: :json
-    assert_response :success, 'could not get question with token as admin'
-
-    get :show, id: @question, format: :json
-    assert_response :success, 'could not get question without token as admin'
+    get :show_lat_lng, latitude: @place.latitude, longitude: @place.longitude, format: :json
+    assert_response :success, 'could not get questions without token as admin'
   end
 
-  test 'should get result with token' do
-    get :show, id: @question, token: @token, format: :json
+  test 'should get result as non-admin with token' do
+    get :show_lat_lng, latitude: @place.latitude, longitude: @place.longitude, token: @token, format: :json
     assert_response :success
   end
 
