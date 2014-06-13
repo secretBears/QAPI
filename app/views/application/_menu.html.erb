@@ -1,8 +1,16 @@
-<ul class="side-nav">
-  <li>
+<% if current_user %>
+    <li>
+      <a>
+        Your API Key: <span class="label"><%= current_user.api_key.token %></span>
+      </a>
+    </li>
+<% end %>
+<li>
     <%= link_to "Question Templates", question_templates_path if can? :manage, QuestionTemplate %>
-  </li>
-  <li>
+</li>
+<li>
     <%= link_to "Users", users_path if can? :manage, User %>
-  </li>
-</ul>
+</li>
+<li>
+  <%= button_to "Logout", destroy_user_session_path, class: "button tiny alert", method: :delete if current_user %>
+</li>

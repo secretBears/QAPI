@@ -1,6 +1,6 @@
-<h1>Listing users</h1>
+<h1>Listing Users</h1>
 
-<table>
+<table class="index">
   <thead>
   <tr>
     <th>User</th>
@@ -18,12 +18,12 @@
         <td><%= user.api_key.token %></td>
         <td><%= user.api_key.requests %></td>
         <td>
-          <%= button_to toggle_admin_user_path(user), method: :put, class: 'button tiny' do %>
+          <%= button_to toggle_admin_user_path(user), method: :put, class: 'button tiny button' do %>
               <%= user.admin? ? 'Yes' : 'No' %>
           <% end %>
         </td>
         <td><%= button_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' },
-                          class: 'button alert tiny' %></td>
+                          class: 'button alert tiny delete' %></td>
       </tr>
   <% end %>
   </tbody>
@@ -31,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path, class: "button success tiny" %>

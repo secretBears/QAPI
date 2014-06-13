@@ -1,7 +1,4 @@
-<% content_for :page_title do %>
-    Listing Question Templates
-<% end %>
-
+<h1>Listing Question Templates</h1>
 
 <% if flash[:notice] %>
     <div data-alert class="alert-box success radius">
@@ -25,7 +22,7 @@
         <td><%= link_to question_template.question, question_template_path(question_template) %></td>
         <td><%= question_template.query.query_hash %></td>
         <td><%= button_to 'Remove', question_template_path(question_template), method: :delete,
-                          data: { confirm: "Are you sure?" }, class: 'button alert tiny delete expand' %></td>
+                          data: { confirm: "Are you sure?" }, class: 'button alert tiny delete' %></td>
       </tr>
   <% end %>
   </tbody>
