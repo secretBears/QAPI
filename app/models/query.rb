@@ -1,9 +1,12 @@
+# TODO: merge with question template
+
 class Query < ActiveRecord::Base
+
   has_one :question_template
   validates :query_hash, :location_property, :answer_property, presence: true
   validates :query_hash, json: true
 
-  def get(location)
+  def results(location)
     query = self[:query_hash].clone
     query = JSON.parse(query) unless query.class == Hash
 
@@ -12,10 +15,11 @@ class Query < ActiveRecord::Base
 
     answer = Misc.find_in_json result, self[:answer_property]
     answer = answer.join ', '
-    result['answer'] = answer
 
-    result.delete(self[:answer_property])
-    result
+    {
+      result: result,
+      answer: answer
+    }
   end
 
   def self.create_from_prams!(params)
@@ -27,10 +31,13 @@ class Query < ActiveRecord::Base
     )
   end
 
+  alias_method :get, :results
+
   private
   def fire_query(query)
     result = FreebaseAPI.session.mqlread query
     fail Exceptions::QueryNotFound, 'No Results for query' + query.to_s if result.nil?
     result
   end
+
 end

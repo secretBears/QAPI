@@ -3,7 +3,7 @@ require 'test_helper'
 class StaticHelperTest < ActionView::TestCase
   def self.generate_query
     location_property = "place_of_birth~="
-    answer_property   = "profession"
+    answer_property   = "$.profession[0].name"
 
     query = Query.new(
         query_hash: StaticHelperTest.query,

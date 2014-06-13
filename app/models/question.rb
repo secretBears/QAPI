@@ -16,16 +16,16 @@ class Question < ActiveRecord::Base
   def self.generate!(question, answers, place, template)
     # fail Exceptions::InvalidAmountOfAnswers if (answers.count-1) != QAPI::Application.config.answers_amount
 
-    question = Question.create!(
+    question = Question.find_or_create_by!(
       place:             place,
       question:          question,
       question_template: template
     )
 
-    answers.each do |answer|
+    answers.each do |answer, is_true|
       question.answers.create(
-          answer: answer[:answer],
-          is_true: answer[:is_true]
+          answer: answer,
+          is_true: is_true
       )
     end
     question

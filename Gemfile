@@ -48,7 +48,6 @@ end
 gem 'rubocop'
 
 group :development, :test do
-  gem 'debugger'
   gem 'heroku'
   gem 'travis'
   gem 'rest-client', '~> 1.6.7'

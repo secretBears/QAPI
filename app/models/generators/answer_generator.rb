@@ -9,12 +9,11 @@ class AnswerGenerator
   end
 
   def get(locations)
-    locations = [locations] if locations.class == String
-    answers = Set.new
-    locations.each do |location|
-      answers.add((@query.get location)['answer'])
+    locations = Array(locations) if locations.class == String
+    locations.map do |location|
+      answer  = @query.results location
+      answer[:answer]
     end
-    answers
   end
 
   def self.get(locations, query, _limit = 3)

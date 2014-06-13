@@ -11,14 +11,14 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
     answer = @answer_generator.get 'Linz'
 
     assert_not_nil answer
-    assert_equal Set, answer.class
+    assert_equal Array, answer.class
   end
 
   test "should get answers from array" do
     answer = @answer_generator.get %w(Linz Salzburg)
 
     assert_not_nil answer
-    assert_equal Set, answer.class
+    assert_equal Array, answer.class
   end
 
   test "should get answers in combination with place_without methode" do
@@ -37,7 +37,7 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
     locations = Place.as_array locations, :city
 
     answers = AnswerGenerator.get locations, query
-    assert_equal Set, answers.class
+    assert_equal Array, answers.class
   end
 
   test "should shuffle answers" do

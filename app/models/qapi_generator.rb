@@ -83,30 +83,13 @@ class QAPIGenerator
     templates = QuestionTemplate.random if templates.nil?
     questions = Question.where(question_template_id: templates, place: @place)
 
-    return questions unless questions.count == 0
+    return questions unless questions.blank?
 
-    templates.map { |template| map_template template }
+    QuestionGenerator.generate! templates, @place
   end
 
   private
   def get_question(generator, location)
-    generator.get location
-  end
-
-  def map_template(template)
-    query = template.query
-    location  = @place.city # TODO: should also use country and state
-
-    question  = QuestionGenerator.get query, template.question, location
-    right_answer = AnswerGenerator.get location, query
-
-    wrong_cities = Place.get_without key: :city, place: location
-    wrong_cities = Place.as_array wrong_cities, :city
-
-    wrong_answers = AnswerGenerator.get wrong_cities, query
-
-    answers = AnswerGenerator.shuffle_answers right_answer, wrong_answers
-
-    Question.generate! question, answers, @place, template
+    generator.get_question_with_answer location
   end
 end
