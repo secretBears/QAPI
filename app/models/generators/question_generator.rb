@@ -5,7 +5,7 @@ class QuestionGenerator
           template: template,
           place: place
       )
-      generator.question
+      question = generator.question
     end
     Question.find(question_ids)
   end
