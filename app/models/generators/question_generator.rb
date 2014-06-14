@@ -28,7 +28,7 @@ class QuestionGenerator
     answers[right_answer] = true
 
     wrong_answers.each do |key, _value|
-      answers[key] = false unless answers.has_key? key
+      answers[key] = false unless answers.key? key
       break if answers.length == answer_length
     end
 
