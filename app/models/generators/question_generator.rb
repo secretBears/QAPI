@@ -5,7 +5,7 @@ class QuestionGenerator
           template: template,
           place: place
       )
-      question = generator.question
+      generator.question
     end
     Question.find(question_ids)
   end
@@ -25,7 +25,7 @@ class QuestionGenerator
     wrong_answers        = get_wrong_answers place
 
     answers = {}
-    wrong_answers.each do |key, value|
+    wrong_answers.each do |key, _value|
       answers[key] = false
     end
     answers[right_answer] = true
@@ -39,8 +39,8 @@ class QuestionGenerator
     result_with_answer = @query.results location
 
     {
-        answer:   result_with_answer[:answer],
-        question: (replace_placeholder placeholders, result_with_answer[:result])
+      answer:   result_with_answer[:answer],
+      question: (replace_placeholder placeholders, result_with_answer[:result])
     }
   end
 
@@ -50,9 +50,6 @@ class QuestionGenerator
 
     AnswerGenerator.get locations, @query
   end
-
-
-
 
   # @deprecated
   def self.get(query, template, location)
