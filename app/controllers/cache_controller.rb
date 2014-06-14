@@ -1,6 +1,6 @@
 class CacheController < ApplicationController
   before_action :authorize_admin
-  after_action  :render_nothing
+  after_action :render_nothing
 
   def clear_all
     Cache.clear_all
