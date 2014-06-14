@@ -16,7 +16,16 @@ class Question < ActiveRecord::Base
   def self.generate!(question, answers, place, template)
     # fail Exceptions::InvalidAmountOfAnswers if (answers.count-1) != QAPI::Application.config.answers_amount
 
-    question = Question.find_or_create_by!(
+    question_obj = Question.find_by(
+        place:             place,
+        question:          question,
+        question_template: template
+    )
+
+    return question_obj unless question_obj.blank?
+
+
+    question = Question.create!(
       place:             place,
       question:          question,
       question_template: template
@@ -28,6 +37,7 @@ class Question < ActiveRecord::Base
           is_true: is_true
       )
     end
+    question.save!
     question
   end
 
