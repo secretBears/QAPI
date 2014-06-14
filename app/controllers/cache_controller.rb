@@ -1,6 +1,6 @@
 class CacheController < ApplicationController
   before_action :authorize_admin
-  after_action :render_nothing, except: [:index]
+  after_action :redirect_back, except: [:index]
 
   def index
   end
@@ -30,7 +30,7 @@ class CacheController < ApplicationController
     params.require(:template_id).permit(:template_id)
   end
 
-  def render_nothing
-    render nothing: true
+  def redirect_back
+    redirect_to :back
   end
 end
