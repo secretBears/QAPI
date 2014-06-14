@@ -16,7 +16,7 @@ QuestionTemplate.create!(
     query: Query.create(
         query_hash: profession_template_hash,
         location_property: 'place_of_birth~=',
-        answer_property: '$.profession[0].name'
+        answer_property: '$.[*].profession[0].name'
     )
 )
 
@@ -38,7 +38,7 @@ QuestionTemplate.create!(
     query: Query.create(
         query_hash: birthday_template_hash,
         location_property: 'place_of_birth~=',
-        answer_property: '$.date_of_birth'
+        answer_property: '$.[*].date_of_birth'
     )
 )
 
@@ -60,6 +60,6 @@ QuestionTemplate.create!(
     query: Query.create(
         query_hash: music_template_hash,
         location_property: 'origin',
-        answer_property: '$.genre[*].name'
+        answer_property: '$.[*].genre[*].name'
     )
 )
