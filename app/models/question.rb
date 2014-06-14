@@ -24,10 +24,14 @@ class Question < ActiveRecord::Base
 
     return question_obj unless question_obj.blank?
 
+    Question.create_question! question, answers, place, template
+  end
+
+  def self.create_question!(question, answers, place, template)
     question = Question.create!(
-      place:             place,
-      question:          question,
-      question_template: template
+        place:             place,
+        question:          question,
+        question_template: template
     )
 
     answers.each do |answer, is_true|

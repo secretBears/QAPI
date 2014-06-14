@@ -48,7 +48,7 @@ class QuestionGenerator
 
   def get_wrong_answers(location)
     places = Place.get_without key: :city, place: location
-    locations = places.map! { |location| location.city }
+    locations = places.map! { |place| place.city }
 
     AnswerGenerator.get locations, @query
   end
