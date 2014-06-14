@@ -1,5 +1,5 @@
 profession_template_hash = <<-HERE_DOC
-  {
+  [{
     "type": "/people/person",
     "place_of_birth~=": "Linz",
     "limit": 1,
@@ -8,7 +8,7 @@ profession_template_hash = <<-HERE_DOC
          "name": [],
          "limit": 1
      }]
-  }
+  }]
 HERE_DOC
 
 QuestionTemplate.create!(
@@ -21,7 +21,7 @@ QuestionTemplate.create!(
 )
 
 birthday_template_hash = <<-HERE_DOC
-  {
+  [{
     "type": "/people/person",
     "place_of_birth~=": "Linz",
     "date_of_birth": null,
@@ -30,7 +30,7 @@ birthday_template_hash = <<-HERE_DOC
     "profession": [{
          "name": "Politician"
      }]
-  }
+  }]
 HERE_DOC
 
 QuestionTemplate.create!(
@@ -43,7 +43,7 @@ QuestionTemplate.create!(
 )
 
 music_template_hash = <<-HERE_DOC
-  {
+  [{
     "type": "/music/artist",
     "origin": "Linz",
     "limit": 1,
@@ -52,7 +52,7 @@ music_template_hash = <<-HERE_DOC
          "name": null,
           "limit": 1
     }]
-  }
+  }]
 HERE_DOC
 
 QuestionTemplate.create!(
