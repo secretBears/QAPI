@@ -47,7 +47,7 @@ class QAPIGenerator
   # TODO: write documentation
   def self.get_test(params)
     ActiveRecord::Base.transaction do
-      query = Query.create_from_prams! params
+      query = Query.create_from_params! params
       template = QuestionTemplate.create_from_params! params, query
 
       place = Place.find params['place_id']
