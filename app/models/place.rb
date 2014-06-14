@@ -18,10 +18,14 @@ class Place < ActiveRecord::Base
   def self.get(lat, lng)
     lat = lat.to_f
     lng = lng.to_f
+
+    place = Place.where(latitude: lat, longitude: lng).first
+    return place unless place.blank?
+
     locations = GoogleGeocoder.reverse_geocode "#{lat}, #{lng}"
     fail Exceptions::PlaceNotFound, "City Name with Coordinates lat=#{lat} lng=#{lng} not found" if locations.city.nil?
 
-    return Place.find_or_create_by!(
+    return Place.create!(
         city:      locations.city,
         country:   locations.country,
         state:     locations.state,
