@@ -1,4 +1,7 @@
 require 'test_helper'
+# TODO: tests for routes should be seperated into files according to their scope
+# TODO: for example /api should get the file routes_api_test.rb
+# TODO: or routes_misc_test.rb
 
 class RoutesTest < ActionDispatch::IntegrationTest
   test 'should get index' do

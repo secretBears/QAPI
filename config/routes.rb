@@ -18,6 +18,18 @@ QAPI::Application.routes.draw do
     end
   end
 
+  scope '/cache/clear' do
+    scope '/all' do
+      get '/',          to: 'cache#clear_all',           as: 'cache_clear_all'
+      get '/places',    to: 'cache#clear_all_places',    as: 'cache_clear_all_places'
+      get '/questions', to: 'cache#clear_all_questions', as: 'cache_clear_all_questions'
+    end
+
+    get '/question-from-template/:template_id',
+        to: 'cache#clear_questions_from_template',
+        as: 'cache_clear_question_from_template'
+  end
+
   scope 'api', format: 'json' do
     resources :questions, path: 'question', only: [:show]
 
