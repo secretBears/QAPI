@@ -29,8 +29,8 @@ class Place < ActiveRecord::Base
         city:      locations.city,
         country:   locations.country,
         state:     locations.state,
-        latitude:  locations.lat,
-        longitude: locations.lng
+        latitude:  lat, # store the request coordinates
+        longitude: lng
     ) if locations.success
   end
 
