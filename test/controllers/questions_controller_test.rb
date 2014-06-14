@@ -27,8 +27,8 @@ class QuestionsControllerTest < ActionController::TestCase
   end
 
   test 'should get response for test template' do
-    mql  = '%7B%22type%22%3A%22%2Fpeople%2Fperson%22%2C%22place_of_birth~%3D%22%3A%22Linz%22%2C%22limit%22%3A1%2C%22name%22%3Anull%2C%22'
-    mql += 'profession%22%3A%5B%7B%22name%22%3A%5B%5D%7D%5D%7D'
+    mql  = '%5B%7B%22type%22%3A%22%2Fpeople%2Fperson%22%2C%22place_of_birth~%3D%22%3A%22Linz%22%2C%22limit%22%3A1%2C%22name%22%3Anull%2C%22'
+    mql += 'profession%22%3A%5B%7B%22name%22%3A%5B%5D%7D%5D%7D%5D'
 
     template  = 'Lorem%20ipsum%20dolor%20sit%20amet%2C%20consectetuer%'
     template += '20adipiscing%20elit.%20Nam%20cursus.%20Morbi%20%3Fname%20mi.%20Nullam%20enim'

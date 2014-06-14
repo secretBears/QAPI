@@ -27,7 +27,7 @@ class QAPIGeneratorTest < ActiveSupport::TestCase
     query = Query.new(query_hash: non_array_hash,
                       location_property: 'origin',
                       answer_property: '$.genre[*].name')
-    assert_not query.save!, "could unexpectedly save query with non-array query_hash"
+    assert_not query.save, "could unexpectedly save query with non-array query_hash"
   end
 
   test "should get query" do
