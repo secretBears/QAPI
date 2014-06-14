@@ -24,3 +24,6 @@ deploy:
     secure: oOSEuqxOSA5LH7JGXxefGbaQDnFiujaZ3S0x+9rSQrI18ihOVzbkdoGDKFY+Y946mXBXS7HVWMZwbDT153IMChKQZ6jp1N0qEbSlzisU9AfJXCCeCfkcNuo/xnnPaO1g2/vuw+H8wb3Hjl3htkpRAeFaSYMCThh4XJ39xMBxlNY=
   app: qapi
   on: master
+  run:
+  - rake db:migrate
+  - rake precompile:assets
