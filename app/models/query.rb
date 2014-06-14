@@ -35,7 +35,7 @@ class Query < ActiveRecord::Base
 
   private
   def fire_query(query)
-    result = FreebaseAPI.session.mqlread query
+    result = FreebaseAPI.session.mqlread Array.wrap(query)
     fail Exceptions::QueryNotFound, 'No Results for query' + query.to_s if result.nil?
     result
   end
