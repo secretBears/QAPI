@@ -20,4 +20,10 @@ class CacheTest < ActiveSupport::TestCase
     questions = Question.where question_template_id: template.id
     assert_empty questions
   end
+
+  test 'should delete questions and places' do
+    Cache.clear_all
+    assert_equal 0, Place.count
+    assert_equal 0, Question.count
+  end
 end
