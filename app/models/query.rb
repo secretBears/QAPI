@@ -1,8 +1,6 @@
 class QueryHashValidator < ActiveModel::Validator
   def validate(record)
-    puts record.query_hash
     parsed_query = JSON.parse record.query_hash
-    puts parsed_query.class
     unless parsed_query.class == Array
       record.errors[:query_hash] << "needs to be an array"
     end
