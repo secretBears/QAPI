@@ -24,7 +24,6 @@ class Question < ActiveRecord::Base
 
     return question_obj unless question_obj.blank?
 
-
     question = Question.create!(
       place:             place,
       question:          question,
@@ -37,7 +36,6 @@ class Question < ActiveRecord::Base
           is_true: is_true
       )
     end
-    question.save!
     question
   end
 
