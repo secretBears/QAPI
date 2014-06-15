@@ -15,5 +15,9 @@ namespace :cache do
     task :questions => :environment do
       Cache.clear_all_places
     end
+
+    task :old => :environment do
+      Cache.clear_old_questions
+    end
   end
 end
