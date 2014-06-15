@@ -1,7 +1,7 @@
 # Add application configuration variables here, as shown below.
 # For keys please contact thomas@mayrhofer.at
 
-SECRET_TOKEN: 'your super secret token'
+SECRET_TOKEN:       'your super secret token'
 GOOGLE_API_KEY:     'place google api key'
 GOOGLE_CLIENT_ID:   'place google client id'
 GOOGLE_CLIENT_MAIL: 'place google client mail'
