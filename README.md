@@ -48,6 +48,29 @@ QAPI returns it's result as a JSON object in the following format:
 There will be a public API which can be used for your own application, without hosting your own QAPI. More information will be available soon.
 
 
+## Custom Rake Tasks
+
+There are a few built in Rake-Tasks for development.
+
+### Clear Caches
+QAPI has a built in Cache which can be cleared by the following tasks:
+
+```
+    rake cache:clear:all        # clears all caches (questions and places)
+    rake cache:clear:places     # clears all places
+    rake cache:clear:questions  # clears all questions
+```
+
+### Regenerate Keys
+
+QAPI uses travis-ci for automatic deployment to heroku. The secret and API keys are stored in config/application.yml and are not checked in VCS.
+There is a sample application.yml file in the config directory. For regenerating the ENV variables on travis.yml and Heroku there is a rake task to do that.
+
+```
+    rake regenerate_keys        # regenerates all keys on heroku and travis.yml
+```
+
+
 
 ## Contributors
 This awesome project is powered by secret bears.
