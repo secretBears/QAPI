@@ -97,6 +97,14 @@ There is a sample application.yml file in the config directory. For regenerating
 ```
 
 
+## A word on extensions of Ruby or Rails
+
+All custom extensions of Ruby or Rails are located in lib/custom_*. All directories in lib which start with a "custom_" prefix are autoloaded to rails.
+
+There are a few custom exceptions in lib/custom_exceptions.rb
+
+ActiveRecord::Validations lack in some validators which are important for QAPI (e.g. JSON Validator). They are located in lib/custom_validations
+ 
 
 ## Contributors
 This awesome project is powered by secret bears.
@@ -106,3 +114,10 @@ This awesome project is powered by secret bears.
 * Stefan Laimer
 
 Give them a cookie.
+
+## Other QAPI related Projects
+
+There will be a fully playable [game](https://github.com/secretBears/qapi-game)  which uses QAPI. 
+
+
+
