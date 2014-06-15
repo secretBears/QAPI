@@ -44,8 +44,36 @@ QAPI returns it's result as a JSON object in the following format:
 ```
 
 
-### Public API
-There will be a public API which can be used for your own application, without hosting your own QAPI. More information will be available soon.
+## Public API
+
+There is a public free Version of this API hosted on http://qapi.herokuapp.com
+QAPI requires an API Key which will be generated when one is registred. 
+
+### Get a Question
+
+To get a question simply call:
+```
+    GET /api/<latitude>/<longitude>/?token=<your_api_token>
+```
+
+If you are logged in the api_token is not required so you can call.
+
+```
+    GET /api/<latitude>/<longitude>
+```
+
+
+### Report a Problem
+
+QAPI generates questions to a given location. We cannot excactly say which question will be created when calling the api.
+If you find a problem feel free to let us know.
+
+```
+    /api/report/<question_id>
+```
+
+r
+
 
 
 ## Custom Rake Tasks
