@@ -72,8 +72,6 @@ If you find a problem feel free to let us know.
     /api/report/<question_id>
 ```
 
-r
-
 
 
 ## Custom Rake Tasks
