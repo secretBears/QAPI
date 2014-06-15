@@ -5,7 +5,11 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
 
-  config.secret_key = ENV['SECRET_TOKEN']
+  # must be set for travis because when the application gets deployed the env variables are not loadedsee
+  config.secret_key = (
+    ENV['SECRET_TOKEN'] ||
+    '5c6ba522e4e3b3618a9b56f2a76e08bf7404f5299c07dbf6af77d3eb'
+  )
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
