@@ -53,13 +53,6 @@ class QuestionGenerator
     end
   end
 
-  def get_wrong_answers(location)
-    places = Place.get_without key: :city, place: location
-    locations = places.map! { |place| place.city }
-
-    AnswerGenerator.get locations, @query
-  end
-
   # @deprecated
   def self.get(query, template, location)
     generator = QuestionGenerator.new(
