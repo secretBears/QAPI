@@ -85,6 +85,7 @@ QAPI has a built in Cache which can be cleared by the following tasks:
     rake cache:clear:all        # clears all caches (questions and places)
     rake cache:clear:places     # clears all places
     rake cache:clear:questions  # clears all questions
+    rake cache:clear:old        # clears all old questions which are older than the question ttl (can be used by heroku scheduler)
 ```
 
 ### Regenerate Keys

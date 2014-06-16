@@ -28,7 +28,7 @@ class Place < ActiveRecord::Base
     return Place.create!(
         city:      locations.city,
         country:   locations.country,
-        state:     locations.state,
+        state:     (locations.state || locations.district),
         latitude:  lat, # store the request coordinates
         longitude: lng
     ) if locations.success

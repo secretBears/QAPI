@@ -19,7 +19,7 @@ class Cache
 
   def self.clear_old_questions
     ttl       = QAPI::Application.config.question_ttl
-    questions = Question.where('updated_at < :ttl', {:ttl => ttl.ago})
+    questions = Question.where('updated_at < :ttl', ttl: ttl.ago)
     puts questions
   end
 end
