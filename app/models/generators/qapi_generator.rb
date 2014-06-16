@@ -88,8 +88,8 @@ class QAPIGenerator
 
     questions = []
     templates.each do |template|
-      existing_question = Question.order("random()").find_by(question_template_id: template, place: @place)
-      if existing_question.nil?
+      existing_question = Question.order("random()").find_by(question_template_id: template, place_id: @place)
+      if existing_question.blank?
         questions += QuestionGenerator.generate!([template], @place)
       else
         questions << existing_question

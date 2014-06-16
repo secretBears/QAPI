@@ -3,7 +3,6 @@ require 'test_helper'
 class QuestionGeneratorTest < ActiveSupport::TestCase
   setup do
     # create query
-
     @question_generator = QuestionGenerator.new(
         place:    'Salzburg',
         template: QuestionTemplate.first
