@@ -17,6 +17,7 @@ class QuestionGenerator
     @query    = @template.query
   end
 
+  # returns an array of Question instances
   def question(answer_length = 4)
     place                 = @place.city # TODO: should also use country and state
     questions_with_answer = get_question_with_answer place
@@ -24,6 +25,7 @@ class QuestionGenerator
     questions_with_answer.map do |question_with_answer|
       question             = question_with_answer[:question]
       right_answer         = question_with_answer[:answer]
+      puts right_answer
       wrong_answers        = AnswerGenerator.get_answers @query, right_answer
 
       answers = {}
@@ -41,7 +43,7 @@ class QuestionGenerator
 
   # TODO: rename to get_questions_with answer
   def get_question_with_answer(location)
-    placeholders = extract_placeholders
+    placeholders = find_placeholders_in_template
     results_with_answer = Array.wrap(@query.results_for location)
 
     results_with_answer.map do |result_with_answer|
@@ -62,7 +64,7 @@ class QuestionGenerator
   end
 
   private
-  def extract_placeholders
+  def find_placeholders_in_template
     @template.question.scan(regex_placeholder).flatten
   end
 
