@@ -80,10 +80,13 @@ class QAPIGenerator
   # TODO: refactor templates to get_from_templates
   # TODO: refactor change name to a meaningful
   def get(templates = nil)
-    templates = QuestionTemplate.random if templates.nil? || templates.empty?
+    templates = QuestionTemplate.random(5) if templates.nil? || templates.empty?
 
-    questions = Question.where(question_template_id: templates, place: @place)
-    return questions unless questions.blank?
+    questions = []
+    templates.each do |template|
+      questions += Question.order("random()").find_by(question_template_id: template, place: @place)
+    end
+    return questions unless questions.empty?
 
     QuestionGenerator.generate! templates, @place
   end
