@@ -41,9 +41,9 @@ class AnswerGenerator
 
     locations.each do |location|
       query_answers  = @query.results location[:city]
-
       query_answers.each do |query_answer|
         @answers.add query_answer[:answer]
+
         # TODO: I don't know if it's possible to break out of two loops at once
 
         break if @answers.length >= @answer_limit
@@ -87,9 +87,17 @@ class AnswerGenerator
 
   private
   def get_questions_from_db
-    templates = QuestionTemplate.find_by_query(@query)
-    questions = Question.find_by_question_templates(templates)
-    Answer.select(:answer).distinct.limit(@answer_limit).find_by_questions(questions)
+    Answer.select(:answer).distinct.where(
+        question_id: Question.where(
+            question_template_id: QuestionTemplate.where(
+                query_id: @query
+            )
+        )
+    )
+    # TODO: I don't know why the nested example is working and this is not working
+    # templates = QuestionTemplate.find_by_query(@query)
+    # questions = Question.find_by_question_templates(templates)
+    # Answer.select(:answer).distinct.limit(@answer_limit).find_by_questions(questions)
   end
 
   def get_places_from_db

@@ -3,7 +3,7 @@
 
 class Misc
   def self.find_in_json(element, path)
-    JsonPath.on(element, path)
+    JsonPath.on(Array.wrap(element), path)
   end
 
   def self.replace_in_json(element, path, replace)
