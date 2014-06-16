@@ -40,7 +40,7 @@ class AnswerGenerator
     locations = get_places_from_db
 
     locations.each do |location|
-      query_answers  = @query.results location
+      query_answers  = @query.results location[:city]
 
       query_answers.each do |query_answer|
         @answers.add query_answer[:answer]
