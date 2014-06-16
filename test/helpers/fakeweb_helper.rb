@@ -36,8 +36,6 @@ FakeWeb.register_uri(
   body: (json_response 'ny')
 )
 
-
-
 #
 # # freebase politic
 # FakeWeb.register_uri(

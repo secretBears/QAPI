@@ -5,7 +5,7 @@ class QuestionTemplate < ActiveRecord::Base
 
   validates :question,  presence: true
 
-  scope :find_by_query, ->(query) {where(query: query)}
+  scope :find_by_query, ->(query) {where(query: query) }
 
   accepts_nested_attributes_for :query
 

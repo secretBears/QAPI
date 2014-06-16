@@ -24,11 +24,12 @@ class QuestionGenerator
     questions_with_answer.map do |question_with_answer|
       question             = question_with_answer[:question]
       right_answer         = question_with_answer[:answer]
-      wrong_answers        = get_wrong_answers place
+      wrong_answers        = AnswerGenerator.get_answers @query, right_answer
 
       answers = {}
       answers[right_answer] = true
 
+      # TODO: can be refactored because we can now pass the right answer to get generator
       wrong_answers.each do |key, _value|
         answers[key] = false unless answers.key? key
         break if answers.length == answer_length

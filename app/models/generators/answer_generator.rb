@@ -3,22 +3,25 @@
 
 require 'set'
 class AnswerGenerator
-  attr_reader :answers
+  attr_accessor :answers
 
   # TODO: use normal parameters - I really don't know in which stupid gem i found that (this is so annoying to use)
   def initialize(arguments)
     @query        = arguments[:query]        || (fail ArgumentError, "query is required")
-    @answer_limit = arguments[:answer_limit] || 3 # TODO: should be placed in global config
+    @answer_limit = 4    # TODO: should be placed in global config
     @answers = Set.new
   end
 
-  def self.get_answers(query)
+  # gets answers to a given query
+  # an additional without_answer can be passed which will not be a part of the returned answers
+  def self.get_answers(query, without_answer = nil)
     generator = AnswerGenerator.new query: query
+    generator.answers.add without_answer unless without_answer.nil?
     generator.find_answers_from_db
     generator.find_answers_from_query
-    generator.answers
+    generator.answers.delete without_answer unless without_answer.nil?
+    generator.answers.to_a
   end
-
 
   # Searches the database for answers
   # Returns set with unique answers
@@ -26,6 +29,7 @@ class AnswerGenerator
     answers_from_db = get_questions_from_db
     answers_from_db.each do |answer_from_db|
       @answers.add answer_from_db[:answer]
+      break if @answers.length >= @answer_limit
     end
     @answers.to_a
   end
@@ -33,7 +37,7 @@ class AnswerGenerator
   # fires a query to the semantic database with a different location
   # if not enough answers are found a next location will be used to get answers
   def find_answers_from_query
-   locations = get_places_from_db
+    locations = get_places_from_db
 
     locations.each do |location|
       query_answers  = @query.results location
@@ -41,19 +45,13 @@ class AnswerGenerator
       query_answers.each do |query_answer|
         @answers.add query_answer[:answer]
         # TODO: I don't know if it's possible to break out of two loops at once
-        break if @answers.count == @answer_limit
+
+        break if @answers.length >= @answer_limit
       end
-      break if @answers.count == @answer_limit
+      break if @answers.length >= @answer_limit
     end
     @answers.to_a
   end
-
-
-
-
-
-
-
 
   def get(locations)
     locations = Array(locations) if locations.class == String
@@ -64,7 +62,6 @@ class AnswerGenerator
       end
     end
   end
-
 
   # @deprecated
   def self.get(locations, query, _limit = 3)

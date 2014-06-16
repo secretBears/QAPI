@@ -5,5 +5,5 @@ class Answer < ActiveRecord::Base
   validates :answer, presence: true
   validates :is_true, inclusion: {in: [true, false]}
 
-  scope :find_by_questions, -> (questions) {where(question_id: questions)}
+  scope :find_by_questions, -> (questions) {where(question_id: questions) }
 end
