@@ -1,10 +1,19 @@
-# TODO: merge with question template
+class QueryHashValidator < ActiveModel::Validator
+  def validate(record)
+    parsed_query = JSON.parse record.query_hash
+    unless parsed_query.class == Array
+      record.errors[:query_hash] << "needs to be an array"
+    end
+  end
+end
 
+# TODO: merge with question template
 class Query < ActiveRecord::Base
 
   has_one :question_template
   validates :query_hash, :location_property, :answer_property, presence: true
   validates :query_hash, json: true
+  validates_with QueryHashValidator
 
   def results(location)
     query = self[:query_hash].clone
@@ -26,7 +35,7 @@ class Query < ActiveRecord::Base
   alias_method :get, :results
 
 
-  def self.create_from_prams!(params)
+  def self.create_from_params!(params)
     # TODO: i dont know why Query.create! is not working but self.create!
     self.create!(
         query_hash:  params['mql'],

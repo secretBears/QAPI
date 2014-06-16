@@ -16,8 +16,8 @@ class Place < ActiveRecord::Base
   end
 
   def self.get(lat, lng)
-    lat = lat.to_f
-    lng = lng.to_f
+    lat = lat.to_f.round 4
+    lng = lng.to_f.round 4
 
     place = Place.where(latitude: lat, longitude: lng).first
     return place unless place.blank?
@@ -29,8 +29,8 @@ class Place < ActiveRecord::Base
         city:      locations.city,
         country:   locations.country,
         state:     (locations.state || locations.district),
-        latitude:  lat, # store the request coordinates
-        longitude: lng
+        latitude:  lat.round(4), # store the request coordinates
+        longitude: lng.round(4)
     ) if locations.success
   end
 

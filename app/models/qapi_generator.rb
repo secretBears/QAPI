@@ -47,7 +47,7 @@ class QAPIGenerator
   # TODO: write documentation
   def self.get_test(params)
     ActiveRecord::Base.transaction do
-      query = Query.create_from_prams! params
+      query = Query.create_from_params! params
       template = QuestionTemplate.create_from_params! params, query
 
       place = Place.find params['place_id']
@@ -80,7 +80,7 @@ class QAPIGenerator
   # TODO: refactor templates to get_from_templates
   # TODO: refactor change name to a meaningful
   def get(templates = nil)
-    templates = QuestionTemplate.random if templates.nil?
+    templates = QuestionTemplate.random if templates.nil? || templates.empty?
     questions = Question.where(question_template_id: templates, place: @place)
 
     return questions unless questions.blank?
