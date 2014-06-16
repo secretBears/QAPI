@@ -35,6 +35,9 @@ FakeWeb.register_uri(
   "#{geocode_server}/maps/api/geocode/json?sensor=false&latlng=-33.867487%2C151.20699",
   body: (json_response 'ny')
 )
+
+
+
 #
 # # freebase politic
 # FakeWeb.register_uri(
