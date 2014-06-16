@@ -82,8 +82,8 @@ class QAPIGenerator
   def get(templates = nil)
     templates = QuestionTemplate.random if templates.nil? || templates.empty?
 
-    #     questions = Question.where(question_template_id: templates, place: @place)
-    #     return questions unless questions.blank?
+    questions = Question.where(question_template_id: templates, place: @place)
+    return questions unless questions.blank?
 
     QuestionGenerator.generate! templates, @place
   end
