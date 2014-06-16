@@ -78,7 +78,7 @@ class QAPIGenerator
   #   template = QuestionTemplate.first
   #   question = generator.get template
   # TODO: refactor templates to get_from_templates
-  # TODO: refactor change name meaningfull name
+  # TODO: refactor change name to a meaningful
   def get(templates = nil)
     templates = QuestionTemplate.random if templates.nil?
     questions = Question.where(question_template_id: templates, place: @place)
@@ -89,6 +89,7 @@ class QAPIGenerator
   end
 
   private
+  # @deprecated
   def get_question(generator, location)
     generator.get_question_with_answer location
   end

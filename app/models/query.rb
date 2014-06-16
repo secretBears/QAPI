@@ -11,15 +11,17 @@ class Query < ActiveRecord::Base
     query = JSON.parse(query) unless query.class == Hash
 
     query = Misc.replace_in_json query, self[:location_property], location
-    result = fire_query query
+      results = fire_query query
 
-    answer = Misc.find_in_json result, self[:answer_property]
-    answer = answer.join ', '
+      results.map do |result|
+      answer = Misc.find_in_json result, self[:answer_property]
+      answer = answer.join ', '
 
-    {
-      result: result,
-      answer: answer
-    }
+      {
+        result: result,
+        answer: answer
+      }
+    end
   end
 
   def self.create_from_prams!(params)

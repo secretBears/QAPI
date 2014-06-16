@@ -10,7 +10,7 @@ class QuestionGenerator
     Question.find(question_ids)
   end
 
-  # TODO: use normal args
+  # TODO: use normal args - to pass everything in one hash was the worst idea ever and is unusable
   def initialize(arguments)
     @template = arguments[:template] || (fail ArgumentError, "template is required")
     @place    = arguments[:place]    || (fail ArgumentError, "place is required")
@@ -18,32 +18,38 @@ class QuestionGenerator
   end
 
   def question(answer_length = 4)
-    place     = @place.city # TODO: should also use country and state
-    question_with_answer = get_question_with_answer place
-    question             = question_with_answer[:question]
-    right_answer         = question_with_answer[:answer]
-    wrong_answers        = get_wrong_answers place
+    place                 = @place.city # TODO: should also use country and state
+    questions_with_answer = get_question_with_answer place
 
-    answers = {}
-    answers[right_answer] = true
+    questions_with_answer.map do |question_with_answer|
+      question             = question_with_answer[:question]
+      right_answer         = question_with_answer[:answer]
+      wrong_answers        = get_wrong_answers place
 
-    wrong_answers.each do |key, _value|
-      answers[key] = false unless answers.key? key
-      break if answers.length == answer_length
+      answers = {}
+      answers[right_answer] = true
+
+      wrong_answers.each do |key, _value|
+        answers[key] = false unless answers.key? key
+        break if answers.length == answer_length
+      end
+      db_entry = Question.generate! question, answers, @place, @template
+      db_entry[:id]
     end
-
-    db_entry = Question.generate! question, answers, @place, @template
-    db_entry[:id]
   end
 
+  # TODO: rename to get_questions_with answer
   def get_question_with_answer(location)
     placeholders = extract_placeholders
-    result_with_answer = @query.results location
+    results_with_answer = @query.results location
+    results_with_answer = Array.wrap results_with_answer
 
-    {
-      answer:   result_with_answer[:answer],
-      question: (replace_placeholder placeholders, result_with_answer[:result])
-    }
+    results_with_answer.map do |result_with_answer|
+      {
+        answer:   result_with_answer[:answer],
+        question: (replace_placeholder placeholders, result_with_answer[:result])
+      }
+    end
   end
 
   def get_wrong_answers(location)

@@ -11,8 +11,10 @@ class AnswerGenerator
   def get(locations)
     locations = Array(locations) if locations.class == String
     locations.map do |location|
-      answer  = @query.results location
-      answer[:answer]
+      answers  = @query.results location
+      answers.map do |answer|
+        answer[:answer]
+      end
     end
   end
 
