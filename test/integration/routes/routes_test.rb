@@ -85,10 +85,10 @@ class RoutesTest < ActionDispatch::IntegrationTest
     )
   end
 
-  test 'should get docs' do
-    assert_generates('/docs',
+  test 'should get about' do
+    assert_generates('/imprint',
                      controller: 'static',
-                     action: 'docs'
+                     action: 'imprint'
     )
   end
 end
