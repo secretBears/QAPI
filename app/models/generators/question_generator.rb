@@ -25,7 +25,6 @@ class QuestionGenerator
     questions_with_answer.map do |question_with_answer|
       question             = question_with_answer[:question]
       right_answer         = question_with_answer[:answer]
-      puts right_answer
       wrong_answers        = AnswerGenerator.get_answers @query, right_answer
 
       answers = {}
