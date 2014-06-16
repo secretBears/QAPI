@@ -5,7 +5,7 @@ class QuestionGenerator
           template: template,
           place: place
       )
-      question = generator.question
+      generator.question
     end
     Question.find(question_ids)
   end
@@ -17,7 +17,7 @@ class QuestionGenerator
     @query    = @template.query
   end
 
-  def question
+  def question(answer_length = 4)
     place     = @place.city # TODO: should also use country and state
     question_with_answer = get_question_with_answer place
     question             = question_with_answer[:question]
@@ -25,10 +25,12 @@ class QuestionGenerator
     wrong_answers        = get_wrong_answers place
 
     answers = {}
-    wrong_answers.each do |key, _value|
-      answers[key] = false
-    end
     answers[right_answer] = true
+
+    wrong_answers.each do |key, _value|
+      answers[key] = false unless answers.key? key
+      break if answers.length == answer_length
+    end
 
     db_entry = Question.generate! question, answers, @place, @template
     db_entry[:id]
@@ -46,7 +48,7 @@ class QuestionGenerator
 
   def get_wrong_answers(location)
     places = Place.get_without key: :city, place: location
-    locations = places.map! { |location| location.city }
+    locations = places.map! { |place| place.city }
 
     AnswerGenerator.get locations, @query
   end

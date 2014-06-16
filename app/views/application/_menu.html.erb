@@ -33,6 +33,17 @@
       <% end %>
     </li>
 <% end %>
+
+<% if can? :manage, Report %>
+    <li>
+      <%= link_to cache_path do %>
+            <span class="icon-database">
+              <span>Clear Caches</span>
+            </span>
+      <% end %>
+    </li>
+<% end %>
+
 <li>
   <%= button_to "Logout", destroy_user_session_path, class: "button tiny alert", method: :delete if current_user %>
 </li>
