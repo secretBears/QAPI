@@ -15,7 +15,7 @@ class Query < ActiveRecord::Base
   validates :query_hash, json: true
   validates_with QueryHashValidator
 
-  def results(location)
+  def results_for(location)
     query = self[:query_hash].clone
     query = JSON.parse(query) unless query.class == Hash
 
@@ -32,7 +32,8 @@ class Query < ActiveRecord::Base
       }
     end
   end
-  alias_method :get, :results
+  alias_method :results, :results_for
+  alias_method :get, :results_for
 
   def self.create_from_params!(params)
     # TODO: i dont know why Query.create! is not working but self.create!

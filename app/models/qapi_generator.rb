@@ -87,10 +87,4 @@ class QAPIGenerator
 
     QuestionGenerator.generate! templates, @place
   end
-
-  private
-  # @deprecated
-  def get_question(generator, location)
-    generator.get_question_with_answer location
-  end
 end

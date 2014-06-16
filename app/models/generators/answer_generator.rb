@@ -43,7 +43,6 @@ class AnswerGenerator
       query_answers  = @query.results location[:city]
       query_answers.each do |query_answer|
         @answers.add query_answer[:answer]
-
         # TODO: I don't know if it's possible to break out of two loops at once
 
         break if @answers.length >= @answer_limit
@@ -56,7 +55,7 @@ class AnswerGenerator
   def get(locations)
     locations = Array(locations) if locations.class == String
     locations.map do |location|
-      answers  = @query.results location
+      answers  = @query.results_for location
       answers.map do |answer|
         answer[:answer]
       end

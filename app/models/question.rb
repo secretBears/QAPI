@@ -10,11 +10,6 @@ class Question < ActiveRecord::Base
 
   scope :find_by_question_templates, -> (templates) {find_by(question_template_id: templates) }
 
-  def self.get_from_place(place)
-    question = Question.where(place_id: place[:id])
-    question unless question.blank?
-  end
-
   def self.generate!(question, answers, place, template)
     # fail Exceptions::InvalidAmountOfAnswers if (answers.count-1) != QAPI::Application.config.answers_amount
 
@@ -43,10 +38,5 @@ class Question < ActiveRecord::Base
       )
     end
     question
-  end
-
-  # @deprecated
-  def self.random
-    Question.find 1 # TODO: randomize
   end
 end

@@ -42,7 +42,7 @@ class QuestionGenerator
   # TODO: rename to get_questions_with answer
   def get_question_with_answer(location)
     placeholders = extract_placeholders
-    results_with_answer = @query.results location
+    results_with_answer = @query.results_for location
     results_with_answer = Array.wrap results_with_answer
 
     results_with_answer.map do |result_with_answer|
@@ -51,13 +51,6 @@ class QuestionGenerator
         question: (replace_placeholder placeholders, result_with_answer[:result])
       }
     end
-  end
-
-  def get_wrong_answers(location)
-    places = Place.get_without key: :city, place: location
-    locations = places.map! { |place| place.city }
-
-    AnswerGenerator.get locations, @query
   end
 
   # @deprecated
