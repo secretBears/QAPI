@@ -9,8 +9,7 @@ class Cache
   end
 
   def self.clear_questions_from_template(template_id)
-    questions = Question.where question_template_id: template_id
-    questions.destroy_all
+    Question.destroy_all(question_template_id: template_id)
   end
 
   def self.clear_all_places

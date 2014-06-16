@@ -5,6 +5,8 @@ class QuestionTemplate < ActiveRecord::Base
 
   validates :question,  presence: true
 
+  after_save :clear_cache # deletes all questions from the database
+
   scope :find_by_query, ->(query) {where(query: query) }
 
   accepts_nested_attributes_for :query
@@ -19,5 +21,10 @@ class QuestionTemplate < ActiveRecord::Base
         question: params['template_property'],
         query: query
     )
+  end
+
+  private
+  def clear_cache
+    Cache.clear_questions_from_template id
   end
 end

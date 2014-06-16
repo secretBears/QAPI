@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
     render 'index'
   end
 
-  # TODO: see if we need this
+  # TODO: see if we need this controller
   def show_from_template_and_place
     params = tpl_place_params
     @questions = QAPIGenerator.get_from_ids params[:place_id], params[:template_id]
@@ -61,5 +61,9 @@ class QuestionsController < ApplicationController
     params.require :template_id
     params.require :place_id
     params.permit :template_id, :place_id
+  end
+
+  def clear_cache
+    Cache.clear_questions_from_template id
   end
 end
