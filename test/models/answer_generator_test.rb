@@ -69,11 +69,8 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
 
   test "should get answer from static method" do
     query     = Query.first
-    location  = Place.find(1)[:city]
-    locations = Place.get_without key: :city, place: location
-    locations = Place.as_array locations, :city
+    answers = AnswerGenerator.get_answers query
 
-    answers = AnswerGenerator.get locations, query
     assert_equal Array, answers.class
   end
 
