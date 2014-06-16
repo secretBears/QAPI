@@ -1,3 +1,4 @@
+# TODO add to custom validations
 class QueryHashValidator < ActiveModel::Validator
   def validate(record)
     parsed_query = JSON.parse record.query_hash
@@ -50,5 +51,4 @@ class Query < ActiveRecord::Base
     fail Exceptions::QueryNotFound, 'No Results for query' + query.to_s if result.nil?
     result
   end
-
 end

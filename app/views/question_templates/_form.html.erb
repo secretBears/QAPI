@@ -56,20 +56,42 @@
       <div class="large-6 columns">
         <fieldset>
           <legend>Question Parameters</legend>
-          <%= query_fields.input( :location_property,
-                                  as: :string,
-                                  input_html: {
-                                          id: 'location_property'
-                                  },
-                                  label: 'Location'
-              )%>
+          <div class="row collapse">
+            <%= label :location_property, 'Location' %>
+            <div class="small-2 columns">
+              <span class="prefix">$..*.</span>
+            </div>
+            <div class="small-10 columns">
+              <%= query_fields.input  :location_property,
+                                      as: :string,
+                                      input_html: {
+                                              id: 'location_property'
+                                      },
+                                      label: false
+               %>
+            </div>
+          </div>
 
-          <%= query_fields.input :answer_property,
-                                 as: :string,
-                                 input_html: {
-                                         id: 'answer_property'
-                                 },
-                                 label: 'Answer' %>
+          <div class="row collapse">
+
+            <%= label :answer_property, 'Answer' %>
+            <div class="small-2 columns">
+              <span class="prefix">$..*.</span>
+            </div>
+            <div class="small-10 columns">
+              <%= query_fields.input :answer_property,
+                                     as: :string,
+                                     input_html: {
+                                             id: 'answer_property'
+                                     },
+                                     label: false
+              %>
+            </div>
+          </div>
+
+
+
+
         </fieldset>
 
         <!-- Test Query -->
