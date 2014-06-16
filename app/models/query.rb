@@ -20,9 +20,9 @@ class Query < ActiveRecord::Base
     query = JSON.parse(query) unless query.class == Hash
 
     query = Misc.replace_in_json query, self[:location_property], location
-      results = fire_query query
+    results = fire_query query
 
-      results.map do |result|
+    results.map do |result|
       answer = Misc.find_in_json result, self[:answer_property]
       answer = answer.join ', '
 

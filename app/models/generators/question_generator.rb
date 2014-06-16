@@ -42,7 +42,7 @@ class QuestionGenerator
   # TODO: rename to get_questions_with answer
   def get_question_with_answer(location)
     placeholders = extract_placeholders
-    results_with_answer = Array.wrap( @query.results_for location )
+    results_with_answer = Array.wrap(@query.results_for location)
 
     results_with_answer.map do |result_with_answer|
       {
