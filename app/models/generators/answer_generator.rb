@@ -43,8 +43,6 @@ class AnswerGenerator
       query_answers  = @query.results location[:city]
       query_answers.each do |query_answer|
         @answers.add query_answer[:answer]
-        # TODO: I don't know if it's possible to break out of two loops at once
-
         break if @answers.length >= @answer_limit
       end
       break if @answers.length >= @answer_limit

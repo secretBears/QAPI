@@ -15,16 +15,4 @@ class QuestionGeneratorTest < ActiveSupport::TestCase
       QuestionGenerator.new test: "hallo"
     end
   end
-
-  # TODO: test may be deprecated
-  # test "should get question from static method" do
-  #   query     = StaticHelperTest.generate_query
-  #   templates = QuestionTemplate.random
-  #   location  = Place.find(1)[:city]
-  #
-  #   templates.each do |template|
-  #     question = QuestionGenerator.get query, template[:question], location
-  #     assert_equal String, question.class
-  #   end
-  # end
 end
