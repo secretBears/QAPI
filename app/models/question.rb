@@ -44,9 +44,4 @@ class Question < ActiveRecord::Base
     end
     question
   end
-
-  # @deprecated
-  def self.random
-    Question.find 1 # TODO: randomize
-  end
 end

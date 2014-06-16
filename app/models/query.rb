@@ -34,7 +34,6 @@ class Query < ActiveRecord::Base
   end
   alias_method :get, :results
 
-
   def self.create_from_params!(params)
     # TODO: i dont know why Query.create! is not working but self.create!
     self.create!(
