@@ -3,6 +3,7 @@ class StaticController < ApplicationController
   def index
   end
 
-  def docs
+  # GET /about
+  def about
   end
 end

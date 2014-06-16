@@ -10,7 +10,7 @@ QAPI::Application.routes.draw do
 
   resources :reports, except: [:new, :create, :edit, :update]
 
-  get 'docs', to: 'static#docs'
+  get 'imprint', to: 'static#imprint', as: 'imprint'
 
   resources :users do
     member do
