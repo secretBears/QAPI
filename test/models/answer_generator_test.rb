@@ -3,9 +3,46 @@ require 'test_helper'
 class AnswerGeneratorTest < ActiveSupport::TestCase
   setup do
     @answer_generator = AnswerGenerator.new(
-        query: StaticHelperTest.generate_query
+        query: Query.first
     )
   end
+
+  test "should find unique answers from database" do
+    query = Query.first
+    generator = AnswerGenerator.new query: query
+    answers = generator.find_answers_from_db
+
+    refute answers.blank?
+    assert_equal answers.uniq.length, answers.length
+  end
+
+  test "should find unique answers from different location" do
+    query = Query.first
+    generator = AnswerGenerator.new query: query
+    answers = generator.find_answers_from_query
+
+    refute answers.blank?
+    assert_equal answers.uniq.length, answers.length
+  end
+
+  test "should find an answers" do
+    query = Query.first
+    answers = AnswerGenerator.get_answers query
+
+    refute answers.blank?
+    assert_equal answers.uniq.length, answers.length
+  end
+
+  test "should find answers without given answer" do
+    query = Query.first
+    without_answer = '1 answer 1'
+    answers = AnswerGenerator.get_answers query, '1 answer 1'
+
+    refute answers.include? without_answer
+  end
+
+  # all tests below may be unused because auf deprecated functions
+  # TODO: should be testet if one of this tests are still valid
 
   test "should get answers from string" do
     answer = @answer_generator.get 'Linz'
@@ -31,7 +68,7 @@ class AnswerGeneratorTest < ActiveSupport::TestCase
   end
 
   test "should get answer from static method" do
-    query     = StaticHelperTest.generate_query
+    query     = Query.first
     location  = Place.find(1)[:city]
     locations = Place.get_without key: :city, place: location
     locations = Place.as_array locations, :city

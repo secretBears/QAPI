@@ -27,18 +27,21 @@
   }
 }
 
+.icon-database:before {
+  content: "\e138";
+}
+.icon-bubble:before {
+  content: "\e150";
+}
+.icon-list:before {
+  content: "\e299";
+}
+.icon-eye:before {
+  content: "\e2dc";
+}
 .icon-users:before {
   content: "\e600";
 }
 .icon-bug:before {
   content: "\e601";
-}
-.icon-list:before {
-  content: "\e602";
-}
-.icon-eye:before {
-  content: "\e603";
-}
-.icon-bubble:before {
-  content: "\e604";
 }

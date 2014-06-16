@@ -36,47 +36,48 @@ FakeWeb.register_uri(
   body: (json_response 'ny')
 )
 
-# freebase politic
-FakeWeb.register_uri(
-  :get,
-  /limit%22%3A1%2C%22name%22%3Anull%2C%22profession%22%3A%5B%7B%22name%22%3A%22Politician%22%7D%5D%7D$/,
-  body: (json_response 'mql_politic')
-)
-
-# freebase music
-FakeWeb.register_uri(
-    :get,
-    /(.)genre%22%3A%5B%7B%22name%22%3Anull%2C%22limit%22%3A1%7D%5D%7D/,
-    body: (json_response 'mql_person')
-)
-
-# freebase music
-FakeWeb.register_uri(
-    :get,
-    /profession%22%3A%5B%7B%22name%22%3A%5B%5D%7D%5D%7D/,
-    body: (json_response 'mql_person')
-)
-
-FakeWeb.register_uri(
-    :get,
-    /name%22%3A%22dskfjlsakdsjflajdlkf%C3%B6jsflsfjl314%22%2C%22album%22%3A%5B%5D%7D/,
-    body: (json_response 'nil')
-)
-
-FakeWeb.register_uri(
-    :get,
-    /profession"%3A%5B%7B"name"%3A%5B%5D%2C"limit"%3A1%7D%5D%7D/,
-    body: (json_response 'mql_person')
-)
-
-FakeWeb.register_uri(
-    :get,
-    /profession%22%3A%5B%7B%22name%22%3A%5B%5D%2C%22limit%22%3A1%7D%5D%7D/,
-    body: (json_response 'mql_person')
-)
-
-FakeWeb.register_uri(
-    :get,
-    /query=%7B%22type%22%3A%22%2Fmusic%2Fartist%22%2C%22name%22%3A%22The%20Police%22%2C%22album%22%3A%5B%5D%7D/,
-    body: (json_response 'mql_person')
-)
+#
+# # freebase politic
+# FakeWeb.register_uri(
+#   :get,
+#   /limit%22%3A1%2C%22name%22%3Anull%2C%22profession%22%3A%5B%7B%22name%22%3A%22Politician%22%7D%5D%7D$/,
+#   body: (json_response 'mql_politic')
+# )
+#
+# # freebase music
+# FakeWeb.register_uri(
+#     :get,
+#     /(.)genre%22%3A%5B%7B%22name%22%3Anull%2C%22limit%22%3A1%7D%5D%7D/,
+#     body: (json_response 'mql_person')
+# )
+#
+# # freebase music
+# FakeWeb.register_uri(
+#     :get,
+#     /profession%22%3A%5B%7B%22name%22%3A%5B%5D%7D%5D%7D/,
+#     body: (json_response 'mql_person')
+# )
+#
+# FakeWeb.register_uri(
+#     :get,
+#     /name%22%3A%22dskfjlsakdsjflajdlkf%C3%B6jsflsfjl314%22%2C%22album%22%3A%5B%5D%7D/,
+#     body: (json_response 'nil')
+# )
+#
+# FakeWeb.register_uri(
+#     :get,
+#     /profession"%3A%5B%7B"name"%3A%5B%5D%2C"limit"%3A1%7D%5D%7D/,
+#     body: (json_response 'mql_person')
+# )
+#
+# FakeWeb.register_uri(
+#     :get,
+#     /profession%22%3A%5B%7B%22name%22%3A%5B%5D%2C%22limit%22%3A1%7D%5D%7D/,
+#     body: (json_response 'mql_person')
+# )
+#
+# FakeWeb.register_uri(
+#     :get,
+#     /query=%7B%22type%22%3A%22%2Fmusic%2Fartist%22%2C%22name%22%3A%22The%20Police%22%2C%22album%22%3A%5B%5D%7D/,
+#     body: (json_response 'mql_person')
+# )
