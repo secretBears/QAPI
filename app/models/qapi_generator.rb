@@ -84,7 +84,8 @@ class QAPIGenerator
 
     questions = []
     templates.each do |template|
-      questions += Question.order("random()").find_by(question_template_id: template, place: @place)
+      question_for_template = Question.order("random()").find_by(question_template_id: template, place: @place)
+      questions << question_for_template unless question_for_template.nil?
     end
     return questions unless questions.empty?
 
