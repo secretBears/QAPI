@@ -1,12 +1,114 @@
 {
-    "result": {
-        "name": "Benita Ferrero-Waldner",
-        "type": "/people/person",
-        "date_of_birth": "1948-09-05",
-        "profession": [
-            {
-                "name": "Politician"
-            }
-        ]
-    }
+    "result": [
+        {
+            "name": "Eberhard Hopf",
+            "profession": [
+                {
+                    "name": [
+                        "Mathematician"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Wolfgang Amadeus Mozart",
+            "profession": [
+                {
+                    "name": [
+                        "Composer"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Muriel Baumeister",
+            "profession": [
+                {
+                    "name": [
+                        "Actor"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Alex Manninger",
+            "profession": [
+                {
+                    "name": [
+                        "Football player"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Christian Doppler",
+            "profession": [
+                {
+                    "name": [
+                        "Physicist"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Benita Ferrero-Waldner",
+            "profession": [
+                {
+                    "name": [
+                        "Politician"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Herbert von Karajan",
+            "profession": [
+                {
+                    "name": [
+                        "Conductor"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Markus Berger",
+            "profession": [
+                {
+                    "name": [
+                        "Soccer Player"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Roman Kienast",
+            "profession": [
+                {
+                    "name": [
+                        "Soccer Player"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        },
+        {
+            "name": "Johanna Hohloch",
+            "profession": [
+                {
+                    "name": [
+                        "Actor"
+                    ]
+                }
+            ],
+            "type": "/people/person"
+        }
+    ]
 }

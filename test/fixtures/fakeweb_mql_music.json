@@ -1,12 +1,34 @@
 {
-    "result": {
-        "name": "Wolfgang Amadeus Mozart",
-        "genre": [
-            {
-                "name": "Classical music"
-            }
-        ],
-        "type": "/music/artist",
-        "origin": "Salzburg"
-    }
+    "result": [
+        {
+            "genre": [
+                {
+                    "name": "Classical music"
+                }
+            ],
+            "name": "Wolfgang Amadeus Mozart",
+            "origin": "Salzburg",
+            "type": "/music/artist"
+        },
+        {
+            "genre": [
+                {
+                    "name": "Blackened death metal"
+                }
+            ],
+            "name": "Belphegor",
+            "origin": "Salzburg",
+            "type": "/music/artist"
+        },
+        {
+            "genre": [
+                {
+                    "name": "Black metal"
+                }
+            ],
+            "name": "Helmuth Lehner",
+            "origin": "Salzburg",
+            "type": "/music/artist"
+        }
+    ]
 }

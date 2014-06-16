@@ -1,12 +1,54 @@
 {
-    "result": {
-        "profession": [
-            {
-                "name": "Politician"
-            }
-        ],
-        "date_of_birth": "1932-11-04",
-        "type": "/people/person",
-        "name": "Thomas Klestil"
-    }
+    "result": [
+        {
+            "profession": [
+                {
+                    "name": "Politician"
+                }
+            ],
+            "date_of_birth": "1948-09-05",
+            "type": "/people/person",
+            "name": "Benita Ferrero-Waldner"
+        },
+        {
+            "profession": [
+                {
+                    "name": "Politician"
+                }
+            ],
+            "date_of_birth": "1948-05-06",
+            "type": "/people/person",
+            "name": "Caspar Einem"
+        },
+        {
+            "profession": [
+                {
+                    "name": "Politician"
+                }
+            ],
+            "date_of_birth": "1950-06-05",
+            "type": "/people/person",
+            "name": "Johannes Voggenhuber"
+        },
+        {
+            "profession": [
+                {
+                    "name": "Politician"
+                }
+            ],
+            "date_of_birth": "1908-03-29",
+            "type": "/people/person",
+            "name": "Siegfried Uiberreither"
+        },
+        {
+            "profession": [
+                {
+                    "name": "Politician"
+                }
+            ],
+            "date_of_birth": "1848-08-23",
+            "type": "/people/person",
+            "name": "S\u00e1muel J\u00f3sika"
+        }
+    ]
 }
