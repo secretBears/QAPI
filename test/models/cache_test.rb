@@ -14,7 +14,7 @@ class CacheTest < ActiveSupport::TestCase
   end
 
   test 'should delete all questions for template' do
-    template = QuestionTemplate.last
+    template = QuestionTemplate.first
     Cache.clear_questions_from_template template.id
 
     questions = Question.where question_template_id: template.id

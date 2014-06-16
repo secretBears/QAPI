@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   belongs_to :question_template
 
   validates :place,    presence: true
-  validates :question, presence: true, uniqueness: true
+  validates :question, presence: true # uniqueness: true # TODO: in some cases this validation fails
   validates :question_template, presence: true
 
   scope :find_by_question_templates, -> (templates) {find_by(question_template_id: templates) }
