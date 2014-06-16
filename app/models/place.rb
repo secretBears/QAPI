@@ -19,7 +19,7 @@ class Place < ActiveRecord::Base
     lat = lat.to_f.round 4
     lng = lng.to_f.round 4
 
-    place = Place.where(latitude: lat, longitude: lng).first
+    place = Place.find_by(latitude: lat, longitude: lng)
     return place unless place.blank?
 
     locations = GoogleGeocoder.reverse_geocode "#{lat}, #{lng}"
