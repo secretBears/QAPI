@@ -40,7 +40,7 @@ class AnswerGenerator
     locations = get_places_from_db
 
     locations.each do |location|
-      query_answers  = @query.results location[:city]
+      query_answers  = @query.results_for location[:city]
 
       query_answers.each do |query_answer|
         @answers.add query_answer[:answer]
@@ -56,7 +56,7 @@ class AnswerGenerator
   def get(locations)
     locations = Array(locations) if locations.class == String
     locations.map do |location|
-      answers  = @query.results location
+      answers  = @query.results_for location
       answers.map do |answer|
         answer[:answer]
       end
