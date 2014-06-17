@@ -2,42 +2,53 @@ require 'geokit'
 
 class Place < ActiveRecord::Base
   has_many :questions, dependent: :delete_all
-  include Geokit::Geocoders
 
   validates :latitude, uniqueness: {scope: :longitude}
   validates :city, :state, :country, :latitude, :longitude, presence: true
 
-  def to_name(key)
-    self[key].to_s
-  end
+  include Geokit::Geocoders
 
-  def self.get_from_lat_lng(lat, lng)
-    Place.find latitude: lat, longitude: lng
-  end
+  scope :find_by_lat_lng, -> (lat, lng) {where(latitude: lat, longitude: lng) }
 
-  def self.get(lat, lng)
-    lat = lat.to_f.round 4
-    lng = lng.to_f.round 4
+  # Get a place to given coordinates
+  # if the coords are stored in the database the function returns this object
+  # if nothing is stored in the database this function will reverse geocode this coordinates
+  # and store the object in the database
+  #
+  # usage:
+  #
+  # Place.get 12.32, -32.12
+  #
+  def self.get(original_lat, original_lng)
+    # TODO: round coords is not working
+    # lat = original_lat.to_f.round 5
+    # lng = original_lng.to_f.round 5
 
-    place = Place.find_by(latitude: lat, longitude: lng)
+    lat = original_lat
+    lng = original_lng
+
+    place = Place.find_by latitude: lat, longitude: lng
     return place unless place.blank?
 
-    locations = GoogleGeocoder.reverse_geocode "#{lat}, #{lng}"
-    fail Exceptions::PlaceNotFound, "City Name with Coordinates lat=#{lat} lng=#{lng} not found" if locations.city.nil?
+    locations = GoogleGeocoder.reverse_geocode "#{original_lat}, #{original_lng}"
+    fail Exceptions::PlaceNotFound, "City Name with Coordinates lat=#{original_lat} lng=#{original_lng} not found" if locations.city.nil?
 
     return Place.create!(
         city:      locations.city,
         country:   locations.country,
         state:     (locations.state || locations.district),
-        latitude:  lat.round(4), # store the request coordinates
-        longitude: lng.round(4)
+        latitude:  lat,
+        longitude: lng
     ) if locations.success
   end
 
-  # usage:
-  # Place.get_without key: :country, place: 'Salzburg'
+  # Gets a Place without the given place
+  #
+  # @example
+  #   Place.get_without key: :country, place: 'Salzburg'
+  #
   # gets 3 places which are not in the country salzburg
-  # available keys are [:city, :state, :country]
+  #
   def self.get_without(except,  limit = 3)
     fail ArgumentError, "#{except[:key]} is not a valid identifier for a place" unless location_keys.include? except[:key]
     places = limit(limit) # TODO: should be randomized
@@ -55,4 +66,10 @@ class Place < ActiveRecord::Base
   def self.location_keys
     [:city, :state, :country]
   end
+
+  # returns a given key to a string
+  def to_name(key)
+    self[key].to_s
+  end
+
 end

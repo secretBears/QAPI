@@ -11,6 +11,7 @@ class Question < ActiveRecord::Base
   scope :find_by_question_templates, -> (templates) {find_by(question_template_id: templates) }
 
   def self.generate!(question, answers, place, template)
+    # TODO: in tests this is failing because of our mocks for all HTTP requests
     # fail Exceptions::InvalidAmountOfAnswers if (answers.count-1) != QAPI::Application.config.answers_amount
 
     question_obj = Question.find_by(

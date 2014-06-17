@@ -5,7 +5,7 @@ require 'set'
 class AnswerGenerator
   attr_accessor :answers
 
-  # TODO: use normal parameters - I really don't know in which stupid gem i found that (this is so annoying to use)
+  # TODO: use normal parameters - I really don't know in which stupid gem i found that (this is so annoying to use because you don't know which params to pass)
   def initialize(arguments)
     @query        = arguments[:query]        || (fail ArgumentError, "query is required")
     @answer_limit = 4    # TODO: should be placed in global config
@@ -43,8 +43,6 @@ class AnswerGenerator
       query_answers  = @query.results location[:city]
       query_answers.each do |query_answer|
         @answers.add query_answer[:answer]
-        # TODO: I don't know if it's possible to break out of two loops at once
-
         break if @answers.length >= @answer_limit
       end
       break if @answers.length >= @answer_limit

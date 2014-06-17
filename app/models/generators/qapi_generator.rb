@@ -14,24 +14,28 @@
 # For random question generation there is a static get method
 # which results in the same way as the example above
 #
-# question = QAPIGenerator.get(123, 321)
+# @example
+#   question = QAPIGenerator.get(123, 321)
 #
 # there is also a member where you can specify questions and all other things on your own
 # this member is used by the backend for the preview of the template. This should not
 # be used by the real application because it does not cache the result
 #
-# QAPIGenerator.get_test(
-#   mql: 'mql query',
-#   answer_property: 'json path to answer',
-#   location_property: 'json path to location',
-#   template_property: 'the template for the question',
-#   place_id: 'id of the place'
-# )
+# @example
+#   QAPIGenerator.get_test(
+#     mql: 'mql query',
+#     answer_property: 'json path to answer',
+#     location_property: 'json path to location',
+#     template_property: 'the template for the question',
+#     place_id: 'id of the place'
+#   )
 
 class QAPIGenerator
   # static member for getting a question to a given position
   #
-  #   question = QAPIGenerator.get 12, 23
+  # @example
+  #   QAPIGenerator.get 12, 23
+  #
   def self.get(lat, lng)
     generator = QAPIGenerator.new lat, lng
     generator.get
@@ -68,7 +72,7 @@ class QAPIGenerator
     @place = Place.get lat, lng
   end
 
-  # gets a question including answers
+  # gets a question with answers
   #
   #   generator = QAPIGenerator.new(12, 32)
   #   question = generator.get
@@ -84,8 +88,8 @@ class QAPIGenerator
 
     questions = []
     templates.each do |template|
-      existing_question = Question.order("random()").find_by(question_template_id: template, place: @place)
-      if existing_question.nil?
+      existing_question = Question.where(question_template_id: template, place_id: @place).order("random()").first
+      if existing_question.blank?
         questions += QuestionGenerator.generate!([template], @place)
       else
         questions << existing_question
