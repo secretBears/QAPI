@@ -20,8 +20,12 @@ class Place < ActiveRecord::Base
   # Place.get 12.32, -32.12
   #
   def self.get(original_lat, original_lng)
-    lat = original_lat.to_f.round 5
-    lng = original_lng.to_f.round 5
+    # TODO: round coords is not working
+    # lat = original_lat.to_f.round 5
+    # lng = original_lng.to_f.round 5
+
+    lat = original_lat
+    lng = original_lng
 
     place = Place.find_by latitude: lat, longitude: lng
     return place unless place.blank?
