@@ -8,7 +8,7 @@ class Place < ActiveRecord::Base
 
   include Geokit::Geocoders
 
-  scope :find_by_lat_lng, -> (lat, lng) {find_by(latitude: lat, longitude: lng) }
+  scope :find_by_lat_lng, -> (lat, lng) {where(latitude: lat, longitude: lng) }
 
   # Get a place to given coordinates
   # if the coords are stored in the database the function returns this object
@@ -23,7 +23,7 @@ class Place < ActiveRecord::Base
     lat = original_lat.to_f.round 4
     lng = original_lng.to_f.round 4
 
-    place = Place.find_by_lat_lng lat, lng
+    place = Place.find_by latitude: lat, longitude: lng
     return place unless place.blank?
 
     locations = GoogleGeocoder.reverse_geocode "#{original_lat}, #{original_lng}"
